@@ -13,8 +13,10 @@ int main(int argc, const char * argv[]) {
     @autoreleasepool {
         
         // NSArray型、NSDictonary型の変数を定義
-        NSArray *fruitsArray = @[@"りんご",@"バナナ",@"ぶどう"];
-        NSDictionary *fruitsColorDictionary = @{@"りんご":@"赤色",@"バナナ":@"黄色",@"ぶどう":@"紫色"};
+        NSArray *fruitsArray = @[@"りんご", @"バナナ", @"ぶどう"];
+        NSDictionary *fruitsColorDictionary = @{@"りんご":@"赤色",
+                                                @"バナナ":@"黄色",
+                                                @"ぶどう":@"紫色"};
 
         // NSArray型変数の出力
         for(int i=0; i<fruitsArray.count; i++){
