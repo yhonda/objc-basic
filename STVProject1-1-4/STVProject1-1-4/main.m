@@ -18,23 +18,29 @@
 @implementation Account
 
 // メソッド内容記載
-- (void) Output_Employee_list{
+- (void) outputEmployeelist{
     
-    // プロパティを定義
-    NSArray<NSString*> *name = [NSArray<NSString*> arrayWithObjects:@"鈴木あやか",@"佐藤春彦",@"渡辺直美",@"木村拓哉",@"加藤浩次",@"若林里美", nil];
-    NSArray<NSNumber*> *age = [NSArray <NSNumber*> arrayWithObjects:@21,@33,@45,@28,@33,@25, nil];
-    NSArray<NSString*> *sex = [NSArray<NSString*> arrayWithObjects:@"女性",@"男性",@"女性",@"男性",@"男性",@"女性", nil];
-    NSArray<NSString*> *good_language = [NSArray<NSString*> arrayWithObjects:@"Java",@"Swift",@"Objective-C",@"Swift",@"Objective-C",@"Java", nil];
+    // 変数を定義
+    NSArray *employeeName = @[@"鈴木あやか", @"佐藤春彦", @"渡辺直美", @"木村拓哉", @"加藤浩次", @"若林里美"];
+    NSArray *employeeAge = @[@21,@33,@45,@28,@33,@25];
+    NSArray *employeeSex = @[@"女性", @"男性", @"女性", @"男性", @"男性", @"女性"];
+    NSArray *employeeGoodLanguage = @[@"Java", @"Swift", @"Objective-C", @"Swift", @"Objective-C", @"Java"];
     
     // 処理内容
-    for(int i=0; i<name.count; i++){
+    for(int i=0; i<employeeName.count; i++){
         // 条件分岐
-        if([sex[i]  isEqual: @"男性"]){
-            NSLog(@"%@君は、%@が得意な%@歳です。",name[i],good_language[i],age[i]);
-        }else if([sex[i] isEqual:@"女性"]){
-            NSLog(@"%@さんは、%@が得意な%@歳です。",name[i],good_language[i],age[i]);
-        }else{
-            NSLog(@"該当者なし");
+        if ([employeeSex[i]  isEqual : @"男性"]){
+            NSLog(@"社員リスト：%@君は、%@が得意な%@歳です。",
+                  employeeName[i],
+                  employeeGoodLanguage[i],
+                  employeeAge[i]);
+        } else if ([employeeSex[i] isEqual : @"女性"]){
+            NSLog(@"社員リスト：%@さんは、%@が得意な%@歳です。",
+                  employeeName[i],
+                  employeeGoodLanguage[i],
+                  employeeAge[i]);
+        } else {
+            NSLog(@"社員リスト：該当者なし");
         }
     }
 }
@@ -45,11 +51,11 @@ int main(int argc, const char * argv[])
 {
     @autoreleasepool {
         // クラス用の変数を用意
-        id ClassObject;
+        id classObject;
         // Accountクラスにメモリを割り振り、初期化して格納
-        ClassObject = [[Account alloc] init];
-        // AccountクラスのOutput_Employee_listメソッドを呼び出す
-        [ClassObject Output_Employee_list];
+        classObject = [[Account alloc] init];
+        // AccountクラスのoutputEmployeelistメソッドを呼び出す
+        [classObject outputEmployeelist];
     }
     return 0;
 }

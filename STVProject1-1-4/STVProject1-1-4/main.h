@@ -15,6 +15,6 @@
 @interface Account : NSObject
 
 //メソッドを宣言
-- (void) Output_Employee_list;
+- (void) outputEmployeelist;
 
 @end
