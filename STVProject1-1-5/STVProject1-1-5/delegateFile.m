@@ -9,7 +9,6 @@
 //デリゲート側のファイル（機能実装を委託される）
 #import <Foundation/Foundation.h>
 #import "main.h"
-#import "delegateFile.h"
 
 // 設定したプロトコルに準拠する
 @interface FavoriteProgrammingLanguage () <FavoriteProgrammingLanguageDelegate>
@@ -20,10 +19,10 @@
 
 @implementation FavoriteProgrammingLanguage
 
-- (void)ObjCができる
+- (void)canDoObjc
 {
     // 処理内容
-    NSLog(@"ObjCができる通知を受信しました。");
+    NSLog(@"canDoObjc通知を受信しました。");
 }
 
 @end

@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454BDB991F49B33600CDC38C /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 454BDB981F49B33600CDC38C /* Account.m */; };
+		454BDB9C1F49B64300CDC38C /* FavoriteProgrammingLanguage.m in Sources */ = {isa = PBXBuildFile; fileRef = 454BDB9B1F49B64300CDC38C /* FavoriteProgrammingLanguage.m */; };
 		4580C83E1F420ACD002D3950 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C83D1F420ACD002D3950 /* main.m */; };
-		4580C8461F42915E002D3950 /* delegateFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C8451F42915E002D3950 /* delegateFile.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,11 +25,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		454BDB981F49B33600CDC38C /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
+		454BDB9A1F49B34500CDC38C /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		454BDB9B1F49B64300CDC38C /* FavoriteProgrammingLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteProgrammingLanguage.m; sourceTree = "<group>"; };
+		454BDB9D1F49B64C00CDC38C /* FavoriteProgrammingLanguage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoriteProgrammingLanguage.h; sourceTree = "<group>"; };
 		4580C83A1F420ACD002D3950 /* STVProject1-1-5 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "STVProject1-1-5"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4580C83D1F420ACD002D3950 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4580C8441F420E47002D3950 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
-		4580C8451F42915E002D3950 /* delegateFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = delegateFile.m; sourceTree = "<group>"; };
-		4580C8471F42917E002D3950 /* delegateFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = delegateFile.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +66,10 @@
 			children = (
 				4580C83D1F420ACD002D3950 /* main.m */,
 				4580C8441F420E47002D3950 /* main.h */,
-				4580C8451F42915E002D3950 /* delegateFile.m */,
-				4580C8471F42917E002D3950 /* delegateFile.h */,
+				454BDB981F49B33600CDC38C /* Account.m */,
+				454BDB9A1F49B34500CDC38C /* Account.h */,
+				454BDB9B1F49B64300CDC38C /* FavoriteProgrammingLanguage.m */,
+				454BDB9D1F49B64C00CDC38C /* FavoriteProgrammingLanguage.h */,
 			);
 			path = "STVProject1-1-5";
 			sourceTree = "<group>";
@@ -127,8 +132,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4580C8461F42915E002D3950 /* delegateFile.m in Sources */,
+				454BDB991F49B33600CDC38C /* Account.m in Sources */,
 				4580C83E1F420ACD002D3950 /* main.m in Sources */,
+				454BDB9C1F49B64300CDC38C /* FavoriteProgrammingLanguage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +265,7 @@
 				4580C8431F420ACD002D3950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
