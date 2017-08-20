@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		454BDB971F497A9E00CDC38C /* Account.m in Sources */ = {isa = PBXBuildFile; fileRef = 454BDB961F497A9E00CDC38C /* Account.m */; };
 		4580C82A1F4198A8002D3950 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4580C8291F4198A8002D3950 /* main.m */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		454BDB951F49788E00CDC38C /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
+		454BDB961F497A9E00CDC38C /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		4580C8261F4198A8002D3950 /* STVProject1-1-4 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "STVProject1-1-4"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4580C8291F4198A8002D3950 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4580C8301F4198D4002D3950 /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
@@ -60,6 +63,8 @@
 			children = (
 				4580C8291F4198A8002D3950 /* main.m */,
 				4580C8301F4198D4002D3950 /* main.h */,
+				454BDB951F49788E00CDC38C /* Account.h */,
+				454BDB961F497A9E00CDC38C /* Account.m */,
 			);
 			path = "STVProject1-1-4";
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4580C82A1F4198A8002D3950 /* main.m in Sources */,
+				454BDB971F497A9E00CDC38C /* Account.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +259,7 @@
 				4580C82F1F4198A8002D3950 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

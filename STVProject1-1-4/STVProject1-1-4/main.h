@@ -10,11 +10,3 @@
 #define main_h
 
 #endif /* main_h */
-//ヘッダーファイル
-//クラスを宣言
-@interface Account : NSObject
-
-//メソッドを宣言
-- (void) outputEmployeelist;
-
-@end
