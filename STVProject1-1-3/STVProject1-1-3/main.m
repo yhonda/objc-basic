@@ -25,8 +25,9 @@ int main(int argc, const char * argv[]) {
             GoSignalAlert,
             AttentionSignalAlert,
             StopSignalAlert,
-            SignalAlertNumber = 2
         };
+        // SignalAlertNumberにNS_ENUM内の定数を定義
+        SignalAlertEnum SignalAlertNumber = StopSignalAlert;
 
         // if文
         // 英語の試験結果(englishTestScore)、60点以上なら合格、59点以下なら不合格
