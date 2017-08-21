@@ -16,7 +16,7 @@ int main(int argc, const char * argv[])
         // Accountクラス型の変数を用意、同時にメモリを割り振り、初期化
         Account *classObject = [[Account alloc] init];
         // AccountクラスのoutputEmployeelistメソッドを呼び出す
-        [classObject outputEmployeelist];
+        [classObject outputEmployeeList];
     }
     return 0;
 }

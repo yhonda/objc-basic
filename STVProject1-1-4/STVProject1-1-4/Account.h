@@ -6,19 +6,11 @@
 //  Copyright © 2017年 dai kawahara. All rights reserved.
 //
 
-#ifndef Account_h
-#define Account_h
-
-#endif /* Account_h */
+#import <Foundation/Foundation.h>
 
 @interface Account : NSObject
-// プロパティを定義
-@property NSArray *employeeName;
-@property NSArray *employeeAge;
-@property NSArray *employeeSex;
-@property NSArray *employeeGoodLanguage;
 
 // メソッドを定義
-- (void) outputEmployeelist;
+- (void) outputEmployeeList;
 
 @end
