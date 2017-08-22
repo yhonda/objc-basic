@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+
 // ストーリーボードのimageViewを定義
 @property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 @end
@@ -19,7 +20,7 @@
     [super viewDidLoad];
     // 任意の画像をfoodImageにセットする
     // アスペクト比の設定はストーリボード側にて実装(AspectFit)
-    _foodImage.image = [UIImage imageNamed:@"AustrariaBeef"];
+    self.foodImage.image = [UIImage imageNamed:@"AustrariaBeef"];
 }
 
 - (void)didReceiveMemoryWarning {
