@@ -19,12 +19,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // ラベルに文字列を表示
-    _resultLabel.text = @"Obj-C講座をスタートしました。";
+    self.resultLabel.text = @"Obj-C講座をスタートしました。";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
 }
 
 @end
