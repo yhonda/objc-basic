@@ -6,13 +6,20 @@
 //  Copyright © 2017年 dai kawahara. All rights reserved.
 //
 
-#ifndef FavoriteProgrammingLanguage_h
-#define FavoriteProgrammingLanguage_h
-
-
-#endif /* FavoriteProgrammingLanguage_h */
+#import <Foundation/Foundation.h>
 //クラスを宣言
+
+// プロトコルを定義
+@protocol FavoriteProgrammingLanguageDelegate <NSObject>
+// @optional以下のメソッドはデリゲートの実装は必須ではない。
+@optional
+- (void)canDoObjc;
+
+@end
+
 @interface FavoriteProgrammingLanguage : NSObject
+// デリゲートインスタンスを作成
+@property (weak, nonatomic) id <FavoriteProgrammingLanguageDelegate> delegate;
 
 -(void)joinInternship;
 
