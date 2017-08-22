@@ -15,6 +15,8 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         // Accountクラス型の変数を用意、同時にメモリを割り振り、初期化
         Account *classObject = [[Account alloc] init];
+        //各社員分インスタンスを用意
+        
         // AccountクラスのoutputEmployeelistメソッドを呼び出す
         [classObject outputEmployeeList];
     }

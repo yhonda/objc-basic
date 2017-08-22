@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface Account : NSObject
-
+// プロパティを定義
+@property NSString *employeeName;
+@property NSNumber *employeeAge;
+@property NSString *employeeSex;
+@property NSString *employeeGoodLanguage;
 // メソッドを定義
 - (void) outputEmployeeList;
-
 @end
