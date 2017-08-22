@@ -22,9 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 変数を用意
-    _imageList = @[@"Austraria", @"Bari", @"Guam", @"Kanagawa", @"Vetonum"];
-
+    // 配列を初期化、画像名を初期値として設定
+    self.imageList = @[@"Austraria", @"Bari", @"Guam", @"Kanagawa", @"Vetonum"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -35,9 +34,9 @@
 // ボタンを押した時のメソッド
 - (IBAction)chengeBackground:(id)sender {
     // 0〜4からランダムに値を取得
-    _randomCount = arc4random_uniform((int)_imageList.count);
-    // 用意したランダム値にて、_imageListから画像名を取得し、背景画像にセット
-    _backgroundView.image = [UIImage imageNamed:_imageList[_randomCount]];
+    self.randomCount = arc4random_uniform((int)self.imageList.count);
+    // 用意したランダム値にて、imageListから画像名を取得し、背景画像にセット
+    self.backgroundView.image = [UIImage imageNamed:self.imageList[self.randomCount]];
     }
 
 @end
