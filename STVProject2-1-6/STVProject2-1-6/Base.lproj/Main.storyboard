@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Yn-Ql-VlN">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIu-NS-8VF">
+                                <rect key="frame" x="0.0" y="600.5" width="375" height="66.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qjf-Le-ggJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="124" height="66.5"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                        <state key="normal" title="GoBack">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goBackButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mfq-Em-cMj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDF-QQ-82b">
+                                        <rect key="frame" x="125.5" y="0.0" width="123.5" height="66.5"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                        <state key="normal" title="Reload">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reloadButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ary-px-CQm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nyq-8P-CD3">
+                                        <rect key="frame" x="251.5" y="0.0" width="123.5" height="66.5"/>
+                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="19"/>
+                                        <state key="normal" title="GoForward">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="goForwardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oAp-JZ-Ndk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tDF-QQ-82b" firstAttribute="height" secondItem="tIu-NS-8VF" secondAttribute="height" id="2ya-S2-UGN"/>
+                                    <constraint firstItem="Qjf-Le-ggJ" firstAttribute="height" secondItem="tIu-NS-8VF" secondAttribute="height" id="HKe-Fp-ztY"/>
+                                    <constraint firstAttribute="bottom" secondItem="tDF-QQ-82b" secondAttribute="bottom" id="MeQ-mv-Ldo"/>
+                                    <constraint firstItem="Qjf-Le-ggJ" firstAttribute="leading" secondItem="tIu-NS-8VF" secondAttribute="leading" id="OOD-Yf-Usb"/>
+                                    <constraint firstAttribute="bottom" secondItem="Nyq-8P-CD3" secondAttribute="bottom" id="PUW-Fc-cg1"/>
+                                    <constraint firstItem="Nyq-8P-CD3" firstAttribute="height" secondItem="tIu-NS-8VF" secondAttribute="height" id="QQb-c9-u3I"/>
+                                    <constraint firstAttribute="bottom" secondItem="Qjf-Le-ggJ" secondAttribute="bottom" id="TX1-cx-2d5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Nyq-8P-CD3" secondAttribute="trailing" id="f3c-U3-D0D"/>
+                                    <constraint firstItem="tDF-QQ-82b" firstAttribute="centerX" secondItem="tIu-NS-8VF" secondAttribute="centerX" id="lU6-2L-zah"/>
+                                    <constraint firstItem="Nyq-8P-CD3" firstAttribute="width" secondItem="tIu-NS-8VF" secondAttribute="width" multiplier="0.33" id="plE-GW-SDz"/>
+                                    <constraint firstItem="tDF-QQ-82b" firstAttribute="width" secondItem="tIu-NS-8VF" secondAttribute="width" multiplier="0.33" id="wcX-OO-Lgc"/>
+                                    <constraint firstItem="Qjf-Le-ggJ" firstAttribute="width" secondItem="tIu-NS-8VF" secondAttribute="width" multiplier="0.33" id="yOJ-Qn-aq6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="tIu-NS-8VF" secondAttribute="bottom" id="1kc-tg-70R"/>
+                            <constraint firstItem="tIu-NS-8VF" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="9cz-AK-9Ow"/>
+                            <constraint firstItem="2Yn-Ql-VlN" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Qek-be-kHU"/>
+                            <constraint firstItem="tIu-NS-8VF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="UAa-hn-6GS"/>
+                            <constraint firstItem="2Yn-Ql-VlN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XaA-Pv-Azl"/>
+                            <constraint firstItem="2Yn-Ql-VlN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="d9Q-x3-voJ"/>
+                            <constraint firstItem="2Yn-Ql-VlN" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="t8B-0p-TzH"/>
+                            <constraint firstItem="tIu-NS-8VF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y0T-rM-0Ub"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="2Yn-Ql-VlN" id="VOd-nT-p6C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
