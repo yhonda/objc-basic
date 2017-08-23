@@ -18,7 +18,7 @@
 // 指定イニシャライザを定義し、社員情報の引数を指定
 - (instancetype)initName:(NSString*)name initAge:(NSNumber*)age initSex:(NSString*)sex initGoodLanguage:(NSString*)goodlanguage {
     self = [super init];
-    if (self != nil) {
+    if (self) {
         self.employeeName = name;
         self.employeeAge = age;
         self.employeeSex = sex;
@@ -34,19 +34,19 @@
     return [self initName:self.employeeName initAge:self.employeeAge initSex:self.employeeSex initGoodLanguage:self.employeeGoodLanguage];
 }
 // 出力メソッド
--(void)outputEmployeeList:(Account*)account{
+-(void)outputEmployeeList{
     
     // 条件分岐でログを出力
-    if ([account.employeeSex  isEqual : @"男性"]){
+    if ([self.employeeSex  isEqual : @"男性"]){
         NSLog(@"社員リスト：%@君は、%@が得意な%@歳です。",
-              account.employeeName,
-              account.employeeGoodLanguage,
-              account.employeeAge);
-    } else if ([account.employeeSex isEqual : @"女性"]){
+              self.employeeName,
+              self.employeeGoodLanguage,
+              self.employeeAge);
+    } else if ([self.employeeSex isEqual : @"女性"]){
         NSLog(@"社員リスト：%@さんは、%@が得意な%@歳です。",
-              account.employeeName,
-              account.employeeGoodLanguage,
-              account.employeeAge);
+              self.employeeName,
+              self.employeeGoodLanguage,
+              self.employeeAge);
     } else {
         NSLog(@"社員リスト：該当者なし");
     }

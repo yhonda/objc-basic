@@ -15,6 +15,6 @@
 @property NSString *employeeSex;
 @property NSString *employeeGoodLanguage;
 // メソッドを定義
-- (void) outputEmployeeList:(Account*)account;
+- (void) outputEmployeeList;
 - (id)initName:(NSString*)name initAge:(NSNumber*)age initSex:(NSString*)sex initGoodLanguage:(NSString*)goodlanguage;
 @end

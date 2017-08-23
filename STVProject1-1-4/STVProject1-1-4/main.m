@@ -13,8 +13,7 @@
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
-        // Accountクラス型の変数を用意、同時にメモリを割り振り、初期化
-        Account *classObject = [[Account alloc] init];
+        
         //各社員分インスタンスを用意
         Account *employee1 = [[Account alloc]initName:@"鈴木あやか" initAge:@21 initSex:@"女性" initGoodLanguage:@"Java"];
         Account *employee2 = [[Account alloc]initName:@"佐藤春彦" initAge:@33 initSex:@"男性" initGoodLanguage:@"Swift"];
@@ -27,8 +26,8 @@ int main(int argc, const char * argv[])
         NSArray *employeeList = @[employee1,employee2,employee3,employee4,employee5,employee6];
         
         // for文で一つずつ取り出して、outputEmployeeListを通す
-        for(int i=0; i<employeeList.count; i++){
-            [classObject outputEmployeeList:employeeList[i]];
+        for(Account *employee in employeeList){
+            [employee outputEmployeeList];
         }
     }
     return 0;
