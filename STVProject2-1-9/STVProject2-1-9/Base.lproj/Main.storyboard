@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu9-ga-EcF">
+                                <rect key="frame" x="50" y="122.5" width="275" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-cT-OZl">
+                                <rect key="frame" x="0.0" y="233.5" width="375" height="133"/>
+                                <date key="date" timeIntervalSinceReferenceDate="525243539.78863698">
+                                    <!--2017-08-24 04:58:59 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="dateChangedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="sKy-jp-MjR"/>
+                                </connections>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-2C-bHt">
+                                <rect key="frame" x="295" y="198.5" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="wa1-aE-ULB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="pickerHiddenAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jiY-as-tWH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bBH-cT-OZl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="A6U-55-huQ"/>
+                            <constraint firstItem="bBH-cT-OZl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="PKf-gy-RGV"/>
+                            <constraint firstItem="bBH-cT-OZl" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="UBG-P6-wCC"/>
+                            <constraint firstItem="bBH-cT-OZl" firstAttribute="top" secondItem="Ofn-2C-bHt" secondAttribute="bottom" id="X64-eN-OVm"/>
+                            <constraint firstItem="bBH-cT-OZl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eBF-rA-0P1"/>
+                            <constraint firstItem="lu9-ga-EcF" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="g23-ao-MQ6"/>
+                            <constraint firstItem="Ofn-2C-bHt" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="hRD-lC-cvA"/>
+                            <constraint firstAttribute="trailing" secondItem="lu9-ga-EcF" secondAttribute="trailing" constant="50" id="i2F-fQ-KeV"/>
+                            <constraint firstItem="lu9-ga-EcF" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="icA-RJ-EVQ"/>
+                            <constraint firstItem="lu9-ga-EcF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lse-lW-9nC"/>
+                            <constraint firstAttribute="trailing" secondItem="Ofn-2C-bHt" secondAttribute="trailing" constant="5" id="srt-2W-tzk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="lu9-ga-EcF" id="ddy-qe-7Tr"/>
+                        <outlet property="datePicker" destination="bBH-cT-OZl" id="y26-qP-iwu"/>
+                        <outlet property="pickerHiddenButton" destination="Ofn-2C-bHt" id="mG3-xS-fwI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
