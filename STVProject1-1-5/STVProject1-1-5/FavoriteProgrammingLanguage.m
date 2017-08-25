@@ -15,9 +15,10 @@
 
 @implementation FavoriteProgrammingLanguage
 
-- (id)init
+- (instancetype)init
 {
     if (self = [super init]) {
+        // 記載は必要ない？
     }
     return self;
 }
