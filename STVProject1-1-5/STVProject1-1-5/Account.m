@@ -16,11 +16,18 @@
 
 @implementation Account : NSObject
 
+// FavoriteProgrammingLanguageクラスのjoinInternshipを呼ぶ
 -(void)callJoinInternship {
-    // FavoriteProgrammingLanguageクラスのjoinInternshipを呼ぶ
+    // デリゲート接続して通知を送る
     FavoriteProgrammingLanguage *favoriteProgrammingLanguage = [[FavoriteProgrammingLanguage alloc]init];
     favoriteProgrammingLanguage.delegate = self;
     [favoriteProgrammingLanguage joinInternship];
 }
+// デリゲートメソッド（オプショナルメソッド）
+- (void)canDoObjc{
+    //canDoObjc通知を受信する
+    NSLog(@"canDoObjc通知を受信しました。");
+}
+
 @end
 

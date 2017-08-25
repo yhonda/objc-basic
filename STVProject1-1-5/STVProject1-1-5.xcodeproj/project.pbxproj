@@ -25,7 +25,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		45293B311F4F84BB00A45BDF /* main.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = main.h; sourceTree = "<group>"; };
 		454BDB981F49B33600CDC38C /* Account.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Account.m; sourceTree = "<group>"; };
 		454BDB9A1F49B34500CDC38C /* Account.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Account.h; sourceTree = "<group>"; };
 		454BDB9B1F49B64300CDC38C /* FavoriteProgrammingLanguage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteProgrammingLanguage.m; sourceTree = "<group>"; };
@@ -65,7 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				4580C83D1F420ACD002D3950 /* main.m */,
-				45293B311F4F84BB00A45BDF /* main.h */,
 				454BDB981F49B33600CDC38C /* Account.m */,
 				454BDB9A1F49B34500CDC38C /* Account.h */,
 				454BDB9B1F49B64300CDC38C /* FavoriteProgrammingLanguage.m */,

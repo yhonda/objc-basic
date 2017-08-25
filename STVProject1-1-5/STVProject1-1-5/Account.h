@@ -9,9 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "FavoriteProgrammingLanguage.h"
 
+// デリゲート接続
 @interface Account : NSObject <FavoriteProgrammingLanguageDelegate>
-//プロパティを定義
-@property (strong, nonatomic) Account *account;
-
+//メソッドを定義
 - (void)callJoinInternship;
 @end

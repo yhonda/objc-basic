@@ -15,16 +15,18 @@
 
 @implementation FavoriteProgrammingLanguage
 
--(void)joinInternship{
-    // オプショナルメソッドを呼び出す
-    if ([self.delegate respondsToSelector:@selector(canDoObjc:)]) {
-        [self.delegate canDoObjc];
+- (id)init
+{
+    if (self = [super init]) {
     }
+    return self;
 }
 
-- (void)canDoObjc{
-    //canDoObjc通知を受信する
-    NSLog(@"canDoObjc通知を受信しました。");
+// オプショナルメソッドを呼び出すメソッド
+-(void)joinInternship{
+    if ([self.delegate respondsToSelector:@selector(canDoObjc)]) {
+        [self.delegate canDoObjc];
+    }
 }
 
 @end

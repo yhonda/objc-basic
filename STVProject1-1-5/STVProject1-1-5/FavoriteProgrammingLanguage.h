@@ -19,7 +19,7 @@
 @interface FavoriteProgrammingLanguage : NSObject
 // デリゲートインスタンスを作成
 @property (weak, nonatomic) id <FavoriteProgrammingLanguageDelegate> delegate;
-// initializer
+
 -(void)joinInternship;
 
 @end
