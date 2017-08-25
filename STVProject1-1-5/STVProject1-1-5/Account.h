@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FavoriteProgrammingLanguage.h"
 
-@interface Account : NSObject
-// デリゲートオブジェクトを定義
+@interface Account : NSObject <FavoriteProgrammingLanguageDelegate>
+//プロパティを定義
+@property (strong, nonatomic) Account *account;
 
+- (void)callJoinInternship;
 @end

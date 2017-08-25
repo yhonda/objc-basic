@@ -10,27 +10,17 @@
 #import "Account.h"
 #import "FavoriteProgrammingLanguage.h"
 
-@interface Account () <FavoriteProgrammingLanguageDelegate>
+@interface Account ()
 
-//プロパティを定義
-@property (strong, nonatomic) Account *account;
 @end
 
-@implementation Account : NSObject 
+@implementation Account : NSObject
 
-- (id)init{
-    if (self = [super init]) {
-        self.account = [Account new];
-        // delegateに自身を指定します。
-        self.account.delegate = self;
-        [self.account canDoObjc];
-    }
-    return self;
-}
-
-- (void)canDoObjc{
-    //canDoObjc通知を受信する
-    NSLog(@"canDoObjc通知を受信しました。");
+-(void)callJoinInternship {
+    // FavoriteProgrammingLanguageクラスのjoinInternshipを呼ぶ
+    FavoriteProgrammingLanguage *favoriteProgrammingLanguage = [[FavoriteProgrammingLanguage alloc]init];
+    favoriteProgrammingLanguage.delegate = self;
+    [favoriteProgrammingLanguage joinInternship];
 }
 @end
 

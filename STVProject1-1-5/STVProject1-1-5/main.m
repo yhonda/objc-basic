@@ -7,16 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "main.h"
 #import "FavoriteProgrammingLanguage.h"
+#import "Account.h"
+#import "main.h"
 
 //実行メソッド
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // デリゲート先クラスのjoinInternshipメソッドを呼び出す
-        FavoriteProgrammingLanguage *favoriteProgrammingLanguage = [[FavoriteProgrammingLanguage alloc]init];
-        [favoriteProgrammingLanguage joinInternship];
         
+        Account *account = [[Account alloc]init];
+        [account callJoinInternship];
+        // デリゲート先クラスのjoinInternshipメソッドを呼び出す
     }
     return 0;
 }
