@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>travelOceaniaImageName</key>
+	<array>
+		<string>エアーズロック</string>
+		<string>ボラボラ島</string>
+		<string>オペラハウス</string>
+	</array>
+	<key>travelOceaniaExplainText</key>
+	<array>
+		<string>エアーズロック
+オーストラリア大陸にある世界で2番目に大きい一枚岩。</string>
+		<string>ボラボラ島
+フランス領ポリネシアのソシエテ諸島にある島。首都があるタヒチ島から約260kmに位置しており、「太平洋の真珠」と呼ばれるほどフランス領ポリネシアの中でも最も美しいとされる。</string>
+		<string>オペラハウス
+オーストラリア・シドニーにある20世紀を代表する近代建築物であり、世界的に有名な歌劇場・コンサートホール・劇場でもある。</string>
+	</array>
+	<key>travelEuropeImageName</key>
+	<array>
+		<string>モンサンミッシェル</string>
+		<string>コロッセオ</string>
+		<string>バッキンガム宮殿</string>
+	</array>
+	<key>travelEuropeExplainText</key>
+	<array>
+		<string>モンサンミッシェル
+フランス西海岸の湾上に浮かぶ小島、小島の上には修道院がそびえ立っている。</string>
+		<string>コロッセオ
+コロッセオは、イタリアのローマ王国期に造られた円形闘技場。コロシアムの語源ともなっている。</string>
+		<string>バッキンガム宮殿
+イギリスのロンドンにある宮殿。外周を護衛する兵隊たちの交代儀式を見物できることで有名。</string>
+	</array>
+	<key>traveAfurikalImageName</key>
+	<array>
+		<string>テーブルマウンテン</string>
+		<string>三大ピラミッド</string>
+		<string>ヴィクトリアの滝</string>
+	</array>
+	<key>travelAfurikaExplainText</key>
+	<array>
+		<string>テーブルマウンテン
+南アフリカ共和国西ケープ州のケープ半島北部にある山。約3kmに亘り山頂がほぼ平坦なことから名づけられた。</string>
+		<string>三大ピラミッド
+エジプト、ギザの砂漠にある、3基のピラミッドの総称。英語名ではギザのピラミッド群と呼ばれる。</string>
+		<string>ヴィクトリアの滝
+ジンバブエ共和国とザンビア共和国の国境にある滝。世界三大瀑布に数えられている。</string>
+	</array>
+	<key>traveAmerikalImageName</key>
+	<array>
+		<string>グランドキャニオン</string>
+		<string>アルカトラズ島</string>
+		<string>マチュピチュ</string>
+	</array>
+	<key>travelAmerikaExplainText</key>
+	<array>
+		<string>グランドキャニオン
+アメリカ合衆国アリゾナ州北部にある峡谷。</string>
+		<string>アルカトラズ島
+サンフランシスコ湾内、面積0.076km2の小島である。1963年まで連邦刑務所として使用され、監獄島とも呼ばれている。</string>
+		<string>マチュピチュ
+15世紀のインカ帝国の遺跡で、アンデス山麓の尾根にある。</string>
+	</array>
+	<key>destinationName</key>
+	<array>
+		<string>アジア</string>
+		<string>アメリカ</string>
+		<string>ヨーロッパ</string>
+		<string>オセアニア</string>
+		<string>アフリカ</string>
+	</array>
+	<key>traveAsialImageName</key>
+	<array>
+		<string>アンコールワット</string>
+		<string>タージマハル</string>
+		<string>ハロン湾</string>
+	</array>
+	<key>travelAsiaExplainText</key>
+	<array>
+		<string>アンコールワット
+カンボジア北西部に位置するヒンドゥー教寺院建築。</string>
+		<string>タージマハル
+インド北部アーグラにある、総大理石の墓廟。</string>
+		<string>ハロン湾
+ベトナム北部にある湾。大小3,000もの奇岩、島々が存在する。</string>
+	</array>
+</dict>
+</plist>
