@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cellImageName</key>
+	<array>
+		<string>アルカトラズ島</string>
+		<string>アンコールワット</string>
+		<string>グランドキャニオン</string>
+		<string>コロッセオ</string>
+		<string>タージマハル</string>
+		<string>バッキンガム宮殿</string>
+		<string>ハロン湾</string>
+		<string>ペトラ遺跡</string>
+		<string>マチュピチュ</string>
+	</array>
+</dict>
+</plist>
