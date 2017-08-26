@@ -16,16 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // デリゲートを接続
     self.textField.delegate = self;
-    // プレースホルダーをセット
-    self.textField.placeholder = @"文字列を入力してください。";
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
 }
 
 // 入力開始後のみテキストをチェックし、空欄の場合はリターンキーを非活性にする
@@ -47,7 +44,7 @@
         textField.enablesReturnKeyAutomatically = YES;
     }
     
-    // 最大入力文字数の定数を用意
+    // 最大入力文字数の定数を用意（毎回作られるが？）
     static int const maxTextLength = 30;
     
     // 入力済みのテキストを取得
