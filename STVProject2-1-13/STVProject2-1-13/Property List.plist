@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>touristSpot3</key>
+	<array>
+		<string>グランドキャニオン</string>
+		<string>コロッセオ</string>
+	</array>
+	<key>touristSpot4</key>
+	<array>
+		<string>タージマハル</string>
+		<string>バッキンガム宮殿</string>
+	</array>
+	<key>touristSpot5</key>
+	<array>
+		<string>ハロン湾</string>
+		<string>ペトラ遺跡</string>
+	</array>
+	<key>sectionName</key>
+	<array>
+		<string>人気観光地1</string>
+		<string>人気観光地2</string>
+		<string>人気観光地3</string>
+		<string>人気観光地4</string>
+		<string>人気観光地5</string>
+	</array>
+	<key>touristSpot1</key>
+	<array>
+		<string>アルカトラズ島</string>
+		<string>アンコールワット</string>
+	</array>
+	<key>touristSpot2</key>
+	<array>
+		<string>マチュピチュ</string>
+		<string>モンサンミッシェル</string>
+	</array>
+</dict>
+</plist>
