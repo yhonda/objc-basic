@@ -6,6 +6,4 @@
   Copyright © 2017年 dai kawahara. All rights reserved.
 */
 
-"Obj-C" = "Obj-C" ;
-"started" = "started" ;
-"lecture" = "lecture" ;
+"Obj-C lecture started" = "Obj-C lecture started";

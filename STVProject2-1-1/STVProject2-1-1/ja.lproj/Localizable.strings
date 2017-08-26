@@ -6,6 +6,4 @@
   Copyright © 2017年 dai kawahara. All rights reserved.
 */
 
-"Obj-C" = "Obj-C" ;
-"started" = "スタートしました。" ;
-"lecture" = "講座を" ;
+"Obj-C lecture started" = "Obj-C講座をスタートしました。";

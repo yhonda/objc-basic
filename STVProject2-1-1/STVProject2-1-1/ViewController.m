@@ -18,8 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // ラベルに文字列を表示
-    self.resultLabel.text = @"Obj-C講座をスタートしました。";
+    // ラベルに文字列を表示(Localizableファイルからキー値に沿ってローカライズされたテキストを引っ張ってくる)
+    self.resultLabel.text = [[NSBundle mainBundle] localizedStringForKey:@"Obj-C lecture started" value:nil table:@"Localizable"];
 }
 
 - (void)didReceiveMemoryWarning {
