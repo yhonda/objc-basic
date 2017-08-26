@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ubh-dh-Y7x">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AustrariaBeef" translatesAutoresizingMaskIntoConstraints="NO" id="Ubh-dh-Y7x">
                                 <rect key="frame" x="18.5" y="100.5" width="337.5" height="466.5"/>
                             </imageView>
                         </subviews>
@@ -34,12 +34,12 @@
                             <constraint firstItem="Ubh-dh-Y7x" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.7" id="rt3-xF-x2Y"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="foodImage" destination="Ubh-dh-Y7x" id="Qiq-gp-gnG"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="AustrariaBeef" width="1224" height="1632"/>
+    </resources>
 </document>

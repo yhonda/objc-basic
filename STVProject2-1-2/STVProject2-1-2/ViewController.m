@@ -10,17 +10,13 @@
 
 @interface ViewController ()
 
-// ストーリーボードのimageViewを定義
-@property (weak, nonatomic) IBOutlet UIImageView *foodImage;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 任意の画像をfoodImageにセットする
-    // アスペクト比の設定はストーリボード側にて実装(AspectFit)
-    self.foodImage.image = [UIImage imageNamed:@"AustrariaBeef"];
+    // 画像のセット、アスペクト比の設定、両方ともストーリボード側にて実装
 }
 
 - (void)didReceiveMemoryWarning {
