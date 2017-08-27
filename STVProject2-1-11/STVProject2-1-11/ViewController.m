@@ -16,12 +16,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     // デリゲート接続
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    // セルの基本値の高さを確保
     self.tableView.estimatedRowHeight = 60.0;
     
     // セル内のデータを用意
@@ -31,25 +32,44 @@
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
     self.plistDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-    // キー値を元に各自データリストを取得
+    // キー値を元に各自データリストを取得（セクションタイトル、セル内画像、セル内テキスト）
     self.sectionNameList = [self.plistDictionary objectForKey:@"destinationName"];
     self.cellImageList = [self.plistDictionary objectForKey:@"traveAsialImageName"];
     self.cellTextList = [self.plistDictionary objectForKey:@"travelAsiaExplainText"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
-// セッション数を設定
+// セクション数を設定
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return self.sectionNameList.count;
 }
-// セッションのヘッダータイトル
+// セクションのヘッダータイトル
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return self.sectionNameList[section];
+}
+
+// セクションの高さ
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 20;
+}
+
+// セルの数（必須メソッド）
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.cellImageList.count;
+}
+
+// セルの作成（必須メソッド）
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // インスタンス化
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+    // ストーリーボードのラベルをインスタンス化
+    UILabel *label = (UILabel *)[cell viewWithTag:1];
+    // ラベルの行数設定を無制限にする
+    label.numberOfLines = 0;
+    // ストーリーボードのイメージビューをインスタンス化
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
     
-    switch (section) {
+    // セクションのインデックスによって別々のテキストと画像の配列を用意する
+    switch (indexPath.section) {
         case 0:
             self.cellImageList = [self.plistDictionary objectForKey:@"traveAsialImageName"];
             self.cellTextList = [self.plistDictionary objectForKey:@"travelAsiaExplainText"];
@@ -73,33 +93,8 @@
         default:
             break;
     }
-    
-    return self.sectionNameList[section];
-}
-// セッションの高さ
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 20;
-}
-
-// セルの数（必須メソッド）
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.cellImageList.count;
-}
-
-// セルの作成（必須メソッド）
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    // インスタンス化
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    
-    // ストーリーボードのラベルをインスタンス化
-    UILabel *label = (UILabel *)[cell viewWithTag:1];
-    // ラベルの行数設定を無制限にする
-    label.numberOfLines = 0;
     // ラベルテキストをセット
     label.text = self.cellTextList[indexPath.row];
-    // ストーリーボードのイメージビューをインスタンス化
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
     // 画像をセット
     imageView.image = [UIImage imageNamed: self.cellImageList[indexPath.row]];
     // セルを実装

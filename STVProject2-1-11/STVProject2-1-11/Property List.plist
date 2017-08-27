@@ -58,17 +58,17 @@
 		<string>グランドキャニオン
 アメリカ合衆国アリゾナ州北部にある峡谷。</string>
 		<string>アルカトラズ島
-サンフランシスコ湾内、面積0.076km2の小島である。1963年まで連邦刑務所として使用され、監獄島とも呼ばれている。</string>
+サンフランシスコ湾内、面積0.076kmの小島である。1963年まで連邦刑務所として使用され、監獄島とも呼ばれている。</string>
 		<string>マチュピチュ
 15世紀のインカ帝国の遺跡で、アンデス山麓の尾根にある。</string>
 	</array>
 	<key>destinationName</key>
 	<array>
-		<string>アジア</string>
-		<string>アメリカ</string>
-		<string>ヨーロッパ</string>
-		<string>オセアニア</string>
-		<string>アフリカ</string>
+		<string>アジアの観光地</string>
+		<string>アメリカの観光地</string>
+		<string>ヨーロッパの観光地</string>
+		<string>オセアニアの観光地</string>
+		<string>アフリカの観光地</string>
 	</array>
 	<key>traveAsialImageName</key>
 	<array>
