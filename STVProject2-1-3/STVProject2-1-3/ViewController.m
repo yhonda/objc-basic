@@ -13,7 +13,6 @@
 // プロパティと変数の定義
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundView;
 @property NSArray *imageList;
-@property int randomCount;
 @property NSString * imageName;
 
 @end
@@ -26,17 +25,12 @@
     self.imageList = @[@"Austraria", @"Bari", @"Guam", @"Kanagawa", @"Vetonum"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
-
 // ボタンを押した時のメソッド
 - (IBAction)chengeBackground:(id)sender {
     // 0〜4からランダムに値を取得
-    self.randomCount = arc4random_uniform((int)self.imageList.count);
+    int randomCount = arc4random_uniform((int)self.imageList.count);
     // 用意したランダム値にて、imageListから画像名を取得し、背景画像にセット
-    self.backgroundView.image = [UIImage imageNamed:self.imageList[self.randomCount]];
-    }
+    self.backgroundView.image = [UIImage imageNamed:self.imageList[randomCount]];
+}
 
 @end
