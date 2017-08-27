@@ -36,11 +36,6 @@
     self.sectionNameList = [dictionary objectForKey:@"sectionName"];
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    
-}
 // セクションの数を指定
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 5;
@@ -100,7 +95,7 @@
     }
     // セルの実装
     return cell;
-
+    
 }
 
 // セルの大きさを指定
