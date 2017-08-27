@@ -23,13 +23,13 @@
     [super viewDidLoad];
     
     // 当日の日付を取得し、datapickerに表示する
-        // 当日の日付を取得
+    // 当日の日付を取得
     self.todayDate = [NSDate date];
-        // 表示用データフォーマットをインスタンス化
+    // 表示用データフォーマットをインスタンス化
     self.formatter = [[NSDateFormatter alloc] init];
-        // フォーマットに型をセット(時間まで表示する時は、@"M月dd日(E) HH:mm"でModeを変更する)
+    // フォーマットに型をセット(時間まで表示する時は、@"M月dd日(E) HH:mm"でModeを変更する)
     [self.formatter setDateFormat:@"yyyy年M月dd日"];
-        // ラベルに当日の日付を反映
+    // ラベルに当日の日付を反映
     self.dateLabel.text = [self.formatter stringFromDate:self.todayDate];
     
     // dateLabelにタグをつける（タッチイベント取得用）
@@ -39,10 +39,6 @@
     // datePickerとdoneボタンを隠す
     self.datePicker.hidden = YES;
     self.pickerHiddenButton.hidden = YES;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 // ラベルタッチイベントの取得(ラベルタッチでpicker表示、背景タッチでpkicker非表示)
@@ -63,11 +59,10 @@
     // datapikerが変更されるたびにその日付を取得してpickerに入れる
     self.dateLabel.text = [self.formatter stringFromDate:self.datePicker.date];
 }
- // Doneボタンアクション
+// Doneボタンアクション
 - (IBAction)pickerHiddenAction:(id)sender {
     self.datePicker.hidden = YES;
     self.pickerHiddenButton.hidden = YES;
 }
-
 
 @end

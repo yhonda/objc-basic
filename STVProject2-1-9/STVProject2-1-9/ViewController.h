@@ -8,9 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// デリゲートを接続
 @interface ViewController : UIViewController
-
 
 @end
 
