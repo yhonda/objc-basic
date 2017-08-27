@@ -28,7 +28,6 @@
     NSURLRequest *reqest = [NSURLRequest requestWithURL:url];
     // webviewにリクエストを投げる
     [self.webView loadRequest:reqest];
-    
 }
 
 // ロード時にインジケータをまわす
@@ -40,11 +39,6 @@
 - (void)webViewDidFinishLoad:(UIWebView*)webView
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 //　戻るボタン、押すとデリゲートメソッドの「goBack」を呼び出す
