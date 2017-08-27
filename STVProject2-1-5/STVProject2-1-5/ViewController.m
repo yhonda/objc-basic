@@ -26,10 +26,6 @@
     [self initAlertController];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
 // アラートコントローラーの初期化メソッド
 - (void)initAlertController{
     // アラートコントローラーを用意（初期化）
