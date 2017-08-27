@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>travelImageName</key>
+	<array>
+		<string>アンコールワット</string>
+		<string>ヴィクトリアの滝</string>
+		<string>エアーズロック</string>
+		<string>グランドキャニオン</string>
+		<string>タージマハル</string>
+		<string>ハロン湾</string>
+		<string>ペトラ遺跡</string>
+		<string>マチュピチュ</string>
+		<string>モンサンミッシェル</string>
+	</array>
+	<key>travelExplainText</key>
+	<array>
+		<string>アンコールワット
+カンボジア北西部に位置するヒンドゥー教寺院建築。</string>
+		<string>ヴィクトリアの滝
+ジンバブエ共和国とザンビア共和国の国境にある滝。イグアスの滝、ナイアガラの滝と並び、世界三大瀑布に数えられている。</string>
+		<string>エアーズロック
+オーストラリア大陸にある世界で2番目に大きい一枚岩。</string>
+		<string>グランドキャニオン
+アメリカ合衆国アリゾナ州北部にある峡谷。</string>
+		<string>タージマハル
+インド北部アーグラにある、総大理石の墓廟。ムガル帝国第5代皇帝シャー・ジャハーンによって建築された。</string>
+		<string>ハロン湾
+ベトナム北部にある湾。大小3,000もの奇岩、島々が存在する。</string>
+		<string>ペトラ遺跡
+ヨルダンの死海とアカバ湾の間にある渓谷にある遺跡。</string>
+		<string>マチュピチュ
+15世紀のインカ帝国の遺跡で、アンデス山麓の尾根にある。</string>
+		<string>モンサンミッシェル
+フランス西海岸の湾上に浮かぶ小島、小島の上には修道院がそびえ立っている。</string>
+	</array>
+</dict>
+</plist>
