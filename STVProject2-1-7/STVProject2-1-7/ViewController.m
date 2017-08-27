@@ -20,11 +20,6 @@
     self.textField.delegate = self;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-
-}
-
 // 入力開始後のみテキストをチェックし、空欄の場合はリターンキーを非活性にする
 // shouldChangeCharactersInRangeでは最初の入力は補えないため
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
@@ -38,7 +33,7 @@
 // テキストの文字数をチェックしているメソッド
 // 編集中のみテキストをチェックし、空欄の場合はリターンキーを非活性にする
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-
+    
     // 空欄チェック
     if (textField.text.length == 0) {
         textField.enablesReturnKeyAutomatically = YES;
