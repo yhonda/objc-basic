@@ -27,10 +27,8 @@
 
 // ボタンを押した時のメソッド
 - (IBAction)chengeBackground:(id)sender {
-    // 0〜4からランダムに値を取得
-    int randomCount = arc4random_uniform((int)self.imageList.count);
-    // 用意したランダム値にて、imageListから画像名を取得し、背景画像にセット
-    self.backgroundView.image = [UIImage imageNamed:self.imageList[randomCount]];
+    // 0〜4からランダムに値を取得、取得したランダム値にて、imageListから画像名を取得し、背景画像にセット
+    self.backgroundView.image = [UIImage imageNamed:self.imageList[arc4random_uniform((int)self.imageList.count)]];
 }
 
 @end
