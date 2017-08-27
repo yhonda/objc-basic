@@ -37,10 +37,6 @@
     self.cellTextList = [dic objectForKey:@"travelExplainText"];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
 // セルの数（必須メソッド）
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.cellImageList.count;
@@ -49,7 +45,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // インスタンス化
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
     // ストーリーボードのラベルをインスタンス化
     UILabel *label = (UILabel *)[cell viewWithTag:1];
     // ラベルの行数設定を無制限にする
