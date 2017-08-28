@@ -11,10 +11,6 @@
 @interface ViewController ()
 // プロパティの定義
 @property UIAlertController * alertController;
-@property UIAlertAction * faceBookAction;
-@property UIAlertAction * twitterAction;
-@property UIAlertAction * lineAction;
-@property UIAlertAction * cancelAction;
 
 @end
 
@@ -22,19 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // アラートコントローラーの初期化
-    [self initAlertController];
-}
-
-// アラートコントローラーの初期化メソッド
-- (void)initAlertController{
-    // アラートコントローラーを用意（初期化）
+    // アラートコントローラーの生成
     self.alertController =
     [UIAlertController alertControllerWithTitle:@"SNS投稿"
                                         message:@"連携するSNSを選んでください。"
                                  preferredStyle:UIAlertControllerStyleActionSheet];
     // Facebookボタンアクションを生成
-    self.faceBookAction =
+    UIAlertAction *faceBookAction =
     [UIAlertAction actionWithTitle:@"Facebook"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction * action) {
@@ -42,7 +32,7 @@
                                NSLog(@"Facebook投稿を行います。");
                            }];
     // Twitterボタンアクションを生成
-    self.twitterAction =
+    UIAlertAction *twitterAction =
     [UIAlertAction actionWithTitle:@"Twitter"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction * action) {
@@ -50,7 +40,7 @@
                                NSLog(@"Twitter投稿を行います。");
                            }];
     // Lineボタンアクションを生成
-    self.lineAction =
+    UIAlertAction *lineAction =
     [UIAlertAction actionWithTitle:@"Line"
                              style:UIAlertActionStyleDefault
                            handler:^(UIAlertAction * action) {
@@ -58,7 +48,7 @@
                                NSLog(@"Line送信を行います。");
                            }];
     // キャンセルアクションを生成
-    self.cancelAction =
+    UIAlertAction *cancelAction =
     [UIAlertAction actionWithTitle:@"Cancel"
                              style:UIAlertActionStyleCancel
                            handler:^(UIAlertAction * action) {
@@ -67,10 +57,10 @@
                            }];
     
     // コントローラにアクションを追加
-    [self.alertController addAction:self.faceBookAction];
-    [self.alertController addAction:self.twitterAction];
-    [self.alertController addAction:self.lineAction];
-    [self.alertController addAction:self.cancelAction];
+    [self.alertController addAction: faceBookAction];
+    [self.alertController addAction: twitterAction];
+    [self.alertController addAction: lineAction];
+    [self.alertController addAction: cancelAction];
 }
 
 // SNS投稿ボタンアクション
