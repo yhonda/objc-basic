@@ -33,12 +33,12 @@
                                    }];
     // OKボタンと処理内容を用意
     UIAlertAction *okButton = [UIAlertAction
-                     actionWithTitle:@"OK"
-                     style:UIAlertActionStyleDefault
-                     handler:^(UIAlertAction * action) {
-                         NSLog(@"次の課題を開始します。");
-                     }];
-
+                               actionWithTitle:@"OK"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action) {
+                                   NSLog(@"次の課題を開始します。");
+                               }];
+    
     // 用意したボタンアクション２つをアラートコントローラーにセット
     [self.alertController addAction:cancelButton];
     [self.alertController addAction:okButton];
