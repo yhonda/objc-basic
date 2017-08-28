@@ -11,8 +11,6 @@
 @interface ViewController ()
 // プロパティの定義
 @property UIAlertController * alertController;
-@property UIAlertAction * cancelButton;
-@property UIAlertAction * okButton;
 
 @end
 
@@ -20,35 +18,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //アラートコントローラーの初期化メソッドを呼ぶ
-    [self initAlertController];
-}
-
-// アラートコントローラーの初期化メソッド
--(void)initAlertController {
-    // アラートコントローラーを用意（初期化）
+    //アラートコントローラーの生成
     self.alertController = [UIAlertController
                             alertControllerWithTitle:@"確認"
                             message:@"次の課題の課題に進みます。"
                             preferredStyle:UIAlertControllerStyleAlert];
+    
     // キャンセルボタンと処理内容を用意
-    self.cancelButton = [UIAlertAction
-                         actionWithTitle:@"Cancel"
-                         style:UIAlertActionStyleDefault
-                         handler:^(UIAlertAction * action) {
-                             NSLog(@"課題内容を修正します。");
-                         }];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Cancel"
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction * action) {
+                                       NSLog(@"課題内容を修正します。");
+                                   }];
     // OKボタンと処理内容を用意
-    self.okButton = [UIAlertAction
+    UIAlertAction *okButton = [UIAlertAction
                      actionWithTitle:@"OK"
                      style:UIAlertActionStyleDefault
                      handler:^(UIAlertAction * action) {
                          NSLog(@"次の課題を開始します。");
                      }];
-    
+
     // 用意したボタンアクション２つをアラートコントローラーにセット
-    [self.alertController addAction:self.cancelButton];
-    [self.alertController addAction:self.okButton];
+    [self.alertController addAction:cancelButton];
+    [self.alertController addAction:okButton];
 }
 
 // 確認ボタンメソッド
