@@ -12,6 +12,7 @@
 @interface ViewController : UIViewController<UIWebViewDelegate>
 // プロパティを宣言
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property UIAlertController *alertController;
 
 @end
 
