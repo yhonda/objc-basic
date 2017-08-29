@@ -6,6 +6,7 @@
 //  Copyright © 2017年 dai kawahara. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import "ViewController.h"
 
 @interface ViewController ()

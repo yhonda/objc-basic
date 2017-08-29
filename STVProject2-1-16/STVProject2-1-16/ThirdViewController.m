@@ -1,19 +1,19 @@
 //
-//  FirstViewController.m
+//  ThirdViewController.m
 //  STVProject2-1-16
 //
-//  Created by kawaharadai on 2017/08/28.
+//  Created by kawaharadai on 2017/08/29.
 //  Copyright © 2017年 dai kawahara. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "FirstViewController.h"
+#import "ThirdViewController.h"
 
-@interface FirstViewController ()
+@interface ThirdViewController ()
 
 @end
 
-@implementation FirstViewController
+@implementation ThirdViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,3 +21,4 @@
 }
 
 @end
+

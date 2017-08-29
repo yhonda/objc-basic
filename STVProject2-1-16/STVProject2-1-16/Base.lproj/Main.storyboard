@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -44,15 +44,15 @@
         <!--Page View Controller-->
         <scene sceneID="5ta-ZN-19G">
             <objects>
-                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="FD5-GU-0Sf" customClass="PageViewController" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="none" id="FD5-GU-0Sf" customClass="PageViewController" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vb9-nb-0an" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="62" y="134"/>
         </scene>
-        <!--First View Controller-->
+        <!--Second View Controller-->
         <scene sceneID="rPe-NP-dkN">
             <objects>
-                <viewController storyboardIdentifier="FirstViewController" id="mWl-Tb-jru" customClass="FirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mWl-Tb-jru" customClass="SecondViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rG9-aq-KV3"/>
                         <viewControllerLayoutGuide type="bottom" id="LYq-sk-4bY"/>
@@ -80,10 +80,10 @@
             </objects>
             <point key="canvasLocation" x="1428" y="134"/>
         </scene>
-        <!--Second View Controller-->
+        <!--Third View Controller-->
         <scene sceneID="mQy-uh-CaG">
             <objects>
-                <viewController storyboardIdentifier="SecondViewController" id="h47-Tz-Rsn" customClass="SecondViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ThirdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="h47-Tz-Rsn" customClass="ThirdViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t4U-u3-r2r"/>
                         <viewControllerLayoutGuide type="bottom" id="AWC-eo-Hwr"/>

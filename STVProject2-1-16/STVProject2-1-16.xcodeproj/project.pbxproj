@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		459A5EEB1F54A0A100C920D0 /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A5EEA1F54A0A100C920D0 /* PageViewController.m */; };
+		459A5F301F55644700C920D0 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A5F2F1F55644700C920D0 /* ThirdViewController.m */; };
 		45C6620F1F531CF300441726 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C6620E1F531CF300441726 /* main.m */; };
 		45C662121F531CF300441726 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C662111F531CF300441726 /* AppDelegate.m */; };
 		45C662151F531CF300441726 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C662141F531CF300441726 /* ViewController.m */; };
@@ -17,7 +18,6 @@
 		45C662201F531CF300441726 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45C6621E1F531CF300441726 /* LaunchScreen.storyboard */; };
 		45C6622B1F531CF300441726 /* STVProject2_1_16Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C6622A1F531CF300441726 /* STVProject2_1_16Tests.m */; };
 		45C662361F531CF300441726 /* STVProject2_1_16UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C662351F531CF300441726 /* STVProject2_1_16UITests.m */; };
-		45C6624A1F53B04B00441726 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C662491F53B04B00441726 /* FirstViewController.m */; };
 		45C6624D1F53B0D400441726 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C6624C1F53B0D400441726 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +41,8 @@
 /* Begin PBXFileReference section */
 		459A5EE91F54A05800C920D0 /* PageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PageViewController.h; sourceTree = "<group>"; };
 		459A5EEA1F54A0A100C920D0 /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+		459A5F2E1F55643E00C920D0 /* ThirdViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
+		459A5F2F1F55644700C920D0 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
 		45C6620A1F531CF300441726 /* STVProject2-1-16.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "STVProject2-1-16.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C6620E1F531CF300441726 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45C662101F531CF300441726 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -58,8 +60,6 @@
 		45C662311F531CF300441726 /* STVProject2-1-16UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "STVProject2-1-16UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C662351F531CF300441726 /* STVProject2_1_16UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_1_16UITests.m; sourceTree = "<group>"; };
 		45C662371F531CF300441726 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45C662491F53B04B00441726 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
-		45C6624B1F53B05600441726 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		45C6624C1F53B0D400441726 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		45C6624E1F53B0E100441726 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,10 +116,10 @@
 				45C662111F531CF300441726 /* AppDelegate.m */,
 				45C662131F531CF300441726 /* ViewController.h */,
 				45C662141F531CF300441726 /* ViewController.m */,
-				45C662491F53B04B00441726 /* FirstViewController.m */,
-				45C6624B1F53B05600441726 /* FirstViewController.h */,
 				45C6624C1F53B0D400441726 /* SecondViewController.m */,
 				45C6624E1F53B0E100441726 /* SecondViewController.h */,
+				459A5F2E1F55643E00C920D0 /* ThirdViewController.h */,
+				459A5F2F1F55644700C920D0 /* ThirdViewController.m */,
 				459A5EE91F54A05800C920D0 /* PageViewController.h */,
 				459A5EEA1F54A0A100C920D0 /* PageViewController.m */,
 				45C662161F531CF300441726 /* Main.storyboard */,
@@ -295,7 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45C662151F531CF300441726 /* ViewController.m in Sources */,
-				45C6624A1F53B04B00441726 /* FirstViewController.m in Sources */,
+				459A5F301F55644700C920D0 /* ThirdViewController.m in Sources */,
 				45C6621B1F531CF300441726 /* STVProject2_1_16.xcdatamodeld in Sources */,
 				45C6624D1F53B0D400441726 /* SecondViewController.m in Sources */,
 				45C662121F531CF300441726 /* AppDelegate.m in Sources */,
