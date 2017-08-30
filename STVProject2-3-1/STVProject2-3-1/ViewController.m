@@ -24,14 +24,7 @@
     } else {
         NSLog(@"初回起動ではありません。");
         self.resultLabel.text = @"初回起動ではありません。";
-        //UserDefaultsに接続
-        NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-        // Int型の値を保存
-        [userDefaults setInteger:1000 forKey:@"ValueTypeInt"];
-        // Double型の値を保存
-        [userDefaults setDouble:0.005 forKey:@"ValueTypeDouble"];
-        // String型の値を保存
-        [userDefaults setObject:@"アイウエオ" forKey:@"ValueTypeString"];
+        [self createNewData];
     }
 }
 
@@ -49,6 +42,18 @@
     [userDefaults synchronize];
     // 初回起動
     return YES;
+}
+
+// UserDefaultsに新たなデータを作成、保存する
+- (void)createNewData {
+    //UserDefaultsに接続
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    // Int型の値を保存
+    [userDefaults setInteger:1000 forKey:@"ValueTypeInt"];
+    // Double型の値を保存
+    [userDefaults setDouble:0.005 forKey:@"ValueTypeDouble"];
+    // String型の値を保存
+    [userDefaults setObject:@"アイウエオ" forKey:@"ValueTypeString"];
 }
 
 // UserDefaultsに保存している値を出力する

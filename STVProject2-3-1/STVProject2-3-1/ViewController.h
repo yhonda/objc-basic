@@ -12,6 +12,7 @@
 // プロパティをを定義
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 // メソッドを定義
+- (void)createNewData;
 - (BOOL)CheckRunfirstTime;
 @end
 
