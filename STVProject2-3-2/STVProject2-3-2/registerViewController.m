@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "registerViewController.h"
+#import "ViewController.h"
 #import "FMDatabase.h"
 
 @interface registerViewController ()
@@ -22,32 +23,31 @@
     // デリゲート接続
     self.registerTextField.delegate = self;
     self.registerTextView.delegate = self;
-    // DBと接続
-    [self connectDatabase];
+   
     // アラートを作成
     [self createAleart];
     
 }
 
-// データベースと接続する（インスタンス化）
-- (void)connectDatabase {
-    self.paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
-    self.dir = [self.paths objectAtIndex:0];
-    self.database = [FMDatabase databaseWithPath:[self.dir stringByAppendingPathComponent:@"test.db"]];
-}
 // 初回起動時に呼ぶ（初期IDを決める）
 -(int)addTodo_id {
+    // DB接続
+    ViewController *viewController = [[ViewController alloc]init];
+    FMDatabase *db = [viewController connectDataBase:@"test.db"];
+    
     //count文の作成
     NSString *countTodo_id = [[NSString alloc] initWithFormat:@"select count(*) as count from tr_todo where todo_id"];
+    
     // DBをオープン
-    [self.database open];
+    [db open];
     // セットしたcount文を回して、todo_idの数を数える
-    FMResultSet *countRequest = [self.database executeQuery:countTodo_id];
+    FMResultSet *countRequest = [db executeQuery:countTodo_id];
     if([countRequest next]) {
         self.todo_id = [countRequest intForColumn:@"count"];
     }
     // DBを閉じる
-    [self.database close];
+    [db close];
+    
     // 数えた値に+1をして返す
     return self.todo_id + 1;
 }
@@ -56,17 +56,20 @@
     // 当日の日付を取得
     //NSDateFormatterクラスを出力する。
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
     //出力形式を文字列で指定する。
     [format setDateFormat:@"yyyy/MM/dd"];
+    
     // 現在時刻を取得しつつ、NSDateFormatterクラスをかませて、文字列を出力する。
     return [format stringFromDate:[NSDate date]];
 }
 
 // 〜日後の期日を設定
 - (NSString *)getLimit_date {
-    //
+    
     //NSDateFormatterクラスを出力する。
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
     //出力形式を文字列で指定する。
     [format setDateFormat:@"yyyy/MM/dd"];
     
@@ -82,6 +85,7 @@
     // 〜日後のインスタンスをフォーマットにはめて返す
     return [format stringFromDate:futureDate];
 }
+
 // Delete_flgを返すメソッド
 - (NSString *)getDelete_flg {
     return @"OFF";
@@ -90,10 +94,12 @@
 // タイトル空欄時に表示するアラートを作成
 - (void)createAleart {
     //アラートコントローラーの生成
-    self.alertController = [UIAlertController
+    self.registerAlertController = [UIAlertController
                             alertControllerWithTitle:@"未入力"
                             message:@"タイトルの入力は必須です。"
                             preferredStyle:UIAlertControllerStyleAlert];
+    
+    self.doneAlertController = [UIAlertController alertControllerWithTitle:@"登録完了" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     // OKボタンと処理内容を用意
     UIAlertAction *okButton = [UIAlertAction
@@ -102,12 +108,37 @@
                                handler:^(UIAlertAction * action) {
                                }];
     
+    // 閉じるボタン（処理：一覧画面に戻る）を用意
+    UIAlertAction *backTopButton = [UIAlertAction
+                                           actionWithTitle:@"閉じる"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               [self dismissViewControllerAnimated:YES completion:nil];
+                                           }];
+    
+    // 連続登録ボタン（処理：その画面のまま、テキストをリセット）を用意
+    UIAlertAction *continueRegistButton = [UIAlertAction
+                                           actionWithTitle:@"連続登録"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               self.registerTextField.text = @"";
+                                               self.registerTextView.text = @"";
+                                               // リセット後に再度テキストビューを選択してあげる（何故か処理が遅くなる）
+                                               [self.registerTextField becomeFirstResponder];
+                                           }];
+
     // 用意したボタンアクションをアラートコントローラーにセット
-    [self.alertController addAction:okButton];
+    [self.registerAlertController addAction:okButton];
+    [self.doneAlertController addAction:backTopButton];
+    [self.doneAlertController addAction:continueRegistButton];
+
 }
 
 // 登録アクション
 - (void)registerAction {
+    
+    ViewController *viewController = [[ViewController alloc]init];
+    FMDatabase *db = [viewController connectDataBase:@"test.db"];
     
     // todo_idをセット（0をセットまたは+1で返す）
     self.todo_id = [self addTodo_id];
@@ -117,6 +148,7 @@
     self.modified = [self getCreated];
     // limit_dateを取得
     self.limit_date = [self getLimit_date];
+    // self.limit_date = @"2017/09/22";
     // delete_flgを設定
     self.delete_flg = [self getDelete_flg];
     // テキストフィールドからタイトルを取得
@@ -127,18 +159,21 @@
     // 取得した情報をデータベースに登録
     NSString *insert = [[NSString alloc] initWithFormat:@"INSERT INTO tr_todo(todo_id, todo_title, todo_contents, created, modified, limit_date, delete_flg) VALUES('%d', '%@', '%@', '%@', '%@', '%@', '%@')", self.todo_id, self.todo_title, self.todo_contents, self.created, self.modified, self.limit_date, self. delete_flg];
     
-    [self.database open];
+    [db open];
     
-    [self.database executeUpdate:insert];
+    [db executeUpdate:insert];
     
-    [self.database close];
+    [db close];
+    
+    // 処理完了後、アラートを表示
+    [self presentViewController:self.doneAlertController animated:YES completion:nil];
     
 }
 // 登録ボタン
 - (IBAction)resisterButton:(id)sender {
     // タイトルが空欄の場合はアラートを出し、問題がなければ登録アクションの呼び出し
     if (self.registerTextField.text.length == 0) {
-        [self presentViewController:self.alertController animated:YES completion:nil];
+        [self presentViewController:self.registerAlertController animated:YES completion:nil];
     } else {
         [self registerAction];
     }
