@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UIButton *pickerHiddenButton;
-@property NSArray *userAgeChoice;
+@property (strong, nonatomic) NSArray *userAgeChoice;
+// メソッドを定義
+- (void)setupPickerView;
+- (IBAction)pickerHiddenAction:(id)sender;
 @end
 
