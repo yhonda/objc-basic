@@ -12,6 +12,8 @@
 @interface ViewController : UIViewController<UITextFieldDelegate>
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+// メソッドを定義
+- (IBAction)tapBackground:(id)sender;
 
 @end
 

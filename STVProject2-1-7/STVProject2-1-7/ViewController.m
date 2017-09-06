@@ -12,6 +12,9 @@
 
 @end
 
+// 最大入力文字数の定数を用意
+static int const maxTextLength = 30;
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -39,10 +42,7 @@
         textField.enablesReturnKeyAutomatically = YES;
     }
     
-    // 最大入力文字数の定数を用意（毎回作られるが？）
-    static int const maxTextLength = 30;
-    
-    // 入力済みのテキストを取得
+    // 入力済みのテキストを初期値として取得
     NSMutableString *inputedText = [textField.text mutableCopy];
     
     // 入力済みのテキストと入力が行われたテキストを結合
