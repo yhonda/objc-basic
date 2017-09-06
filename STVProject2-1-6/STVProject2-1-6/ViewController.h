@@ -9,10 +9,17 @@
 #import <UIKit/UIKit.h>
 
 // デリゲート接続
-@interface ViewController : UIViewController<UIWebViewDelegate>
+@interface ViewController : UIViewController <UIWebViewDelegate>
 // プロパティを宣言
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property UIAlertController *alertController;
-
+@property (weak, nonatomic) UIAlertController *alertController;
+// メソッドを定義
+- (void)createAleartController;
+- (void)setWebView;
+- (void)webViewDidStartLoad:(UIWebView*)webView;
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
+- (IBAction)goBackButton:(id)sender;
+- (IBAction)reloadButton:(id)sender;
+- (IBAction)goForwardButton:(id)sender;
 @end
 
