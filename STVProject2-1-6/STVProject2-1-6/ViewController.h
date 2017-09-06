@@ -16,8 +16,6 @@
 // メソッドを定義
 - (void)createAleartController;
 - (void)setWebView;
-- (void)webViewDidStartLoad:(UIWebView*)webView;
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 - (IBAction)goBackButton:(id)sender;
 - (IBAction)reloadButton:(id)sender;
 - (IBAction)goForwardButton:(id)sender;
