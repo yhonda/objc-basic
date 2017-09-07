@@ -37,8 +37,6 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの最低限の高さを設定
     self.tableView.estimatedRowHeight = 60.0;
-    // セルを挿入しない無駄な行は表示させない
-    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 // アラートコントローラーとアクションシートを用意
@@ -63,21 +61,21 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          // テーブルビューデリゲートメソッドをセット
                                          [self setTableView];
                                          // forecastパラメータを取得
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][0];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][0];
                                          // 日付を取得
-                                         self.date = [forecasts objectForKey:@"date"];
+                                         self.date = forecasts[@"date"];
                                          // 天気を取得
-                                         self.telop = [forecasts objectForKey:@"telop"];
+                                         self.telop = forecasts[@"telop"];
                                          // アイコン画像のurlを取得
-                                         NSDictionary *image = [forecasts objectForKey:@"image"];
-                                         NSString *urlString = [image objectForKey:@"url"];
+                                         NSDictionary *image = forecasts[@"image"];
+                                         NSString *urlString = image[@"url"];
                                          NSURL *url = [NSURL URLWithString:urlString];
                                          NSData *data = [NSData dataWithContentsOfURL:url];
                                          self.iconImageUrl = data;
                                          
                                          // 天気概況文を取得
-                                         NSDictionary *description = [responseObject objectForKey:@"description"];
-                                         self.text = [description objectForKey:@"text"];
+                                         NSDictionary *description = responseObject[@"description"];
+                                         self.text = description[@"text"];
                                          
                                          [self.tableView reloadData];
                                          
@@ -103,22 +101,22 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          // テーブルビューデリゲートメソッドをセット
                                          [self setTableView];
                                          // forecastパラメータを取得
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][1];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][1];
                                          // 日付を取得
-                                         self.date = [forecasts objectForKey:@"date"];
+                                         self.date = forecasts[@"date"];
                                          // 天気を取得
-                                         self.telop = [forecasts objectForKey:@"telop"];
+                                         self.telop = forecasts[@"telop"];
                                          // アイコン画像のurlを取得
-                                         NSDictionary *image = [forecasts objectForKey:@"image"];
-                                         NSString *urlString = [image objectForKey:@"url"];
+                                         NSDictionary *image = forecasts[@"image"];
+                                         NSString *urlString = image[@"url"];
                                          NSURL *url = [NSURL URLWithString:urlString];
                                          NSData *data = [NSData dataWithContentsOfURL:url];
                                          self.iconImageUrl = data;
                                          
                                          //self.iconImageUrl =
                                          // 天気概況文を取得
-                                         NSDictionary *description = [responseObject objectForKey:@"description"];
-                                         self.text = [description objectForKey:@"text"];
+                                         NSDictionary *description = responseObject[@"description"];
+                                         self.text = description[@"text"];
                                          
                                          [self.tableView reloadData];
                                          
@@ -144,22 +142,22 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          // テーブルビューデリゲートメソッドをセット
                                          [self setTableView];
                                          // forecastパラメータを取得
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][2];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][2];
                                          // 日付を取得
-                                         self.date = [forecasts objectForKey:@"date"];
+                                         self.date = forecasts[@"date"];
                                          // 天気を取得
-                                         self.telop = [forecasts objectForKey:@"telop"];
+                                         self.telop = forecasts[@"telop"];
                                          // アイコン画像のurlを取得
-                                         NSDictionary *image = [forecasts objectForKey:@"image"];
-                                         NSString *urlString = [image objectForKey:@"url"];
+                                         NSDictionary *image = forecasts[@"image"];
+                                         NSString *urlString = image[@"url"];
                                          NSURL *url = [NSURL URLWithString:urlString];
                                          NSData *data = [NSData dataWithContentsOfURL:url];
                                          self.iconImageUrl = data;
                                          
                                          //self.iconImageUrl =
                                          // 天気概況文を取得
-                                         NSDictionary *description = [responseObject objectForKey:@"description"];
-                                         self.text = [description objectForKey:@"text"];
+                                         NSDictionary *description = responseObject[@"description"];
+                                         self.text = description[@"text"];
                                          
                                          [self.tableView reloadData];
                                          

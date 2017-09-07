@@ -11,14 +11,15 @@
 @interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property UIAlertController *alertController;
-@property NSString *date;
-@property NSString *telop;
-@property NSString *text;
-@property NSData *iconImageUrl;
+@property (nonatomic, strong) UIAlertController *alertController;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *telop;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSData *iconImageUrl;
 
 // メソッドを定義
 - (void)setTableView;
 - (void)setAlertController;
+- (IBAction)outputWeatherForecastButton:(id)sender;
 @end
 
