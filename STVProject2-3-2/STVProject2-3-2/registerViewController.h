@@ -13,23 +13,26 @@
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITextField *registerTextField;
 @property (weak, nonatomic) IBOutlet UITextView *registerTextView;
-@property UIAlertController * registerAlertController;
-@property UIAlertController * doneAlertController;
+@property (strong, nonatomic) UIAlertController * registerAlertController;
+@property (strong, nonatomic) UIAlertController * doneAlertController;
 
 // DBカラム関連プロパティ
-@property int todo_id;
-@property NSString *todo_title;
-@property NSString *todo_contents;
-@property NSString *created;
-@property NSString *modified;
-@property NSString *limit_date;
-@property NSString *delete_flg;
+@property  (nonatomic) int todo_id;
+@property  (strong, nonatomic) NSString *todo_title;
+@property  (strong, nonatomic) NSString *todo_contents;
+@property  (strong, nonatomic) NSString *created;
+@property  (strong, nonatomic) NSString *modified;
+@property  (strong, nonatomic) NSString *limit_date;
+@property  (strong, nonatomic) NSString *delete_flg;
 
 // メソッドを定義
 - (int)addTodo_id;
 - (NSString *)getCreated;
 - (NSString *)getLimit_date;
-- (NSString *)getDelete_flg;
 - (void)createAleart;
 - (void)registerAction;
+- (IBAction)resisterButton:(id)sender;
+- (IBAction)backButton:(id)sender;
+- (IBAction)backgroundKeyboard:(id)sender;
+
 @end

@@ -19,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // 初回起動かを確認
+        // 初回起動かを確認
     if ([self CheckRunfirstTime]) {
         // 初回起動の場合、DBにテーブルを作成
         NSLog(@"初回起動です。");
@@ -29,11 +29,13 @@
     [self setupTableView];
     
 }
+
 // ロード後に毎回、セルの数を決定、リロードをかける
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:YES];
     
-    // セルの数を決定する
+    // セルの数を決定する(初期化をしてから)
+    self.cellCount = 0;
     self.cellCount = [self countId];
     // テーブルをリロード
     [self.tableView reloadData];
@@ -106,10 +108,6 @@
     // デリゲート接続
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    // セルの高さをセル内のレイアウトに準拠するように設定
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
-    // セルの最低限の高さを設定
-    //self.tableView.estimatedRowHeight = 60.0;
 }
 
 // セルの数（必須メソッド）
@@ -129,18 +127,19 @@
     // DBの呼び出し
     FMDatabase *db = [self connectDataBase:@"test.db"];
     
-    //select文の作成
+    //select文の作成（DB内のデータをlimit_dateカラムに準ずる形で並べ替えて取り出す）
     // どのDBからデータを取得するかを指定
-    NSString *select = [[NSString alloc] initWithFormat:@"SELECT * from tr_todo"];
+    NSString *select = [[NSString alloc] initWithFormat:@"SELECT * from tr_todo order by limit_date asc"];
     
     // DBを開く
     [db open];
+    
     // FMResultSetにDB先をセット
     FMResultSet *resultSet = [db executeQuery:select];
     
     //　カラムtodo_title,limit_dateの値を格納する配列を用意
-    NSMutableArray *titleList = [[NSMutableArray alloc]init];
-    NSMutableArray *limit_dateList = [[NSMutableArray alloc]init];
+    NSMutableArray *titleList = [@[] mutableCopy];
+    NSMutableArray *limit_dateList = [@[] mutableCopy];
     
     // nilが出るまでtodo_idに任意のカラムから値を取得し続ける
     while([resultSet next]) {
@@ -150,16 +149,12 @@
         NSString *limit = [resultSet stringForColumn:@"limit_date"];
         [limit_dateList addObject:limit];
     }
-    
     // DBを閉じる
     [db close];
     
-    // 多次元配列を作る
-    NSMutableArray *titleAndDaysList = @[titleList,limit_dateList];
-    
     // セルの番号に合わせて配列からテキストを入れていく
-    titleLabel.text = titleAndDaysList[0][indexPath.row];
-    limit_dateLabel.text = titleAndDaysList[1][indexPath.row];
+    titleLabel.text = titleList[indexPath.row];
+    limit_dateLabel.text = [[NSString alloc] initWithFormat:@"期限日：%@", limit_dateList[indexPath.row]];
     
     // セルを実装
     return cell;
@@ -169,4 +164,5 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 80;
 }
+
 @end
