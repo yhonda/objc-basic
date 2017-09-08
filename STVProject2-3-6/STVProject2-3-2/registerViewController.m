@@ -19,14 +19,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // デリゲート接続
     self.registerTextField.delegate = self;
     self.registerTextView.delegate = self;
-   
+    
     // アラートを作成
     [self createAleart];
-    
 }
 
 // 初回起動時に呼ぶ（初期IDを決める）
@@ -86,18 +84,13 @@
     return [format stringFromDate:futureDate];
 }
 
-// Delete_flgを返すメソッド
-- (NSString *)getDelete_flg {
-    return @"OFF";
-}
-
 // タイトル空欄時に表示するアラートを作成
 - (void)createAleart {
     //アラートコントローラーの生成
     self.registerAlertController = [UIAlertController
-                            alertControllerWithTitle:@"未入力"
-                            message:@"タイトルの入力は必須です。"
-                            preferredStyle:UIAlertControllerStyleAlert];
+                                    alertControllerWithTitle:@"未入力"
+                                    message:@"タイトルの入力は必須です。"
+                                    preferredStyle:UIAlertControllerStyleAlert];
     
     self.doneAlertController = [UIAlertController alertControllerWithTitle:@"登録完了" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
@@ -110,11 +103,11 @@
     
     // 閉じるボタン（処理：一覧画面に戻る）を用意
     UIAlertAction *backTopButton = [UIAlertAction
-                                           actionWithTitle:@"閉じる"
-                                           style:UIAlertActionStyleDefault
-                                           handler:^(UIAlertAction * action) {
-                                               [self dismissViewControllerAnimated:YES completion:nil];
-                                           }];
+                                    actionWithTitle:@"閉じる"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+                                        [self dismissViewControllerAnimated:YES completion:nil];
+                                    }];
     
     // 連続登録ボタン（処理：その画面のまま、テキストをリセット）を用意
     UIAlertAction *continueRegistButton = [UIAlertAction
@@ -126,12 +119,12 @@
                                                // リセット後に再度テキストビューを選択してあげる（何故か処理が遅くなる）
                                                [self.registerTextField becomeFirstResponder];
                                            }];
-
+    
     // 用意したボタンアクションをアラートコントローラーにセット
     [self.registerAlertController addAction:okButton];
     [self.doneAlertController addAction:backTopButton];
     [self.doneAlertController addAction:continueRegistButton];
-
+    
 }
 
 // 登録アクション
@@ -148,9 +141,8 @@
     self.modified = [self getCreated];
     // limit_dateを取得
     self.limit_date = [self getLimit_date];
-    // self.limit_date = @"2017/09/22";
     // delete_flgを設定
-    self.delete_flg = [self getDelete_flg];
+    self.delete_flg = @"OFF";
     // テキストフィールドからタイトルを取得
     self.todo_title = self.registerTextField.text;
     // テキストビューから内容を取得
@@ -160,15 +152,13 @@
     NSString *insert = [[NSString alloc] initWithFormat:@"INSERT INTO tr_todo(todo_id, todo_title, todo_contents, created, modified, limit_date, delete_flg) VALUES('%d', '%@', '%@', '%@', '%@', '%@', '%@')", self.todo_id, self.todo_title, self.todo_contents, self.created, self.modified, self.limit_date, self. delete_flg];
     
     [db open];
-    
     [db executeUpdate:insert];
-    
     [db close];
     
     // 処理完了後、アラートを表示
     [self presentViewController:self.doneAlertController animated:YES completion:nil];
-    
 }
+
 // 登録ボタン
 - (IBAction)resisterButton:(id)sender {
     // タイトルが空欄の場合はアラートを出し、問題がなければ登録アクションの呼び出し

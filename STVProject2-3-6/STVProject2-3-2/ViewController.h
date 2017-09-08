@@ -11,15 +11,11 @@
 @interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 // プロパティ定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property int cellCount;
-@property NSMutableArray *titleAndDaysList;
-
+@property (nonatomic) int cellCount;
 //メソッド定義
 - (void)createFirstTable;
 - (BOOL)CheckRunfirstTime;
 - (void)setupTableView;
 - (int)countId;
 - (id)connectDataBase:(NSString *)dbName;
-- (void)createCellArray;
 @end
-
