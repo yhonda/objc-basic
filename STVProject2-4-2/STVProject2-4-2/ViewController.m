@@ -11,11 +11,12 @@
 
 @interface ViewController ()
 // プロパティを定義
-@property UIAlertController *alertController;
+@property (strong, nonatomic) UIAlertController *alertController;
 // メソッドを定義
 - (void)setAlertController;
-
+- (IBAction)outputWeatherForecastButton:(id)sender;
 @end
+
 //　定数を定義
 // APIのURL
 static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
@@ -50,14 +51,14 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      success:^(NSURLSessionTask *task, id responseObject) {
                                          // json取得に成功した場合の処理
                                          // 予報都市名を取得
-                                         NSDictionary *location = [responseObject objectForKey:@"location"];
-                                         NSString *city = [location objectForKey:@"city"];
+                                         NSDictionary *location = responseObject[@"location"];
+                                         NSString *city = location[@"city"];
                                          
                                          // 当日の予報情報（forecasts）を習得（index番号忘れない）
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][0];
-                                         NSString *date = [forecasts objectForKey:@"date"];
-                                         NSString *dateLabel = [forecasts objectForKey:@"dateLabel"];
-                                         NSString *telop = [forecasts objectForKey:@"telop"];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][0];
+                                         NSString *date = forecasts[@"date"];
+                                         NSString *dateLabel = forecasts[@"dateLabel"];
+                                         NSString *telop = forecasts[@"telop"];
                                          NSLog(@"%@、%@の%@の天気は、%@です。", dateLabel, date, city, telop);
                                          
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -80,14 +81,14 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      success:^(NSURLSessionTask *task, id responseObject) {
                                          // json取得に成功した場合の処理
                                          // 予報都市名を取得
-                                         NSDictionary *location = [responseObject objectForKey:@"location"];
-                                         NSString *city = [location objectForKey:@"city"];
+                                         NSDictionary *location = responseObject[@"location"];
+                                         NSString *city = location[@"city"];
                                          
                                          // 当日の予報情報（forecasts）を習得（index番号忘れない）
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][1];
-                                         NSString *date = [forecasts objectForKey:@"date"];
-                                         NSString *dateLabel = [forecasts objectForKey:@"dateLabel"];
-                                         NSString *telop = [forecasts objectForKey:@"telop"];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][1];
+                                         NSString *date = forecasts[@"date"];
+                                         NSString *dateLabel = forecasts[@"dateLabel"];
+                                         NSString *telop = forecasts[@"telop"];
                                          NSLog(@"%@、%@の%@の天気は、%@です。", dateLabel, date, city, telop);
                                          
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -110,14 +111,14 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      success:^(NSURLSessionTask *task, id responseObject) {
                                          // json取得に成功した場合の処理
                                          // 予報都市名を取得
-                                         NSDictionary *location = [responseObject objectForKey:@"location"];
-                                         NSString *city = [location objectForKey:@"city"];
+                                         NSDictionary *location = responseObject[@"location"];
+                                         NSString *city = location[@"city"];
                                          
                                          // 当日の予報情報（forecasts）を習得（index番号忘れない）
-                                         NSDictionary *forecasts = [responseObject objectForKey:@"forecasts"][2];
-                                         NSString *date = [forecasts objectForKey:@"date"];
-                                         NSString *dateLabel = [forecasts objectForKey:@"dateLabel"];
-                                         NSString *telop = [forecasts objectForKey:@"telop"];
+                                         NSDictionary *forecasts = responseObject[@"forecasts"][2];
+                                         NSString *date = forecasts[@"date"];
+                                         NSString *dateLabel = forecasts[@"dateLabel"];
+                                         NSString *telop = forecasts[@"telop"];
                                          NSLog(@"%@、%@の%@の天気は、%@です。", dateLabel, date, city, telop);
                                          
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
