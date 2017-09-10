@@ -9,17 +9,35 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// プロパティ定義
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *touristSpotList1;
+@property (strong, nonatomic) NSArray *touristSpotList2;
+@property (strong, nonatomic) NSArray *touristSpotList3;
+@property (strong, nonatomic) NSArray *touristSpotList4;
+@property (strong, nonatomic) NSArray *touristSpotList5;
+@property (strong, nonatomic) NSArray *sectionNameList;
+// メソッド定義
+- (void)setupCollectionView;
+- (void)getPlistData;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupCollectionView];
+    [self getPlistData];
+}
+
+// collectionviewの設定
+- (void)setupCollectionView {
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
+}
+
+// 表示データの取得
+- (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = [NSBundle mainBundle];
@@ -28,12 +46,19 @@
     //プロパティリストの中身データを取得
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.touristSpotList1 = [dictionary objectForKey:@"touristSpot1"];
-    self.touristSpotList2 = [dictionary objectForKey:@"touristSpot2"];
-    self.touristSpotList3 = [dictionary objectForKey:@"touristSpot3"];
-    self.touristSpotList4 = [dictionary objectForKey:@"touristSpot4"];
-    self.touristSpotList5 = [dictionary objectForKey:@"touristSpot5"];
-    self.sectionNameList = [dictionary objectForKey:@"sectionName"];
+    self.touristSpotList1 = @[];
+    self.touristSpotList2 = @[];
+    self.touristSpotList3 = @[];
+    self.touristSpotList4 = @[];
+    self.touristSpotList5 = @[];
+    self.sectionNameList = @[];
+    
+    self.touristSpotList1 = dictionary[@"touristSpot1"];
+    self.touristSpotList2 = dictionary[@"touristSpot2"];
+    self.touristSpotList3 = dictionary[@"touristSpot3"];
+    self.touristSpotList4 = dictionary[@"touristSpot4"];
+    self.touristSpotList5 = dictionary[@"touristSpot5"];
+    self.sectionNameList = dictionary[@"sectionName"];
 }
 
 // セクションの数を指定
@@ -95,7 +120,6 @@
     }
     // セルの実装
     return cell;
-    
 }
 
 // セルの大きさを指定
