@@ -11,7 +11,14 @@
 #import "registerViewController.h"
 
 @interface ViewController ()
-
+// プロパティ定義
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) int cellCount;
+//メソッド定義
+- (void)createFirstTable;
+- (BOOL)CheckRunfirstTime;
+- (void)setupTableView;
+- (int)countId;
 @end
 
 @implementation ViewController
