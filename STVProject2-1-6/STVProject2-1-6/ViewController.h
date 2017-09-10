@@ -10,14 +10,6 @@
 
 // デリゲート接続
 @interface ViewController : UIViewController <UIWebViewDelegate>
-// プロパティを宣言
-@property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) UIAlertController *alertController;
-// メソッドを定義
-- (void)createAleartController;
-- (void)setWebView;
-- (IBAction)goBackButton:(id)sender;
-- (IBAction)reloadButton:(id)sender;
-- (IBAction)goForwardButton:(id)sender;
+
 @end
 

@@ -9,6 +9,15 @@
 #import "ViewController.h"
 
 @interface ViewController()
+// プロパティを宣言
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) UIAlertController *alertController;
+// メソッドを定義
+- (void)createAleartController;
+- (void)setWebView;
+- (IBAction)goBackButton:(id)sender;
+- (IBAction)reloadButton:(id)sender;
+- (IBAction)goForwardButton:(id)sender;
 
 @end
 
@@ -16,11 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self createAleartController];
-    
     [self setWebView];
-    
 }
 
 // オフライン時に表示するアラートの作成
