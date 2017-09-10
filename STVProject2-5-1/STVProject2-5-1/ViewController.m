@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// メソッドを定義
+- (IBAction)sendMailButton:(id)sender;
 @end
 
 @implementation ViewController

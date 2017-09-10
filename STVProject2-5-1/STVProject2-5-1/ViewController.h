@@ -12,7 +12,5 @@
 
 // デリゲートを接続
 @interface ViewController : UIViewController <MFMailComposeViewControllerDelegate>
-// メソッドを定義
-- (IBAction)sendMailButton:(id)sender;
 
 @end
