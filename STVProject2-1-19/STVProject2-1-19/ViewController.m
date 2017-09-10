@@ -10,7 +10,10 @@
 #import "SecondViewController.h"
 
 @interface ViewController ()
-
+// プロパティを定義
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+// メソッドを定義
+- (IBAction)keyBoardClose:(id)sender;
 @end
 
 @implementation ViewController

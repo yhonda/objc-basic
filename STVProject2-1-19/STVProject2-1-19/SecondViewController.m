@@ -9,7 +9,8 @@
 #import "SecondViewController.h"
 
 @interface SecondViewController ()
-
+// プロパティを定義
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
 @end
 
 @implementation SecondViewController

@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UITextFieldDelegate>
-// プロパティを定義
-@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 

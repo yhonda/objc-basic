@@ -10,7 +10,6 @@
 
 @interface SecondViewController : UIViewController
 // 受け取り用ラベルのプロパティを定義
-@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
-@property NSString *receiveString;
+@property (strong, nonatomic) NSString *receiveString;
 
 @end
