@@ -10,8 +10,20 @@
 #import "AFNetworking.h"
 
 @interface ViewController ()
+// プロパティを定義
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) UIAlertController *alertController;
+@property (nonatomic, strong) NSString *date;
+@property (nonatomic, strong) NSString *telop;
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSData *iconImageUrl;
 
+// メソッドを定義
+- (void)setTableView;
+- (void)setAlertController;
+- (IBAction)outputWeatherForecastButton:(id)sender;
 @end
+
 // APIのURL用の定数を用意
 static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservice/json/v1?city=130010";
 
@@ -113,7 +125,6 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          NSData *data = [NSData dataWithContentsOfURL:url];
                                          self.iconImageUrl = data;
                                          
-                                         //self.iconImageUrl =
                                          // 天気概況文を取得
                                          NSDictionary *description = responseObject[@"description"];
                                          self.text = description[@"text"];
@@ -141,6 +152,7 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          // json取得に成功した場合の処理
                                          // テーブルビューデリゲートメソッドをセット
                                          [self setTableView];
+                                         
                                          // forecastパラメータを取得
                                          NSDictionary *forecasts = responseObject[@"forecasts"][2];
                                          // 日付を取得
@@ -154,7 +166,6 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                          NSData *data = [NSData dataWithContentsOfURL:url];
                                          self.iconImageUrl = data;
                                          
-                                         //self.iconImageUrl =
                                          // 天気概況文を取得
                                          NSDictionary *description = responseObject[@"description"];
                                          self.text = description[@"text"];
