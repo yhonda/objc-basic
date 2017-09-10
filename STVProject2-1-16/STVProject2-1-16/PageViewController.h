@@ -10,9 +10,5 @@
 
 // デリゲートを接続（UIPageViewController自体に関する設定はストーリーボードで）
 @interface PageViewController : UIPageViewController <UIPageViewControllerDelegate,UIPageViewControllerDataSource>
-// プロパティを定義
-@property NSArray *viewControllerList;
-@property UIViewController *viewcontroller;
-@property int viewControllerIndex;
 
 @end
