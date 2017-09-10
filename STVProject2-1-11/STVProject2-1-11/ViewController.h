@@ -10,11 +10,6 @@
 
 // デリゲート接続
 @interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
-// プロパティを定義
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property NSArray *sectionNameList;
-@property NSArray *cellImageList;
-@property NSArray *cellTextList;
-@property NSDictionary *plistDictionary;
+
 @end
 
