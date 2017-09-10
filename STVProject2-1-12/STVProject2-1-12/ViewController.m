@@ -9,18 +9,31 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// プロパティ宣言
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) NSArray *cellImageList;
+// メソッド定義
+- (void)setupCollectionView;
+- (void)getPlistData;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [self setupCollectionView];
+    [self getPlistData];
+}
+
+// collectionviewの設定
+- (void)setupCollectionView {
     // デリゲートを接続
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
-    
+}
+
+// 表示データを取得
+- (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = [NSBundle mainBundle];
@@ -29,8 +42,8 @@
     //プロパティリストの中身データを取得
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.cellImageList = [dictionary objectForKey:@"cellImageName"];
-    
+    self.cellImageList = @[];
+    self.cellImageList = dictionary[@"cellImageName"];
 }
 
 // セルの数を指定（必須）
@@ -44,7 +57,7 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     // ストーリーボードのimageviewと接続
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:1];
+    UIImageView *imageView = [cell viewWithTag:1];
     // imageviewにplistから取得した画像を順に設定していく
     imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
     // セルの実装

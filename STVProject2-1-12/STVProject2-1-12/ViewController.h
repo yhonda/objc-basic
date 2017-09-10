@@ -10,9 +10,6 @@
 
 // デリゲート接続
 @interface ViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
-// プロパティ宣言
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property NSArray *cellImageList;
 
 @end
 
