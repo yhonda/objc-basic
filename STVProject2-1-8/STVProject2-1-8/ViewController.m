@@ -9,7 +9,14 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// プロパティを定義
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UIButton *pickerHiddenButton;
+@property (strong, nonatomic) NSArray *userAgeChoice;
+// メソッドを定義
+- (void)setupPickerView;
+- (IBAction)pickerHiddenAction:(id)sender;
 @end
 
 @implementation ViewController
