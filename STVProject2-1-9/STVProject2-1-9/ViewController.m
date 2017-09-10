@@ -26,9 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUpDateLabel];
-    
     [self settingTodaydate];
 }
 
