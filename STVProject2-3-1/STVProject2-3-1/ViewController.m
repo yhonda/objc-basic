@@ -9,7 +9,12 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// プロパティをを定義
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+// メソッドを定義
+- (void)createNewData;
+- (BOOL)CheckRunfirstTime;
+- (IBAction)outputSaveDataButton:(id)sender;
 @end
 
 @implementation ViewController
