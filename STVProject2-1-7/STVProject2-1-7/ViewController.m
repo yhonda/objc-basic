@@ -9,7 +9,10 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+// プロパティを定義
+@property (weak, nonatomic) IBOutlet UITextField *textField;
+// メソッドを定義
+- (IBAction)tapBackground:(id)sender;
 @end
 
 // 最大入力文字数の定数を用意
