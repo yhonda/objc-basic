@@ -27,9 +27,6 @@
 }
 
 - (void)setupTableView {
-    // デリゲート接続
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの最低限の高さを設定
@@ -60,16 +57,11 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // インスタンス化
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    // ストーリーボードのラベルをインスタンス化
-    UILabel *label = [cell viewWithTag:1];
-    // ラベルの行数設定を無制限にする
-    label.numberOfLines = 0;
-    // ラベルテキストをセット
-    label.text = self.cellTextList[indexPath.row];
-    // ストーリーボードのイメージビューをインスタンス化
-    UIImageView *imageView = [cell viewWithTag:2];
-    // 画像をセット
-    imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
+    
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.text = self.cellTextList[indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
+    
     // セルを実装
     return cell;
 }
