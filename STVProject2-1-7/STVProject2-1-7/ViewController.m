@@ -50,7 +50,7 @@ static int const maxTextLength = 30;
     [inputedText replaceCharactersInRange:range withString:string];
     
     // 入力中のテキストが30を超えたらそれ以上の入力を無効にする
-    if ([inputedText length] > maxTextLength) {
+    if (inputedText.length > maxTextLength) {
         NSLog(@"%d文字以上は入力できません。", maxTextLength);
         return NO;
     }
