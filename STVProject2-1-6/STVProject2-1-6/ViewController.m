@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import <SafariServices/SafariServices.h>
 
 @interface ViewController()
 // プロパティを宣言
@@ -32,10 +33,10 @@
 // オフライン時に表示するアラートの作成
 - (void)createAleartController {
     
-    self.alertController = [UIAlertController alertControllerWithTitle:@"通信エラー" message:@"通信がオフラインです。\n通信環境を確認してください。" preferredStyle:UIAlertControllerStyleAlert];
+    self.alertController = [UIAlertController alertControllerWithTitle:@"通信エラー" message:@"通信エラーが発生しました。\n通信環境を確認してください。" preferredStyle:UIAlertControllerStyleAlert];
     // アラートボタンとそのアクションを設定
     UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-        NSLog(@"現在オフラインです。");
+        NSLog(@"通信エラーが発生しました。");
     }
                                ];
     // アラートコントローラーにアラートをセット
@@ -67,9 +68,34 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-// データ通信が不可能（オフライン）の場合、アラートを表示する
+// エラーの場合、エラーコードに応じてアラートを表示する（リクエストキャンセルはエラーにしたくない）
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    [self presentViewController:self.alertController animated:YES completion:nil];
+    // リクエストキャンセルのエラー以外は全てアラートを出す。
+    if ([error code] != NSURLErrorCancelled) {
+        //エラー処理
+        [self presentViewController:self.alertController animated:YES completion:nil];
+    }
+}
+
+// 通信開始時のチェック
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    
+    NSURL *url = request.URL;
+    NSLog(@"%@", url);
+    
+    // httpsの場合はアクセス許可
+    if ([url.scheme isEqualToString:@"https"]) {
+        return YES;
+    }
+    
+    // httpのアドレスの場合は、サファリに飛ばす
+    if ([SFSafariViewController class]) {
+        SFSafariViewController *safariViewController = [[SFSafariViewController alloc] initWithURL:url];
+        [self presentViewController:safariViewController animated:YES completion:nil];
+    } else {
+        [[UIApplication sharedApplication] canOpenURL:url];
+    }
+    return NO;
 }
 
 //　戻るボタン、押すとデリゲートメソッドの「goBack」を呼び出す
