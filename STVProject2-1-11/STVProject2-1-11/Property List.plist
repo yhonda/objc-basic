@@ -4,9 +4,9 @@
 <dict>
 	<key>travelOceaniaImageName</key>
 	<array>
-		<string>エアーズロック</string>
-		<string>ボラボラ島</string>
-		<string>オペラハウス</string>
+		<string>AyersRock</string>
+		<string>BoraBora</string>
+		<string>OperaHouse</string>
 	</array>
 	<key>travelOceaniaExplainText</key>
 	<array>
@@ -19,9 +19,9 @@
 	</array>
 	<key>travelEuropeImageName</key>
 	<array>
-		<string>モンサンミッシェル</string>
-		<string>コロッセオ</string>
-		<string>バッキンガム宮殿</string>
+		<string>MontSaintMichel</string>
+		<string>Colosseum</string>
+		<string>BuckinghamPalace</string>
 	</array>
 	<key>travelEuropeExplainText</key>
 	<array>
@@ -34,9 +34,9 @@
 	</array>
 	<key>traveAfurikalImageName</key>
 	<array>
-		<string>テーブルマウンテン</string>
-		<string>三大ピラミッド</string>
-		<string>ヴィクトリアの滝</string>
+		<string>TableMountain</string>
+		<string>TheThreeGreatPyramids</string>
+		<string>VictoriaFalls</string>
 	</array>
 	<key>travelAfurikaExplainText</key>
 	<array>
@@ -49,9 +49,9 @@
 	</array>
 	<key>traveAmerikalImageName</key>
 	<array>
-		<string>グランドキャニオン</string>
-		<string>アルカトラズ島</string>
-		<string>マチュピチュ</string>
+		<string>GrandCanyon</string>
+		<string>AlcatrazIsland</string>
+		<string>MachuPicchu</string>
 	</array>
 	<key>travelAmerikaExplainText</key>
 	<array>
@@ -72,9 +72,9 @@
 	</array>
 	<key>traveAsialImageName</key>
 	<array>
-		<string>アンコールワット</string>
-		<string>タージマハル</string>
-		<string>ハロン湾</string>
+		<string>AngkorWat</string>
+		<string>TajMahal</string>
+		<string>HalongBay</string>
 	</array>
 	<key>travelAsiaExplainText</key>
 	<array>
