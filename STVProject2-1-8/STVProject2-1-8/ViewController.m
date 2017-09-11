@@ -17,31 +17,21 @@
 // メソッドを定義
 - (void)setupPickerView;
 - (IBAction)pickerHiddenAction:(id)sender;
+- (IBAction)labelTouch:(id)sender;
+- (IBAction)backgroundTouch:(id)sender;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setupPickerView];
-    
-    // ラベルのタッチイベントを取得するための設定
-    self.resultLabel.userInteractionEnabled = YES;
-    self.resultLabel.tag = 1;
-    
 }
 
 // ピッカーを用意する
 - (void)setupPickerView {
-    // デリゲートと接続
-    self.pickerView.delegate = self;
-    self.pickerView.dataSource = self;
     // ピッカーの選択肢をインスタンス化
     self.userAgeChoice = @[@"10代", @"20代", @"30代", @"40代", @"50代"];
-    // ピッカーとdoneボタンを隠しておく
-    self.pickerView.hidden = YES;
-    self.pickerHiddenButton.hidden = YES;
 }
 
 // デリゲートメソッドの実装
@@ -71,22 +61,24 @@
     self.resultLabel.text = [NSString stringWithFormat:@"私の年齢は%@です。", self.userAgeChoice[row]];
 }
 
-// ラベルタッチイベントの取得
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    // 受け取ったタッチイベントをインスタンス化
-    UITouch *touch = [[event allTouches] anyObject];
+// ラベルタッチイベント
+- (IBAction)labelTouch:(id)sender {
     
-    // 取得したタッチイベントviewのタグがラベルに設定した値の場合、pickerviewとdoneボタンを出し、それ以外の場合pickerviewとdoneボタンを非表示にする（pickerview部分にはタッチ判定がない？）
-    if (touch.view.tag == self.resultLabel.tag) {
-        if ([self.resultLabel.text  isEqual: @"年層を選択してください"]) {
-            self.resultLabel.text = [NSString stringWithFormat:@"私の年齢は%@です。", self.userAgeChoice[0]];
-        }
+    // 初期のテキスト表示
+    if ([self.resultLabel.text  isEqual: @"年層を選択してください"]) {
+        self.resultLabel.text = [NSString stringWithFormat:@"私の年齢は%@です。", self.userAgeChoice[0]];
+    }
+    // ピッカーと閉じるボタンが非表示の場合表示する
+    if ((self.pickerView.hidden = YES) && (self.pickerHiddenButton.hidden = YES)) {
         self.pickerView.hidden = NO;
         self.pickerHiddenButton.hidden = NO;
-    } else {
-        self.pickerView.hidden = YES;
-        self.pickerHiddenButton.hidden = YES;
     }
+}
+
+// 背景のタッチでピッカーを非表示にする（ラベルタッチより階層が下という認識です）
+- (IBAction)backgroundTouch:(id)sender {
+    self.pickerView.hidden = YES;
+    self.pickerHiddenButton.hidden = YES;
 }
 
 // Doneボタンアクション、pickerviewとdoneボタンを非表示にする
