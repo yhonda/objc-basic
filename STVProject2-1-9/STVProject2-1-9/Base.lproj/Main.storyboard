@@ -22,13 +22,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu9-ga-EcF">
+                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lu9-ga-EcF">
                                 <rect key="frame" x="50" y="122.5" width="275" height="23"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LzU-lH-vOx" appends="YES" id="cTO-2K-D4u"/>
+                                </connections>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-cT-OZl">
+                            <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-cT-OZl">
                                 <rect key="frame" x="0.0" y="233.5" width="375" height="133"/>
                                 <date key="date" timeIntervalSinceReferenceDate="525243539.78863698">
                                     <!--2017-08-24 04:58:59 +0000-->
@@ -37,7 +41,7 @@
                                     <action selector="dateChangedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="sKy-jp-MjR"/>
                                 </connections>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-2C-bHt">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofn-2C-bHt">
                                 <rect key="frame" x="295" y="198.5" width="75" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="wa1-aE-ULB"/>
@@ -50,6 +54,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bBH-cT-OZl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="A6U-55-huQ"/>
                             <constraint firstItem="bBH-cT-OZl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="PKf-gy-RGV"/>
@@ -63,6 +68,9 @@
                             <constraint firstItem="lu9-ga-EcF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lse-lW-9nC"/>
                             <constraint firstAttribute="trailing" secondItem="Ofn-2C-bHt" secondAttribute="trailing" constant="5" id="srt-2W-tzk"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="JuF-8u-oru" appends="YES" id="fNm-Kn-bGZ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="lu9-ga-EcF" id="ddy-qe-7Tr"/>
@@ -71,6 +79,16 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LzU-lH-vOx">
+                    <connections>
+                        <action selector="touchLabel:" destination="BYZ-38-t0r" id="Irz-To-bAL"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="JuF-8u-oru">
+                    <connections>
+                        <action selector="touchBackground:" destination="BYZ-38-t0r" id="Mbu-hZ-muA"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
