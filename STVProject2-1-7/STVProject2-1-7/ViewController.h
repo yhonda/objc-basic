@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 // デリゲートを接続
-@interface ViewController : UIViewController<UITextFieldDelegate>
+@interface ViewController : UIViewController <UITextFieldDelegate>
 
 @end
 

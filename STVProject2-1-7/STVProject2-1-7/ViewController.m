@@ -22,8 +22,6 @@ static int const maxTextLength = 30;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // デリゲートを接続
-    self.textField.delegate = self;
 }
 
 // 入力開始後のみテキストをチェックし、空欄の場合はリターンキーを非活性にする
@@ -53,7 +51,7 @@ static int const maxTextLength = 30;
     
     // 入力中のテキストが30を超えたらそれ以上の入力を無効にする
     if ([inputedText length] > maxTextLength) {
-        NSLog(@"30文字以上は入力できません。");
+        NSLog(@"%d文字以上は入力できません。", maxTextLength);
         return NO;
     }
     return YES;
