@@ -16,9 +16,6 @@
 @property (strong, nonatomic) NSArray *userAgeChoice;
 // メソッドを定義
 - (void)setupPickerView;
-- (IBAction)pickerHiddenAction:(id)sender;
-- (IBAction)labelTouch:(id)sender;
-- (IBAction)backgroundTouch:(id)sender;
 @end
 
 @implementation ViewController
@@ -57,13 +54,11 @@
 
 // 選択されたpickerviewを取得
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    
     self.resultLabel.text = [NSString stringWithFormat:@"私の年齢は%@です。", self.userAgeChoice[row]];
 }
 
 // ラベルタッチイベント
 - (IBAction)labelTouch:(id)sender {
-    
     // 初期のテキスト表示
     if ([self.resultLabel.text  isEqual: @"年層を選択してください"]) {
         self.resultLabel.text = [NSString stringWithFormat:@"私の年齢は%@です。", self.userAgeChoice[0]];
@@ -75,14 +70,8 @@
     }
 }
 
-// 背景のタッチでピッカーを非表示にする（ラベルタッチより階層が下という認識です）
-- (IBAction)backgroundTouch:(id)sender {
-    self.pickerView.hidden = YES;
-    self.pickerHiddenButton.hidden = YES;
-}
-
-// Doneボタンアクション、pickerviewとdoneボタンを非表示にする
-- (IBAction)pickerHiddenAction:(id)sender {
+// タッチでピッカーとDoneボタンを非表示にする
+- (IBAction)closePckerAndDoneButton:(id)sender {
     self.pickerView.hidden = YES;
     self.pickerHiddenButton.hidden = YES;
 }

@@ -47,7 +47,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="pickerHiddenAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CMx-PL-tTy"/>
+                                    <action selector="closePckerAndDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MEy-oP-CvZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -84,7 +84,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="PTI-rV-fbY">
                     <connections>
-                        <action selector="backgroundTouch:" destination="BYZ-38-t0r" id="6z6-0a-DHe"/>
+                        <action selector="closePckerAndDoneButton:" destination="BYZ-38-t0r" id="INn-0u-Eu9"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
