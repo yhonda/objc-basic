@@ -27,7 +27,7 @@
 
 // pageviewcontrollerの用意、設定
 -(void)setupPageviewController {
-    //　pageviewcontrollerのデリゲートを接続
+    //　pageviewcontrollerのデリゲートを接続(ストーリーボードではできないかもしれない)
     self.delegate = self;
     self.dataSource = self;
     
@@ -63,8 +63,10 @@
     // 現在のタグから-1し、その番号に応じたUIViewControllerを配列から取り出し、表示する（タグをつけ直すのを忘れずに）
     self.viewControllerIndex--;
     
+    // タグ番号に応じたコントローラーを配列から取り出す
     self.viewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:self.viewControllerList[self.viewControllerIndex]];
     
+    // 取り出した新しいコントローラーにタグ番号をふる
     self.viewcontroller.view.tag = self.viewControllerIndex;
     
     // 新たに取り出したUIViewControllerを表示する
@@ -81,13 +83,14 @@
     self.viewControllerIndex++;
     
     // タグが、用意したUIViewControllerの数以上または読み込めなかった場合は、nilを返す（ページングできないようにする）
-    
     if ( (self.viewControllerIndex >= self.viewControllerList.count) || (self.viewControllerIndex == NSNotFound) ) {
         return nil;
     }
     
+    // タグ番号に応じたコントローラーを配列から取り出す
     self.viewcontroller = [self.storyboard instantiateViewControllerWithIdentifier:self.viewControllerList[self.viewControllerIndex]];
     
+    // 取り出した新しいコントローラーにタグ番号をふる
     self.viewcontroller.view.tag = self.viewControllerIndex;
     
     // 新たに取り出したUIViewControllerを表示する
