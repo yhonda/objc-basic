@@ -22,21 +22,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupTableView];
     [self getPlistData];
+    [self setupTableView];
 }
 
 - (void)setupTableView {
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの最低限の高さを設定
-    self.tableView.estimatedRowHeight = 60.0;
+    self.tableView.estimatedRowHeight = 100.0;
 }
 
 - (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = NSBundle.mainBundle;
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
@@ -59,6 +59,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
     cell.textLabel.numberOfLines = 0;
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.text = self.cellTextList[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
     
