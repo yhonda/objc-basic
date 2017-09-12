@@ -18,7 +18,7 @@
 @end
 
 // 起動時にアクセスするURL
-static NSString *const openUrl = @"http://www.yahoo.co.jp";
+static NSString *const OpenUrl = @"http://www.yahoo.co.jp";
 
 @implementation ViewController
 
@@ -52,7 +52,7 @@ static NSString *const openUrl = @"http://www.yahoo.co.jp";
 // webViewの初期設定
 - (void)setWebView {
     // url用のインスタンスを生成(https~が推奨)
-    NSURL *url = [NSURL URLWithString:openUrl];
+    NSURL *url = [NSURL URLWithString:OpenUrl];
     // リクエスト用のインスタンスにurlをセット
     NSURLRequest *reqest = [NSURLRequest requestWithURL:url];
     // webviewにリクエストを投げる
