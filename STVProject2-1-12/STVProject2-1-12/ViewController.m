@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *cellImageList;
 // メソッド定義
-- (void)setupCollectionView;
 - (void)getPlistData;
 @end
 
@@ -21,22 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCollectionView];
     [self getPlistData];
-}
-
-// collectionviewの設定
-- (void)setupCollectionView {
-    // デリゲートを接続
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
 }
 
 // 表示データを取得
 - (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = NSBundle.mainBundle;
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
@@ -67,7 +58,15 @@
 // セルの大きさを指定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake((self.collectionView.bounds.size.width/3)-(self.collectionView.bounds.size.width/12), (self.collectionView.bounds.size.width/3)-(self.collectionView.bounds.size.width/12));
+    // 大きさ比率調整用の変数を定義
+    int divisionNumber = 4;
+    // 幅と高さに使用する変数を用意
+    CGFloat CellSize = 0;
+    CellSize = collectionView.bounds.size.width/divisionNumber;
+    // インスタンスを生成
+    CGSize size = CGSizeMake(CellSize, CellSize);
+
+    return size;
 }
 
 @end
