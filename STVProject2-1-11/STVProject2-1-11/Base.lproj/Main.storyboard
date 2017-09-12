@@ -6,8 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -33,32 +31,13 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HG2-Hv-rIC" id="2nu-3s-pEL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfL-n9-fjH">
-                                                    <rect key="frame" x="109" y="5" width="261" height="86.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qr-cl-2Bn">
-                                                    <rect key="frame" x="19" y="20.5" width="75" height="56"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="8qr-cl-2Bn" secondAttribute="height" multiplier="4:3" id="Cpc-Qj-hw2"/>
-                                                    </constraints>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="NfL-n9-fjH" secondAttribute="trailing" constant="5" id="0PS-Fb-wWI"/>
-                                                <constraint firstItem="NfL-n9-fjH" firstAttribute="top" secondItem="2nu-3s-pEL" secondAttribute="top" constant="5" id="D0l-JP-Je8"/>
-                                                <constraint firstItem="8qr-cl-2Bn" firstAttribute="centerX" secondItem="2nu-3s-pEL" secondAttribute="centerX" multiplier="0.3" id="Xd5-mg-TBp"/>
-                                                <constraint firstAttribute="bottom" secondItem="NfL-n9-fjH" secondAttribute="bottom" constant="5" id="bF9-gv-wfk"/>
-                                                <constraint firstItem="NfL-n9-fjH" firstAttribute="leading" secondItem="8qr-cl-2Bn" secondAttribute="trailing" constant="15" id="hmH-4o-c7n"/>
-                                                <constraint firstItem="8qr-cl-2Bn" firstAttribute="centerY" secondItem="2nu-3s-pEL" secondAttribute="centerY" id="qKX-pN-KTx"/>
-                                                <constraint firstItem="8qr-cl-2Bn" firstAttribute="width" secondItem="2nu-3s-pEL" secondAttribute="width" multiplier="0.2" id="ww8-rO-zsV"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9Tb-MV-DQ4"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="KAf-Gr-cDl"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

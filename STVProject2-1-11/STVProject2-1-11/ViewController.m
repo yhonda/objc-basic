@@ -20,6 +20,17 @@
 - (void)getPlistData;
 @end
 
+// 旅行地方面をenumu定数で用意
+typedef NS_ENUM(NSUInteger, travelPotion) {
+    AsiaPotion = 0,
+    AmerikaPotion,
+    EuropePotion,
+    OceaniaPotion,
+    AfurikaPotion
+};
+// セクションの高さを用意
+static int const CellHeight = 30;
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -30,20 +41,17 @@
 
 // テーブルビューの設定
 - (void)setupTableView {
-    // デリゲート接続
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの基本値の高さを確保
-    self.tableView.estimatedRowHeight = 60.0;
+    self.tableView.estimatedRowHeight = 100.0;
 }
 
 // 表示データの取得
 - (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = NSBundle.mainBundle;
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
@@ -70,7 +78,7 @@
 
 // セクションの高さ
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 30;
+    return CellHeight;
 }
 
 // セルの数（必須メソッド）
@@ -82,32 +90,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // インスタンス化
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    // ストーリーボードのラベルをインスタンス化
-    UILabel *label = [cell viewWithTag:1];
+    
     // ラベルの行数設定を無制限にする
-    label.numberOfLines = 0;
-    // ストーリーボードのイメージビューをインスタンス化
-    UIImageView *imageView = [cell viewWithTag:2];
+    cell.textLabel.numberOfLines = 0;
     
     // セクションのインデックスによって別々のテキストと画像の配列を用意する
     switch (indexPath.section) {
-        case 0:
+        case AsiaPotion:
             self.cellImageList = self.plistDictionary[@"traveAsialImageName"];
             self.cellTextList = self.plistDictionary[@"travelAsiaExplainText"];
             break;
-        case 1:
+        case AmerikaPotion:
             self.cellImageList = self.plistDictionary[@"traveAmerikalImageName"];
             self.cellTextList = self.plistDictionary[@"travelAmerikaExplainText"];
             break;
-        case 2:
+        case EuropePotion:
             self.cellImageList = self.plistDictionary[@"travelEuropeImageName"];
             self.cellTextList = self.plistDictionary[@"travelEuropeExplainText"];
             break;
-        case 3:
+        case OceaniaPotion:
             self.cellImageList = self.plistDictionary[@"travelOceaniaImageName"];
             self.cellTextList = self.plistDictionary[@"travelOceaniaExplainText"];
             break;
-        case 4:
+        case AfurikaPotion:
             self.cellImageList = self.plistDictionary[@"traveAfurikalImageName"];
             self.cellTextList = self.plistDictionary[@"travelAfurikaExplainText"];
             break;
@@ -115,9 +120,9 @@
             break;
     }
     // ラベルテキストをセット
-    label.text = self.cellTextList[indexPath.row];
+    cell.textLabel.text = self.cellTextList[indexPath.row];
     // 画像をセット
-    imageView.image = [UIImage imageNamed: self.cellImageList[indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed: self.cellImageList[indexPath.row]];
     // セルを実装
     return cell;
 }
