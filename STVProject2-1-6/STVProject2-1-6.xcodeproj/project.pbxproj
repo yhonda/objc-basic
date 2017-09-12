@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		455B8F2D1F67A0C900BB6BC5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 455B8F2F1F67A0C900BB6BC5 /* Localizable.strings */; };
 		45DE67E61F4D2172002A165B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE67E51F4D2172002A165B /* main.m */; };
 		45DE67E91F4D2172002A165B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE67E81F4D2172002A165B /* AppDelegate.m */; };
 		45DE67EC1F4D2172002A165B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DE67EB1F4D2172002A165B /* ViewController.m */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		455B8F2E1F67A0C900BB6BC5 /* Base */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		45DE67E11F4D2172002A165B /* STVProject2-1-6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "STVProject2-1-6.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45DE67E51F4D2172002A165B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45DE67E71F4D2172002A165B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				45DE67F81F4D2172002A165B /* Info.plist */,
 				45DE67F01F4D2172002A165B /* STVProject2_1_6.xcdatamodeld */,
 				45DE67E41F4D2172002A165B /* Supporting Files */,
+				455B8F2F1F67A0C900BB6BC5 /* Localizable.strings */,
 			);
 			path = "STVProject2-1-6";
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				45DE67F71F4D2172002A165B /* LaunchScreen.storyboard in Resources */,
+				455B8F2D1F67A0C900BB6BC5 /* Localizable.strings in Resources */,
 				45DE67F41F4D2172002A165B /* Assets.xcassets in Resources */,
 				45DE67EF1F4D2172002A165B /* Main.storyboard in Resources */,
 			);
@@ -318,6 +322,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		455B8F2F1F67A0C900BB6BC5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				455B8F2E1F67A0C900BB6BC5 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		45DE67ED1F4D2172002A165B /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -520,6 +532,7 @@
 				45DE68131F4D2172002A165B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45DE68141F4D2172002A165B /* Build configuration list for PBXNativeTarget "STVProject2-1-6Tests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +541,7 @@
 				45DE68161F4D2172002A165B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45DE68171F4D2172002A165B /* Build configuration list for PBXNativeTarget "STVProject2-1-6UITests" */ = {
 			isa = XCConfigurationList;
@@ -536,6 +550,7 @@
 				45DE68191F4D2172002A165B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
