@@ -34,8 +34,8 @@
                             </label>
                             <datePicker hidden="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-cT-OZl">
                                 <rect key="frame" x="0.0" y="233.5" width="375" height="133"/>
-                                <date key="date" timeIntervalSinceReferenceDate="525243539.78863698">
-                                    <!--2017-08-24 04:58:59 +0000-->
+                                <date key="date" timeIntervalSinceReferenceDate="525240300.78863698">
+                                    <!--2017-08-24 04:05:00 +0000-->
                                 </date>
                                 <connections>
                                     <action selector="dateChangedAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="sKy-jp-MjR"/>
@@ -49,7 +49,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="pickerHiddenAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jiY-as-tWH"/>
+                                    <action selector="closeDatePickerAndDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZRx-d3-Hnh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,7 @@
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="JuF-8u-oru">
                     <connections>
-                        <action selector="touchBackground:" destination="BYZ-38-t0r" id="Mbu-hZ-muA"/>
+                        <action selector="closeDatePickerAndDoneButton:" destination="BYZ-38-t0r" id="Yv4-VG-Ewf"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

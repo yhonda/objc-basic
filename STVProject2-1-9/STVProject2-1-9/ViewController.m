@@ -13,14 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pickerHiddenButton;
-@property (strong, nonatomic) NSDate *todayDate;
 @property (strong, nonatomic) NSDateFormatter *formatter;
 // メソッドを定義
 - (void)settingTodaydate;
-- (IBAction)dateChangedAction:(id)sender;
-- (IBAction)touchLabel:(id)sender;
-- (IBAction)touchBackground:(id)sender;
-- (IBAction)pickerHiddenAction:(id)sender;
 @end
 
 @implementation ViewController
@@ -32,18 +27,18 @@
 
 // 当日の日付を取得し、ラベルに表示
 - (void)settingTodaydate {
-    // 当日の日付を取得
-    self.todayDate = [[NSDate alloc]init];
-    self.todayDate = [NSDate date];
+    // 当日の日付を取得（一度しか使わない場合）
+    NSDate *todaydate = [[NSDate alloc]init];
+    todaydate = [NSDate date];
     
     // 表示用データフォーマットをインスタンス化
     self.formatter = [[NSDateFormatter alloc] init];
     
     // フォーマットに型をセット(時間まで表示する時は、@"M月dd日(E) HH:mm"でModeを変更する)
-    [self.formatter setDateFormat:@"yyyy年M月dd日"];
+    self.formatter.dateFormat = @"yyyy年M月dd日";
     
     // ラベルに当日の日付を反映
-    self.dateLabel.text = [self.formatter stringFromDate:self.todayDate];
+    self.dateLabel.text = [self.formatter stringFromDate:todaydate];
 }
 
 - (IBAction)dateChangedAction:(id)sender {
@@ -58,13 +53,7 @@
 }
 
 // 背景タッチアクション
-- (IBAction)touchBackground:(id)sender {
-    self.datePicker.hidden = YES;
-    self.pickerHiddenButton.hidden = YES;
-}
-
-// Doneボタンアクション
-- (IBAction)pickerHiddenAction:(id)sender {
+- (IBAction)closeDatePickerAndDoneButton:(id)sender {
     self.datePicker.hidden = YES;
     self.pickerHiddenButton.hidden = YES;
 }
