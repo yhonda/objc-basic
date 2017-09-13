@@ -2,38 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>touristSpot3</key>
+	<key>touristSpotEurope</key>
 	<array>
-		<string>グランドキャニオン</string>
-		<string>コロッセオ</string>
+		<string>MontSaintMichel</string>
+		<string>Colosseum</string>
 	</array>
-	<key>touristSpot4</key>
+	<key>touristSpotOceania</key>
 	<array>
-		<string>タージマハル</string>
-		<string>バッキンガム宮殿</string>
+		<string>OperaHouse</string>
+		<string>AyersRock</string>
 	</array>
-	<key>touristSpot5</key>
+	<key>touristSpotAfrica</key>
 	<array>
-		<string>ハロン湾</string>
-		<string>ペトラ遺跡</string>
+		<string>ThreeLargePyramids</string>
+		<string>TableMountain</string>
 	</array>
 	<key>sectionName</key>
 	<array>
-		<string>人気観光地1</string>
-		<string>人気観光地2</string>
-		<string>人気観光地3</string>
-		<string>人気観光地4</string>
-		<string>人気観光地5</string>
+		<string>アジアの観光地</string>
+		<string>アメリカの観光地</string>
+		<string>ヨーロッパの観光地</string>
+		<string>オセアニアの観光地</string>
+		<string>アフリカの観光地</string>
 	</array>
-	<key>touristSpot1</key>
+	<key>touristSpotAsia</key>
 	<array>
-		<string>アルカトラズ島</string>
-		<string>アンコールワット</string>
+		<string>AngkorWat</string>
+		<string>TajMahal</string>
 	</array>
-	<key>touristSpot2</key>
+	<key>touristSpotAmerika</key>
 	<array>
-		<string>マチュピチュ</string>
-		<string>モンサンミッシェル</string>
+		<string>AlcatrazIsland</string>
+		<string>GrandCanyon</string>
 	</array>
 </dict>
 </plist>

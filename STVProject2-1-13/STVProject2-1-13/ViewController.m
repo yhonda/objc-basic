@@ -7,57 +7,65 @@
 //
 
 #import "ViewController.h"
+#import "CustomCollectionViewCell.h"
 
 @interface ViewController ()
 // プロパティ定義
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSArray *touristSpotList1;
-@property (strong, nonatomic) NSArray *touristSpotList2;
-@property (strong, nonatomic) NSArray *touristSpotList3;
-@property (strong, nonatomic) NSArray *touristSpotList4;
-@property (strong, nonatomic) NSArray *touristSpotList5;
+@property (strong, nonatomic) NSArray *touristSpotAsia;
+@property (strong, nonatomic) NSArray *touristSpotAmerika;
+@property (strong, nonatomic) NSArray *touristSpotEurope;
+@property (strong, nonatomic) NSArray *touristSpotOceania;
+@property (strong, nonatomic) NSArray *touristSpotAfrica;
 @property (strong, nonatomic) NSArray *sectionNameList;
 // メソッド定義
-- (void)setupCollectionView;
 - (void)getPlistData;
 @end
+
+// セルの大きさの割合を決める定数を用意
+static double const CellSizeDivisionNumber  = 2.3;
+//　セル画像判別用の変数を定義
+typedef NS_ENUM(NSUInteger, touristSpots) {
+    AsiaSpot = 0,
+    AmerikaSpot,
+    EuropeSpot,
+    OceaniaSpot,
+    AfurikaSpot
+};
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setupCollectionView];
+    UINib *nib = [UINib nibWithNibName:@"CustomCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
     [self getPlistData];
-}
-
-// collectionviewの設定
-- (void)setupCollectionView {
-    self.collectionView.delegate = self;
-    self.collectionView.dataSource = self;
+    
+   
 }
 
 // 表示データの取得
 - (void)getPlistData {
     // セル内のデータを用意
     //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
-    NSBundle *bundle = [NSBundle mainBundle];
+    NSBundle *bundle = NSBundle.mainBundle;
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.touristSpotList1 = @[];
-    self.touristSpotList2 = @[];
-    self.touristSpotList3 = @[];
-    self.touristSpotList4 = @[];
-    self.touristSpotList5 = @[];
+    self.touristSpotAsia = @[];
+    self.touristSpotAmerika = @[];
+    self.touristSpotEurope = @[];
+    self.touristSpotOceania = @[];
+    self.touristSpotAfrica = @[];
     self.sectionNameList = @[];
     
-    self.touristSpotList1 = dictionary[@"touristSpot1"];
-    self.touristSpotList2 = dictionary[@"touristSpot2"];
-    self.touristSpotList3 = dictionary[@"touristSpot3"];
-    self.touristSpotList4 = dictionary[@"touristSpot4"];
-    self.touristSpotList5 = dictionary[@"touristSpot5"];
+    self.touristSpotAsia = dictionary[@"touristSpotAsia"];
+    self.touristSpotAmerika = dictionary[@"touristSpotAmerika"];
+    self.touristSpotEurope = dictionary[@"touristSpotEurope"];
+    self.touristSpotOceania = dictionary[@"touristSpotOceania"];
+    self.touristSpotAfrica = dictionary[@"touristSpotAfrica"];
     self.sectionNameList = dictionary[@"sectionName"];
 }
 
@@ -74,16 +82,19 @@
     UICollectionReusableView* header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"
                                                                                  forIndexPath:indexPath];
     // ストーリーボードのラベルと接続
-    UILabel *label = [header viewWithTag:1];
+    //UILabel *label = [header viewWithTag:1];
     // セクション番号に沿ったセクションネームを持ってくる
-    label.text = self.sectionNameList[indexPath.section];
+    //label.text = self.sectionNameList[indexPath.section];
     // セクションの実装
     return header;
 }
 
 // セクションの高さを設定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
-    return CGSizeMake(self.collectionView.bounds.size.width, 40);
+    CGFloat sectionWidth = self.collectionView.bounds.size.width;
+    CGFloat sectionHeight = 40;
+    CGSize sectionSize = CGSizeMake(sectionWidth, sectionHeight);
+    return sectionSize;
 }
 
 // セルの数を指定（必須）
@@ -94,26 +105,26 @@
 // セルの表示内容を作成（必須）
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
     // ストーリーボードのimageviewと接続
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
+    //UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
     // セクションごとに画像を持ってくる配列を選択する
     switch (indexPath.section) {
-        case 0:
-            imageView.image = [UIImage imageNamed:self.touristSpotList1[indexPath.row]];
+        case AsiaSpot:
+            cell.cellImageView.image = [UIImage imageNamed:self.touristSpotAsia[indexPath.row]];
             break;
-        case 1:
-            imageView.image = [UIImage imageNamed:self.touristSpotList2[indexPath.row]];
+        case AmerikaSpot:
+            cell.cellImageView.image = [UIImage imageNamed:self.touristSpotAmerika[indexPath.row]];
             break;
-        case 2:
-            imageView.image = [UIImage imageNamed:self.touristSpotList3[indexPath.row]];
+        case EuropeSpot:
+            cell.cellImageView.image = [UIImage imageNamed:self.touristSpotEurope[indexPath.row]];
             break;
-        case 3:
-            imageView.image = [UIImage imageNamed:self.touristSpotList4[indexPath.row]];
+        case OceaniaSpot:
+            cell.cellImageView.image = [UIImage imageNamed:self.touristSpotOceania[indexPath.row]];
             break;
-        case 4:
-            imageView.image = [UIImage imageNamed:self.touristSpotList5[indexPath.row]];
+        case AfurikaSpot:
+            cell.cellImageView.image = [UIImage imageNamed:self.touristSpotAfrica[indexPath.row]];
             break;
         default:
             break;
@@ -125,7 +136,9 @@
 // セルの大きさを指定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return CGSizeMake((self.collectionView.bounds.size.width/2)-(self.collectionView.bounds.size.width/15), (self.collectionView.bounds.size.width/2)-(self.collectionView.bounds.size.width/15));
+    CGFloat CellSize = self.collectionView.bounds.size.width/CellSizeDivisionNumber;
+    CGSize size = CGSizeMake(CellSize, CellSize);
+    return size;
 }
 
 @end

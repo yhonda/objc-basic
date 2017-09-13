@@ -17,6 +17,8 @@
 		45010B4F1F51EA0F00D3689E /* STVProject2_1_13Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45010B4E1F51EA0F00D3689E /* STVProject2_1_13Tests.m */; };
 		45010B5A1F51EA0F00D3689E /* STVProject2_1_13UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45010B591F51EA0F00D3689E /* STVProject2_1_13UITests.m */; };
 		45010B681F51FB1D00D3689E /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45010B671F51FB1D00D3689E /* Property List.plist */; };
+		45DB5BC61F69072E00BDDA4B /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */; };
+		45DB5BC71F69072E00BDDA4B /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		45010B591F51EA0F00D3689E /* STVProject2_1_13UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_1_13UITests.m; sourceTree = "<group>"; };
 		45010B5B1F51EA0F00D3689E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45010B671F51FB1D00D3689E /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		45DB5BC31F69072E00BDDA4B /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				45010B351F51EA0F00D3689E /* AppDelegate.m */,
 				45010B371F51EA0F00D3689E /* ViewController.h */,
 				45010B381F51EA0F00D3689E /* ViewController.m */,
+				45DB5BC31F69072E00BDDA4B /* CustomCollectionViewCell.h */,
+				45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */,
+				45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */,
 				45010B3A1F51EA0F00D3689E /* Main.storyboard */,
 				45010B401F51EA0F00D3689E /* Assets.xcassets */,
 				45010B421F51EA0F00D3689E /* LaunchScreen.storyboard */,
@@ -258,6 +266,7 @@
 				45010B441F51EA0F00D3689E /* LaunchScreen.storyboard in Resources */,
 				45010B411F51EA0F00D3689E /* Assets.xcassets in Resources */,
 				45010B681F51FB1D00D3689E /* Property List.plist in Resources */,
+				45DB5BC71F69072E00BDDA4B /* CustomCollectionViewCell.xib in Resources */,
 				45010B3C1F51EA0F00D3689E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +296,7 @@
 				45010B361F51EA0F00D3689E /* AppDelegate.m in Sources */,
 				45010B3F1F51EA0F00D3689E /* STVProject2_1_13.xcdatamodeld in Sources */,
 				45010B331F51EA0F00D3689E /* main.m in Sources */,
+				45DB5BC61F69072E00BDDA4B /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +534,7 @@
 				45010B601F51EA0F00D3689E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45010B611F51EA0F00D3689E /* Build configuration list for PBXNativeTarget "STVProject2-1-13Tests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +543,7 @@
 				45010B631F51EA0F00D3689E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45010B641F51EA0F00D3689E /* Build configuration list for PBXNativeTarget "STVProject2-1-13UITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +552,7 @@
 				45010B661F51EA0F00D3689E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
