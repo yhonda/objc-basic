@@ -32,24 +32,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6my-hG-fXJ">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="6my-hG-fXJ" customClass="CustomCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="133" height="134"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="133" height="134"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Cl-gi-ko2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="133" height="134"/>
-                                                </imageView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="9Cl-gi-ko2" firstAttribute="leading" secondItem="6my-hG-fXJ" secondAttribute="leading" id="Eqv-E3-JEk"/>
-                                            <constraint firstAttribute="trailing" secondItem="9Cl-gi-ko2" secondAttribute="trailing" id="HWX-I3-00I"/>
-                                            <constraint firstItem="9Cl-gi-ko2" firstAttribute="top" secondItem="6my-hG-fXJ" secondAttribute="top" id="Vy0-3s-VVq"/>
-                                            <constraint firstAttribute="bottom" secondItem="9Cl-gi-ko2" secondAttribute="bottom" id="zAJ-0g-QTh"/>
-                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

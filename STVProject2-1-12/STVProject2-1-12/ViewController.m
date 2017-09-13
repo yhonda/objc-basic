@@ -20,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UINib *nib = [UINib nibWithNibName:@"CustomCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
     [self getPlistData];
 }
 
@@ -45,25 +47,20 @@
 // セルの表示内容を作成（必須）
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    // ストーリーボードのimageviewと接続
-    UIImageView *imageView = [cell viewWithTag:1];
-    // imageviewにplistから取得した画像を順に設定していく
-    imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
-    // セルの実装
+    CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    cell.cellImageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
     return cell;
 }
 
 // セルの大きさを指定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    // 大きさ比率調整用の変数を定義
-    int divisionNumber = 4;
+    // 大きさ比率調整用の定数を定義
+    static int const divisionNumber = 4;
     // 幅と高さに使用する変数を用意
     CGFloat CellSize = 0;
     CellSize = collectionView.bounds.size.width/divisionNumber;
-    // インスタンスを生成
+    // インスタンスを生成（セルは正方形とする）
     CGSize size = CGSizeMake(CellSize, CellSize);
 
     return size;

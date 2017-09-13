@@ -17,6 +17,8 @@
 		4576EB1D1F51CBC2008DFB19 /* STVProject2_1_12Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4576EB1C1F51CBC2008DFB19 /* STVProject2_1_12Tests.m */; };
 		4576EB281F51CBC2008DFB19 /* STVProject2_1_12UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4576EB271F51CBC2008DFB19 /* STVProject2_1_12UITests.m */; };
 		4576EB361F51D511008DFB19 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4576EB351F51D510008DFB19 /* Property List.plist */; };
+		45DB5BBC1F68B80E00BDDA4B /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5BBA1F68B80E00BDDA4B /* CustomCollectionViewCell.m */; };
+		45DB5BBD1F68B80E00BDDA4B /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BBB1F68B80E00BDDA4B /* CustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		4576EB271F51CBC2008DFB19 /* STVProject2_1_12UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_1_12UITests.m; sourceTree = "<group>"; };
 		4576EB291F51CBC2008DFB19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4576EB351F51D510008DFB19 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		45DB5BB91F68B80E00BDDA4B /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		45DB5BBA1F68B80E00BDDA4B /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		45DB5BBB1F68B80E00BDDA4B /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +114,9 @@
 				4576EB031F51CBC2008DFB19 /* AppDelegate.m */,
 				4576EB051F51CBC2008DFB19 /* ViewController.h */,
 				4576EB061F51CBC2008DFB19 /* ViewController.m */,
+				45DB5BB91F68B80E00BDDA4B /* CustomCollectionViewCell.h */,
+				45DB5BBA1F68B80E00BDDA4B /* CustomCollectionViewCell.m */,
+				45DB5BBB1F68B80E00BDDA4B /* CustomCollectionViewCell.xib */,
 				4576EB081F51CBC2008DFB19 /* Main.storyboard */,
 				4576EB0E1F51CBC2008DFB19 /* Assets.xcassets */,
 				4576EB101F51CBC2008DFB19 /* LaunchScreen.storyboard */,
@@ -258,6 +266,7 @@
 				4576EB121F51CBC2008DFB19 /* LaunchScreen.storyboard in Resources */,
 				4576EB0F1F51CBC2008DFB19 /* Assets.xcassets in Resources */,
 				4576EB361F51D511008DFB19 /* Property List.plist in Resources */,
+				45DB5BBD1F68B80E00BDDA4B /* CustomCollectionViewCell.xib in Resources */,
 				4576EB0A1F51CBC2008DFB19 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +296,7 @@
 				4576EB0D1F51CBC2008DFB19 /* STVProject2_1_12.xcdatamodeld in Sources */,
 				4576EB041F51CBC2008DFB19 /* AppDelegate.m in Sources */,
 				4576EB011F51CBC2008DFB19 /* main.m in Sources */,
+				45DB5BBC1F68B80E00BDDA4B /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +534,7 @@
 				4576EB2E1F51CBC2008DFB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4576EB2F1F51CBC2008DFB19 /* Build configuration list for PBXNativeTarget "STVProject2-1-12Tests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +543,7 @@
 				4576EB311F51CBC2008DFB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4576EB321F51CBC2008DFB19 /* Build configuration list for PBXNativeTarget "STVProject2-1-12UITests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +552,7 @@
 				4576EB341F51CBC2008DFB19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
