@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--A画面-->
+        <scene sceneID="ZLA-Sx-D4F">
+            <objects>
+                <viewController storyboardIdentifier="ViewController" id="adg-UF-JhX" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NJv-cD-xZt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Fob-CG-1FE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="O1E-lS-y7V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cg-KC-UAT">
+                                <rect key="frame" x="-0.5" y="152" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zLz-Lc-lu3">
+                                <rect key="frame" x="112" y="460.5" width="150" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="GoM-a4-xLM"/>
+                                    <constraint firstAttribute="height" constant="80" id="IxS-v5-piv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="B画面へ"/>
+                                <connections>
+                                    <segue destination="e12-Hj-aei" kind="show" id="ksF-Z2-yoK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.65271947149999998" blue="0.65103722009999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="1cg-KC-UAT" firstAttribute="width" secondItem="O1E-lS-y7V" secondAttribute="width" id="0oH-Sa-nMB"/>
+                            <constraint firstItem="zLz-Lc-lu3" firstAttribute="centerX" secondItem="O1E-lS-y7V" secondAttribute="centerX" id="Ih1-Yo-TZ7"/>
+                            <constraint firstItem="1cg-KC-UAT" firstAttribute="centerY" secondItem="O1E-lS-y7V" secondAttribute="centerY" multiplier="0.5" id="Wjm-4p-sbt"/>
+                            <constraint firstItem="1cg-KC-UAT" firstAttribute="centerX" secondItem="O1E-lS-y7V" secondAttribute="centerX" id="jU9-y0-tEN"/>
+                            <constraint firstItem="zLz-Lc-lu3" firstAttribute="centerY" secondItem="O1E-lS-y7V" secondAttribute="centerY" multiplier="1.5" id="oEZ-uu-vN1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="A画面" id="IKm-yP-4CN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RPM-V2-Sn7" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="137.18140929535232"/>
+        </scene>
+        <!--SecondViewController-->
+        <scene sceneID="QVa-bL-hFM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SecondViewController" referencedIdentifier="SecondViewController" id="e12-Hj-aei" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g33-gu-mip" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="104"/>
+        </scene>
+    </scenes>
+</document>
