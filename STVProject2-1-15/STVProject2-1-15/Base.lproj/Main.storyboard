@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="L7J-HE-V6l">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--電話-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="電話用画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4A-Z4-yCp">
+                                <rect key="frame" x="-0.5" y="121.5" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.78116274204091685" blue="0.7720906237385986" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="J4A-Z4-yCp" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="FeF-Yh-omQ"/>
+                            <constraint firstItem="J4A-Z4-yCp" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="aBN-9e-o2n"/>
+                            <constraint firstItem="J4A-Z4-yCp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zdC-rL-VGP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="電話" image="call" id="Wum-lL-iQK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-870" y="868"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7Wm-Bw-086">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="L7J-HE-V6l" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="gIK-hq-hT3">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bCG-ZV-A9e"/>
+                        <segue destination="GhU-gJ-LY7" kind="relationship" relationship="viewControllers" id="895-lg-Rhn"/>
+                        <segue destination="eY6-7a-z1C" kind="relationship" relationship="viewControllers" id="7ZQ-fL-oNO"/>
+                        <segue destination="fdX-Hy-hX2" kind="relationship" relationship="viewControllers" id="BdY-OL-iEI"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UaG-LD-rxf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+        <!--設定-->
+        <scene sceneID="44q-lO-ch2">
+            <objects>
+                <viewController id="fdX-Hy-hX2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UaJ-g2-fBd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ot5-PS-HQa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dfh-5n-Dfm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="設定用画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gPI-eq-qAr">
+                                <rect key="frame" x="0.0" y="121.5" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.99374920634740227" blue="0.74907271699337341" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="gPI-eq-qAr" firstAttribute="centerX" secondItem="Dfh-5n-Dfm" secondAttribute="centerX" id="E4o-oy-vak"/>
+                            <constraint firstItem="gPI-eq-qAr" firstAttribute="centerY" secondItem="Dfh-5n-Dfm" secondAttribute="centerY" multiplier="0.4" id="FRg-a5-3Wj"/>
+                            <constraint firstItem="gPI-eq-qAr" firstAttribute="width" secondItem="Dfh-5n-Dfm" secondAttribute="width" id="YDB-OV-6AE"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="4" title="設定" image="settig" id="Cnh-75-fnU"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MUm-z5-b9e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="868"/>
+        </scene>
+        <!--検索-->
+        <scene sceneID="qwO-lp-tyG">
+            <objects>
+                <viewController id="eY6-7a-z1C" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xjw-K0-mqM"/>
+                        <viewControllerLayoutGuide type="bottom" id="9DT-lp-AvT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9LO-O2-Ni9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="検索用画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4m7-Rj-epy">
+                                <rect key="frame" x="0.0" y="121.5" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88356937274262592" green="1" blue="0.83164208170804566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4m7-Rj-epy" firstAttribute="centerX" secondItem="9LO-O2-Ni9" secondAttribute="centerX" id="Qqv-g0-BGc"/>
+                            <constraint firstItem="4m7-Rj-epy" firstAttribute="centerY" secondItem="9LO-O2-Ni9" secondAttribute="centerY" multiplier="0.4" id="f2b-93-u0o"/>
+                            <constraint firstItem="4m7-Rj-epy" firstAttribute="width" secondItem="9LO-O2-Ni9" secondAttribute="width" id="iie-Ok-1iJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="3" title="検索" image="seach" id="i8R-Zk-o1Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eVD-u4-7h8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="495" y="868"/>
+        </scene>
+        <!--メール-->
+        <scene sceneID="aoA-EL-udq">
+            <objects>
+                <viewController id="GhU-gJ-LY7" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="r3P-Q3-tLb"/>
+                        <viewControllerLayoutGuide type="bottom" id="naq-tv-uNb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gUd-Z5-GdG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="メール用画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bT-P3-uCZ">
+                                <rect key="frame" x="0.0" y="121.5" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80805410996564619" green="0.99356226336867948" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1bT-P3-uCZ" firstAttribute="centerY" secondItem="gUd-Z5-GdG" secondAttribute="centerY" multiplier="0.4" id="6TL-bB-8Hg"/>
+                            <constraint firstItem="1bT-P3-uCZ" firstAttribute="centerX" secondItem="gUd-Z5-GdG" secondAttribute="centerX" id="asZ-Cl-wa9"/>
+                            <constraint firstItem="1bT-P3-uCZ" firstAttribute="width" secondItem="gUd-Z5-GdG" secondAttribute="width" id="bkk-zz-Ifb"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" title="メール" image="mail" id="AgW-nH-hU2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GB7-km-Zes" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-191" y="868"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="call" width="25" height="25"/>
+        <image name="mail" width="25" height="25"/>
+        <image name="seach" width="25" height="25"/>
+        <image name="settig" width="25" height="25"/>
+    </resources>
+</document>
