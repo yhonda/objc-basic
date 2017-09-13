@@ -17,6 +17,7 @@
 		45B181E41F53FE3B00F92F33 /* STVProject2_1_17Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B181E31F53FE3B00F92F33 /* STVProject2_1_17Tests.m */; };
 		45B181EF1F53FE3B00F92F33 /* STVProject2_1_17UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B181EE1F53FE3B00F92F33 /* STVProject2_1_17UITests.m */; };
 		45B181FE1F53FFF600F92F33 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B181FD1F53FFF600F92F33 /* SecondViewController.m */; };
+		45DB5BD01F692E7500BDDA4B /* Second.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BCF1F692E7500BDDA4B /* Second.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		45B181F01F53FE3B00F92F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B181FC1F53FFED00F92F33 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		45B181FD1F53FFF600F92F33 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		45DB5BCF1F692E7500BDDA4B /* Second.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Second.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				45B181FC1F53FFED00F92F33 /* SecondViewController.h */,
 				45B181FD1F53FFF600F92F33 /* SecondViewController.m */,
 				45B181CF1F53FE3B00F92F33 /* Main.storyboard */,
+				45DB5BCF1F692E7500BDDA4B /* Second.storyboard */,
 				45B181D51F53FE3B00F92F33 /* Assets.xcassets */,
 				45B181D71F53FE3B00F92F33 /* LaunchScreen.storyboard */,
 				45B181DA1F53FE3B00F92F33 /* Info.plist */,
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DB5BD01F692E7500BDDA4B /* Second.storyboard in Resources */,
 				45B181D91F53FE3B00F92F33 /* LaunchScreen.storyboard in Resources */,
 				45B181D61F53FE3B00F92F33 /* Assets.xcassets in Resources */,
 				45B181D11F53FE3B00F92F33 /* Main.storyboard in Resources */,
@@ -526,6 +530,7 @@
 				45B181F51F53FE3B00F92F33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B181F61F53FE3B00F92F33 /* Build configuration list for PBXNativeTarget "STVProject2-1-17Tests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +539,7 @@
 				45B181F81F53FE3B00F92F33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		45B181F91F53FE3B00F92F33 /* Build configuration list for PBXNativeTarget "STVProject2-1-17UITests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +548,7 @@
 				45B181FB1F53FE3B00F92F33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
