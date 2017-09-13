@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--B画面-->
+        <scene sceneID="F1i-in-9f6">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Z4I-Ky-06Y" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="toM-HD-hLi"/>
+                        <viewControllerLayoutGuide type="bottom" id="GQd-78-FAP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YEr-qU-Pct">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="結果" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yXe-Zk-gfg">
+                                <rect key="frame" x="-0.5" y="121.5" width="375" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gad-vJ-KFi">
+                                <rect key="frame" x="0.0" y="154.5" width="375" height="25.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YNm-oi-ncm">
+                                <rect key="frame" x="112.5" y="460.5" width="150" height="80"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="F1l-1i-yGE"/>
+                                    <constraint firstAttribute="height" constant="80" id="MhT-gj-jBe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="Z4I-Ky-06Y" eventType="touchUpInside" id="tD8-uX-27K"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YNm-oi-ncm" firstAttribute="centerX" secondItem="YEr-qU-Pct" secondAttribute="centerX" id="E3E-LD-cbs"/>
+                            <constraint firstItem="gad-vJ-KFi" firstAttribute="width" secondItem="YEr-qU-Pct" secondAttribute="width" id="QxN-UO-QYZ"/>
+                            <constraint firstItem="yXe-Zk-gfg" firstAttribute="width" secondItem="YEr-qU-Pct" secondAttribute="width" id="fpf-Lh-tL3"/>
+                            <constraint firstItem="yXe-Zk-gfg" firstAttribute="centerX" secondItem="YEr-qU-Pct" secondAttribute="centerX" id="gtE-yF-C95"/>
+                            <constraint firstItem="yXe-Zk-gfg" firstAttribute="centerY" secondItem="YEr-qU-Pct" secondAttribute="centerY" multiplier="0.4" id="l4U-2Y-dyG"/>
+                            <constraint firstItem="YNm-oi-ncm" firstAttribute="centerY" secondItem="YEr-qU-Pct" secondAttribute="centerY" multiplier="1.5" id="lla-kf-foj"/>
+                            <constraint firstItem="gad-vJ-KFi" firstAttribute="centerY" secondItem="YEr-qU-Pct" secondAttribute="centerY" multiplier="0.5" id="nAi-Yl-mvs"/>
+                            <constraint firstItem="gad-vJ-KFi" firstAttribute="centerX" secondItem="YEr-qU-Pct" secondAttribute="centerX" id="y9b-HJ-g1p"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="B画面" id="q8a-Ai-v8G"/>
+                    <connections>
+                        <outlet property="resultLabel" destination="gad-vJ-KFi" id="LlU-K7-sIE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iHX-JM-jp2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="135"/>
+        </scene>
+    </scenes>
+</document>

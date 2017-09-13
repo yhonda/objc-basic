@@ -21,5 +21,10 @@
     self.resultLabel.text = self.receiveString;
 }
 
+// 戻るボタン
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 @end
 
