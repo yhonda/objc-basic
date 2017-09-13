@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "CustomCollectionViewCell.h"
 
 @interface ViewController ()
 // プロパティ定義
@@ -20,6 +19,7 @@
 @property (strong, nonatomic) NSArray *sectionNameList;
 // メソッド定義
 - (void)getPlistData;
+- (void)setupNibFile;
 @end
 
 // セルの大きさの割合を決める定数を用意
@@ -37,11 +37,17 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UINib *nib = [UINib nibWithNibName:@"CustomCollectionViewCell" bundle:nil];
-    [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
+    [self setupNibFile];
     [self getPlistData];
+}
+
+// nibファイルの登録、セットアップ
+- (void)setupNibFile {
+    UINib *cellNibFile = [UINib nibWithNibName:@"CustomCollectionViewCell" bundle:nil];
+    [self.collectionView registerNib:cellNibFile forCellWithReuseIdentifier:@"Cell"];
     
-   
+    UINib *headerNibFile = [UINib nibWithNibName:@"CustomCollectionReusableView" bundle:nil];
+    [self.collectionView registerNib:headerNibFile forCellWithReuseIdentifier:@"Header"];
 }
 
 // 表示データの取得
@@ -78,13 +84,11 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
 - (UICollectionReusableView*)collectionView:(UICollectionView *)collectionView
           viewForSupplementaryElementOfKind:(NSString *)kind
                                 atIndexPath:(NSIndexPath *)indexPath {
-    // ストーリーボードのヘッダーをインスタンス化
-    UICollectionReusableView* header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header"
-                                                                                 forIndexPath:indexPath];
-    // ストーリーボードのラベルと接続
-    //UILabel *label = [header viewWithTag:1];
-    // セクション番号に沿ったセクションネームを持ってくる
-    //label.text = self.sectionNameList[indexPath.section];
+
+    CustomCollectionReusableView *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"Header" forIndexPath:indexPath];
+    
+    header.headerLabel.text = self.sectionNameList[indexPath.section];
+    
     // セクションの実装
     return header;
 }
@@ -107,8 +111,6 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
     
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    // ストーリーボードのimageviewと接続
-    //UIImageView *imageView = (UIImageView *)[cell viewWithTag:2];
     // セクションごとに画像を持ってくる配列を選択する
     switch (indexPath.section) {
         case AsiaSpot:

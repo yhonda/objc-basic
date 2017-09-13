@@ -25,50 +25,26 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-WE-4jT">
                                 <rect key="frame" x="37.5" y="33.5" width="300" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="O3Y-9I-ky1">
-                                    <size key="itemSize" width="100" height="97"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="weI-PD-J3J">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="uxI-Ft-TMY" customClass="CustomCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="50" width="100" height="97"/>
+                                        <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="97"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y7o-Sy-qd2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="97"/>
-                                                </imageView>
-                                            </subviews>
                                         </view>
-                                        <constraints>
-                                            <constraint firstItem="y7o-Sy-qd2" firstAttribute="leading" secondItem="uxI-Ft-TMY" secondAttribute="leading" id="T2L-Qi-38r"/>
-                                            <constraint firstItem="y7o-Sy-qd2" firstAttribute="top" secondItem="uxI-Ft-TMY" secondAttribute="top" id="UQK-g0-TOg"/>
-                                            <constraint firstAttribute="trailing" secondItem="y7o-Sy-qd2" secondAttribute="trailing" id="lUo-0B-Gci"/>
-                                            <constraint firstAttribute="bottom" secondItem="y7o-Sy-qd2" secondAttribute="bottom" id="po8-j0-NPe"/>
-                                        </constraints>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Header" id="dy0-0H-ZQT">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="Header" reuseIdentifier="Header" id="gJz-53-MDG" customClass="CustomCollectionReusableView">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14L-CF-lnP">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="14L-CF-lnP" secondAttribute="trailing" id="HWK-Ra-Way"/>
-                                        <constraint firstItem="14L-CF-lnP" firstAttribute="leading" secondItem="dy0-0H-ZQT" secondAttribute="leading" id="agm-Au-YUd"/>
-                                        <constraint firstItem="14L-CF-lnP" firstAttribute="top" secondItem="dy0-0H-ZQT" secondAttribute="top" id="be8-Ph-gxV"/>
-                                        <constraint firstAttribute="bottom" secondItem="14L-CF-lnP" secondAttribute="bottom" id="zgc-3G-r3o"/>
-                                    </constraints>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Oma-6g-wWs"/>

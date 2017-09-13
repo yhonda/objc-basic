@@ -24,8 +24,8 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="DCI-5v-s5P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="M3R-ec-XG9"/>
                 <constraint firstAttribute="trailing" secondItem="DCI-5v-s5P" secondAttribute="trailing" id="QC4-c0-TIf"/>
+                <constraint firstItem="DCI-5v-s5P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iCy-oN-krF"/>
                 <constraint firstItem="DCI-5v-s5P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ncr-ZZ-7xX"/>
                 <constraint firstAttribute="bottom" secondItem="DCI-5v-s5P" secondAttribute="bottom" id="uzZ-dM-t7t"/>
             </constraints>
@@ -35,10 +35,5 @@
             </connections>
             <point key="canvasLocation" x="49" y="44.5"/>
         </collectionViewCell>
-        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="BLd-fe-Yid">
-            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="263" y="54"/>
-        </imageView>
     </objects>
 </document>

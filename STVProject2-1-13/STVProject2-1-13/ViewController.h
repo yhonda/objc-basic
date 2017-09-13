@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomCollectionViewCell.h"
+#import "CustomCollectionReusableView.h"
 
 // デリゲート宣言
 @interface ViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>

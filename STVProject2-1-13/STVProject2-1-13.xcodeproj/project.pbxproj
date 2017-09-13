@@ -19,6 +19,8 @@
 		45010B681F51FB1D00D3689E /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 45010B671F51FB1D00D3689E /* Property List.plist */; };
 		45DB5BC61F69072E00BDDA4B /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */; };
 		45DB5BC71F69072E00BDDA4B /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */; };
+		45DB5BCB1F6916D800BDDA4B /* CustomCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DB5BC91F6916D800BDDA4B /* CustomCollectionReusableView.m */; };
+		45DB5BCC1F6916D800BDDA4B /* CustomCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BCA1F6916D800BDDA4B /* CustomCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,9 @@
 		45DB5BC31F69072E00BDDA4B /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
 		45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
+		45DB5BC81F6916D800BDDA4B /* CustomCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCollectionReusableView.h; sourceTree = "<group>"; };
+		45DB5BC91F6916D800BDDA4B /* CustomCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionReusableView.m; sourceTree = "<group>"; };
+		45DB5BCA1F6916D800BDDA4B /* CustomCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCollectionReusableView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +122,9 @@
 				45DB5BC31F69072E00BDDA4B /* CustomCollectionViewCell.h */,
 				45DB5BC41F69072E00BDDA4B /* CustomCollectionViewCell.m */,
 				45DB5BC51F69072E00BDDA4B /* CustomCollectionViewCell.xib */,
+				45DB5BC81F6916D800BDDA4B /* CustomCollectionReusableView.h */,
+				45DB5BC91F6916D800BDDA4B /* CustomCollectionReusableView.m */,
+				45DB5BCA1F6916D800BDDA4B /* CustomCollectionReusableView.xib */,
 				45010B3A1F51EA0F00D3689E /* Main.storyboard */,
 				45010B401F51EA0F00D3689E /* Assets.xcassets */,
 				45010B421F51EA0F00D3689E /* LaunchScreen.storyboard */,
@@ -263,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45DB5BCC1F6916D800BDDA4B /* CustomCollectionReusableView.xib in Resources */,
 				45010B441F51EA0F00D3689E /* LaunchScreen.storyboard in Resources */,
 				45010B411F51EA0F00D3689E /* Assets.xcassets in Resources */,
 				45010B681F51FB1D00D3689E /* Property List.plist in Resources */,
@@ -296,6 +305,7 @@
 				45010B361F51EA0F00D3689E /* AppDelegate.m in Sources */,
 				45010B3F1F51EA0F00D3689E /* STVProject2_1_13.xcdatamodeld in Sources */,
 				45010B331F51EA0F00D3689E /* main.m in Sources */,
+				45DB5BCB1F6916D800BDDA4B /* CustomCollectionReusableView.m in Sources */,
 				45DB5BC61F69072E00BDDA4B /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
