@@ -1,5 +1,5 @@
 //
-//  registerViewController.m
+//  RegisterViewController.m
 //  STVProject2-3-2
 //
 //  Created by kawaharadai on 2017/08/31.
@@ -7,47 +7,49 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "registerViewController.h"
+#import "RegisterViewController.h"
 #import "ViewController.h"
 #import "FMDatabase.h"
 
-@interface registerViewController ()
+@interface RegisterViewController ()
 
 @end
 
-@implementation registerViewController
+// Todoの期日指定を定数で用意（〜日後）
+static int const TodoLimitAfterDays = 7;
+// DB内で値に振るIDの増数値
+static int const AddCountTodoId = 1;
+
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // デリゲート接続
-    self.registerTextField.delegate = self;
-    self.registerTextView.delegate = self;
-    
     // アラートを作成
     [self createAleart];
 }
 
-// 初回起動時に呼ぶ（初期IDを決める）
--(int)addTodo_id {
+-(int)addTodoId {
     // DB接続
     ViewController *viewController = [[ViewController alloc]init];
-    FMDatabase *db = [viewController connectDataBase:@"test.db"];
+    FMDatabase *db = [viewController connectDataBase:AccessDatabaseName];
     
     //count文の作成
-    NSString *countTodo_id = [[NSString alloc] initWithFormat:@"select count(*) as count from tr_todo where todo_id"];
+    NSString *countTodoId = [[NSString alloc] initWithFormat:@"select count(*) as count from tr_todo where todo_id"];
     
     // DBをオープン
     [db open];
     // セットしたcount文を回して、todo_idの数を数える
-    FMResultSet *countRequest = [db executeQuery:countTodo_id];
+    FMResultSet *countRequest = [db executeQuery:countTodoId];
     if([countRequest next]) {
-        self.todo_id = [countRequest intForColumn:@"count"];
+        self.todoId = [countRequest intForColumn:@"count"];
     }
     // DBを閉じる
     [db close];
     
     // 数えた値に+1をして返す
-    return self.todo_id + 1;
+    int latestTodoId = self.todoId + AddCountTodoId;
+    
+    return latestTodoId;
 }
 
 - (NSString *)getCreated {
@@ -59,11 +61,13 @@
     [format setDateFormat:@"yyyy/MM/dd"];
     
     // 現在時刻を取得しつつ、NSDateFormatterクラスをかませて、文字列を出力する。
-    return [format stringFromDate:[NSDate date]];
+    NSString *todayDate = [format stringFromDate:[NSDate date]];
+    
+    return todayDate;
 }
 
 // 〜日後の期日を設定
-- (NSString *)getLimit_date {
+- (NSString *)getLimitDate {
     
     //NSDateFormatterクラスを出力する。
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
@@ -75,13 +79,15 @@
     NSDateComponents *dateComp = [[NSDateComponents alloc] init];
     
     // 〜日後を指定
-    [dateComp setDay:7];
+    [dateComp setDay:TodoLimitAfterDays];
     
     // 〜日後のNSDateインスタンスを取得する
-    NSDate *futureDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComp toDate:[NSDate date] options:0];
+    NSDate *futureDate = [NSCalendar.currentCalendar dateByAddingComponents:dateComp toDate:[NSDate date] options:0];
     
     // 〜日後のインスタンスをフォーマットにはめて返す
-    return [format stringFromDate:futureDate];
+    NSString *limitLineDate = [format stringFromDate:futureDate];
+    
+    return limitLineDate;
 }
 
 // タイトル空欄時に表示するアラートを作成
@@ -131,25 +137,25 @@
 - (void)registerAction {
     
     ViewController *viewController = [[ViewController alloc]init];
-    FMDatabase *db = [viewController connectDataBase:@"test.db"];
+    FMDatabase *db = [viewController connectDataBase:AccessDatabaseName];
     
-    // todo_idをセット（0をセットまたは+1で返す）
-    self.todo_id = [self addTodo_id];
+    // todoIdをセット（0をセットまたは+1で返す）
+    self.todoId = [self addTodoId];
     // createdを取得
     self.created = [self getCreated];
     // modifiedを取得
     self.modified = [self getCreated];
-    // limit_dateを取得
-    self.limit_date = [self getLimit_date];
-    // delete_flgを設定
-    self.delete_flg = @"OFF";
+    // limitDateを取得
+    self.limitDate = [self getLimitDate];
+    // deleteFlagを設定
+    self.deleteFlag = @"OFF";
     // テキストフィールドからタイトルを取得
-    self.todo_title = self.registerTextField.text;
+    self.todoTitle = self.registerTextField.text;
     // テキストビューから内容を取得
-    self.todo_contents = self.registerTextView.text;
+    self.todoContents = self.registerTextView.text;
     
     // 取得した情報をデータベースに登録
-    NSString *insert = [[NSString alloc] initWithFormat:@"INSERT INTO tr_todo(todo_id, todo_title, todo_contents, created, modified, limit_date, delete_flg) VALUES('%d', '%@', '%@', '%@', '%@', '%@', '%@')", self.todo_id, self.todo_title, self.todo_contents, self.created, self.modified, self.limit_date, self. delete_flg];
+    NSString *insert = [[NSString alloc] initWithFormat:@"INSERT INTO tr_todo(todo_id, todo_title, todo_contents, created, modified, limit_date, delete_flg) VALUES('%d', '%@', '%@', '%@', '%@', '%@', '%@')", self.todoId, self.todoTitle, self.todoContents, self.created, self.modified, self.limitDate, self. deleteFlag];
     
     [db open];
     [db executeUpdate:insert];

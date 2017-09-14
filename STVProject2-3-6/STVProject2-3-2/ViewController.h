@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+
 - (id)connectDataBase:(NSString *)dbName;
+extern NSString *const AccessDatabaseName;
+
 @end
