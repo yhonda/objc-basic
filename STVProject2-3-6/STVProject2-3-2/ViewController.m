@@ -17,7 +17,6 @@
 //メソッド定義
 - (void)createFirstTable;
 - (BOOL)CheckRunfirstTime;
-- (void)setupTableView;
 - (int)countId;
 @end
 
@@ -32,9 +31,6 @@
         NSLog(@"初回起動です。");
         [self createFirstTable];
     }
-    // tableViewの設定
-    [self setupTableView];
-    
 }
 
 // ロード後に毎回、セルの数を決定、リロードをかける
@@ -108,13 +104,6 @@
     [userDefaults synchronize];
     // 初回起動
     return YES;
-}
-
-// tableViewのセットアップ
-- (void)setupTableView {
-    // デリゲート接続
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
 }
 
 // セルの数（必須メソッド）
