@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -52,7 +51,7 @@
                     <navigationItem key="navigationItem" title="トップ画面" id="cwy-cX-zUf">
                         <barButtonItem key="rightBarButtonItem" image="addButton" id="0W0-kX-Gbl">
                             <connections>
-                                <segue destination="Khl-bC-7bU" kind="presentation" id="hpJ-Ei-3dW"/>
+                                <segue destination="4BY-KB-Pyr" kind="presentation" id="aIS-Zl-cnJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -63,94 +62,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="725.60000000000002" y="-546.47676161919048"/>
-        </scene>
-        <!--登録画面-->
-        <scene sceneID="rlj-xd-L2d">
-            <objects>
-                <viewController storyboardIdentifier="RegisterViewController" id="tMT-0G-nDw" customClass="RegisterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="1fd-Cn-Nb6"/>
-                        <viewControllerLayoutGuide type="bottom" id="N1L-Dd-94s"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uqQ-hx-xl8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="hev-u3-G6m">
-                                <rect key="frame" x="50" y="79.5" width="220" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fYg-Bo-2d3"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="tMT-0G-nDw" id="obp-YM-aB6"/>
-                                </connections>
-                            </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cF2-FV-2bP">
-                                <rect key="frame" x="50" y="139.5" width="220" height="178.5"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                <connections>
-                                    <outlet property="delegate" destination="tMT-0G-nDw" id="Lmb-nO-D2y"/>
-                                </connections>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fqb-dy-xZw">
-                                <rect key="frame" x="85" y="368" width="150" height="80"/>
-                                <color key="backgroundColor" red="0.050980392159999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Bqv-4p-Dp9"/>
-                                    <constraint firstAttribute="width" constant="150" id="Ejo-mb-sH1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <state key="normal" title="登録">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="resisterButton:" destination="tMT-0G-nDw" eventType="touchUpInside" id="bdX-oX-YAt"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="0.9386253325209527" blue="0.84747157473297219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstItem="hev-u3-G6m" firstAttribute="centerY" secondItem="uqQ-hx-xl8" secondAttribute="centerY" multiplier="0.35" id="7XZ-PR-sgW"/>
-                            <constraint firstItem="cF2-FV-2bP" firstAttribute="top" secondItem="hev-u3-G6m" secondAttribute="bottom" constant="20" id="7zl-Mh-Laa"/>
-                            <constraint firstItem="Fqb-dy-xZw" firstAttribute="centerX" secondItem="uqQ-hx-xl8" secondAttribute="centerX" id="CIo-UE-Ra5"/>
-                            <constraint firstItem="Fqb-dy-xZw" firstAttribute="top" secondItem="cF2-FV-2bP" secondAttribute="bottom" constant="50" id="Hc1-U1-Ech"/>
-                            <constraint firstAttribute="trailing" secondItem="hev-u3-G6m" secondAttribute="trailing" constant="50" id="S54-xb-qlZ"/>
-                            <constraint firstAttribute="trailing" secondItem="cF2-FV-2bP" secondAttribute="trailing" constant="50" id="Wi2-F4-uH9"/>
-                            <constraint firstItem="N1L-Dd-94s" firstAttribute="top" secondItem="cF2-FV-2bP" secondAttribute="bottom" constant="250" id="Xsf-VK-C7F"/>
-                            <constraint firstItem="cF2-FV-2bP" firstAttribute="leading" secondItem="uqQ-hx-xl8" secondAttribute="leading" constant="50" id="l0d-gO-uSV"/>
-                            <constraint firstItem="hev-u3-G6m" firstAttribute="centerX" secondItem="uqQ-hx-xl8" secondAttribute="centerX" id="mCl-4C-NWS"/>
-                            <constraint firstItem="hev-u3-G6m" firstAttribute="leading" secondItem="uqQ-hx-xl8" secondAttribute="leading" constant="50" id="vJ1-Z0-6L4"/>
-                        </constraints>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="U3d-9V-Klx" appends="YES" id="kvl-qU-tip"/>
-                        </connections>
-                    </view>
-                    <navigationItem key="navigationItem" title="登録画面" id="C8R-Yg-Xfz">
-                        <barButtonItem key="rightBarButtonItem" image="closeButton" id="N70-uC-NAF">
-                            <connections>
-                                <action selector="backButton:" destination="tMT-0G-nDw" id="pke-aa-iFv"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="registerTextField" destination="hev-u3-G6m" id="P5J-Kc-C9j"/>
-                        <outlet property="registerTextView" destination="cF2-FV-2bP" id="Umv-oj-T0x"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="O1o-aj-3bg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="U3d-9V-Klx">
-                    <connections>
-                        <action selector="backgroundKeyboard:" destination="tMT-0G-nDw" id="rUo-mH-FzI"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2316" y="-545.57721139430294"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="j18-Ac-3FN">
@@ -168,29 +79,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Svq-ak-xwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.399999999999999" y="-545.57721139430294"/>
+            <point key="canvasLocation" x="94" y="-547"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="bAI-Wl-lyo">
+        <!--NavigationRegisterViewController-->
+        <scene sceneID="WFU-uQ-TDv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Khl-bC-7bU" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hoz-wG-Xau">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="tMT-0G-nDw" kind="relationship" relationship="rootViewController" id="4aX-HV-3Vg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QX0-XW-zCi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="RegisterViewStoryboard" referencedIdentifier="NavigationRegisterViewController" id="4BY-KB-Pyr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Et3-CV-s1g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1526" y="-544"/>
+            <point key="canvasLocation" x="1335" y="-547"/>
         </scene>
     </scenes>
     <resources>
         <image name="addButton" width="25" height="25"/>
-        <image name="closeButton" width="35" height="35"/>
     </resources>
 </document>

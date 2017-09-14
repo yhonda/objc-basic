@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="78J-yX-NcJ">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationRegisterViewController" automaticallyAdjustsScrollViewInsets="NO" id="bbt-m4-1Sn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8pE-11-n9e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Na7-Jc-bBk" kind="relationship" relationship="rootViewController" id="AFq-9p-ZYf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qjE-nB-Lv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1673" y="-546"/>
+        </scene>
+        <!--登録画面-->
+        <scene sceneID="lAn-eM-OcB">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="Na7-Jc-bBk" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QnM-wL-5H4"/>
+                        <viewControllerLayoutGuide type="bottom" id="7K4-I4-nPl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mdD-J8-RBb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ysI-qj-iDd">
+                                <rect key="frame" x="50" y="96.5" width="275" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="noH-Ic-JDJ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Na7-Jc-bBk" id="OSS-ut-YLV"/>
+                                </connections>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IHW-Nt-Phe">
+                                <rect key="frame" x="50" y="156.5" width="275" height="260.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Na7-Jc-bBk" id="wpn-eW-dxe"/>
+                                </connections>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LOK-t0-CeF">
+                                <rect key="frame" x="112.5" y="467" width="150" height="80"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Asy-FV-sHq"/>
+                                    <constraint firstAttribute="width" constant="150" id="j5S-Ow-8zB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="登録">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resisterButton:" destination="Na7-Jc-bBk" eventType="touchUpInside" id="0Dh-3U-IrE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.93862533250000002" blue="0.84747157470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="LOK-t0-CeF" firstAttribute="centerX" secondItem="mdD-J8-RBb" secondAttribute="centerX" id="1zf-KB-Dsa"/>
+                            <constraint firstItem="ysI-qj-iDd" firstAttribute="leading" secondItem="mdD-J8-RBb" secondAttribute="leading" constant="50" id="2aC-yg-dQo"/>
+                            <constraint firstAttribute="trailing" secondItem="IHW-Nt-Phe" secondAttribute="trailing" constant="50" id="4id-c7-gJ7"/>
+                            <constraint firstAttribute="trailing" secondItem="ysI-qj-iDd" secondAttribute="trailing" constant="50" id="JYH-QF-qyO"/>
+                            <constraint firstItem="ysI-qj-iDd" firstAttribute="centerX" secondItem="mdD-J8-RBb" secondAttribute="centerX" id="SGJ-Cg-BdM"/>
+                            <constraint firstItem="LOK-t0-CeF" firstAttribute="top" secondItem="IHW-Nt-Phe" secondAttribute="bottom" constant="50" id="Xai-eA-Cyb"/>
+                            <constraint firstItem="IHW-Nt-Phe" firstAttribute="leading" secondItem="mdD-J8-RBb" secondAttribute="leading" constant="50" id="cBZ-Az-7lY"/>
+                            <constraint firstItem="IHW-Nt-Phe" firstAttribute="top" secondItem="ysI-qj-iDd" secondAttribute="bottom" constant="20" id="cQ4-w9-UJY"/>
+                            <constraint firstItem="ysI-qj-iDd" firstAttribute="centerY" secondItem="mdD-J8-RBb" secondAttribute="centerY" multiplier="0.35" id="ftR-Oz-p7e"/>
+                            <constraint firstItem="7K4-I4-nPl" firstAttribute="top" secondItem="IHW-Nt-Phe" secondAttribute="bottom" constant="250" id="wD3-sp-t5r"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="yZh-SU-716" appends="YES" id="QSf-Lv-37l"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="登録画面" id="8F7-cJ-Nbs">
+                        <barButtonItem key="rightBarButtonItem" image="closeButton" id="B8p-oc-ZhF">
+                            <connections>
+                                <action selector="backButton:" destination="Na7-Jc-bBk" id="MmN-Rg-D8O"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="registerTextField" destination="ysI-qj-iDd" id="JYP-Im-sxq"/>
+                        <outlet property="registerTextView" destination="IHW-Nt-Phe" id="dY4-hD-Inw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xt-OT-HiO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="yZh-SU-716">
+                    <connections>
+                        <action selector="backgroundKeyboard:" destination="Na7-Jc-bBk" id="tyj-Bf-KgI"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2316" y="-545.57721139430294"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="closeButton" width="35" height="35"/>
+    </resources>
+</document>
