@@ -17,7 +17,9 @@
 		459A5F921F55DEFC00C920D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 459A5F901F55DEFC00C920D0 /* LaunchScreen.storyboard */; };
 		459A5F9D1F55DEFC00C920D0 /* STVProject2_3_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A5F9C1F55DEFC00C920D0 /* STVProject2_3_2Tests.m */; };
 		459A5FA81F55DEFC00C920D0 /* STVProject2_3_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 459A5FA71F55DEFC00C920D0 /* STVProject2_3_2UITests.m */; };
-		459F4FE01F5728AC009F3686 /* registerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F4FDF1F5728AC009F3686 /* registerViewController.m */; };
+		459F4FE01F5728AC009F3686 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 459F4FDF1F5728AC009F3686 /* RegisterViewController.m */; };
+		45D303B41F6A21DB005C4ED3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */; };
+		45D303B51F6A21DB005C4ED3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */; };
 		8154B713CAE4A88E3230531C /* libPods-STVProject2-3-2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 758231F12E38D0EC2F2DE193 /* libPods-STVProject2-3-2Tests.a */; };
 		B1F723BE66D484641D77AE98 /* libPods-STVProject2-3-2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37420AEDCC0EE28674BB0154 /* libPods-STVProject2-3-2UITests.a */; };
 /* End PBXBuildFile section */
@@ -60,8 +62,11 @@
 		459A5FA31F55DEFC00C920D0 /* STVProject2-3-2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "STVProject2-3-2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		459A5FA71F55DEFC00C920D0 /* STVProject2_3_2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_3_2UITests.m; sourceTree = "<group>"; };
 		459A5FA91F55DEFC00C920D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		459F4FDF1F5728AC009F3686 /* registerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = registerViewController.m; sourceTree = "<group>"; };
-		459F4FE11F5728B3009F3686 /* registerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = registerViewController.h; sourceTree = "<group>"; };
+		459F4FDF1F5728AC009F3686 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		459F4FE11F5728B3009F3686 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		45D303B11F6A21DB005C4ED3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
+		45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
+		45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
 		4B53354DCE0CE276A5AAD456 /* Pods-STVProject2-3-2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-3-2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-3-2UITests/Pods-STVProject2-3-2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		758231F12E38D0EC2F2DE193 /* libPods-STVProject2-3-2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STVProject2-3-2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BDAF5AA1CD70B08888EE54 /* Pods-STVProject2-3-2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-3-2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-3-2UITests/Pods-STVProject2-3-2UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,8 +132,11 @@
 				459A5F831F55DEFC00C920D0 /* AppDelegate.m */,
 				459A5F851F55DEFC00C920D0 /* ViewController.h */,
 				459A5F861F55DEFC00C920D0 /* ViewController.m */,
-				459F4FDF1F5728AC009F3686 /* registerViewController.m */,
-				459F4FE11F5728B3009F3686 /* registerViewController.h */,
+				459F4FDF1F5728AC009F3686 /* RegisterViewController.m */,
+				459F4FE11F5728B3009F3686 /* RegisterViewController.h */,
+				45D303B11F6A21DB005C4ED3 /* CustomTableViewCell.h */,
+				45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */,
+				45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */,
 				459A5F881F55DEFC00C920D0 /* Main.storyboard */,
 				459A5F8E1F55DEFC00C920D0 /* Assets.xcassets */,
 				459A5F901F55DEFC00C920D0 /* LaunchScreen.storyboard */,
@@ -308,6 +316,7 @@
 			files = (
 				459A5F921F55DEFC00C920D0 /* LaunchScreen.storyboard in Resources */,
 				459A5F8F1F55DEFC00C920D0 /* Assets.xcassets in Resources */,
+				45D303B51F6A21DB005C4ED3 /* CustomTableViewCell.xib in Resources */,
 				459A5F8A1F55DEFC00C920D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,8 +482,9 @@
 			files = (
 				459A5F871F55DEFC00C920D0 /* ViewController.m in Sources */,
 				459A5F8D1F55DEFC00C920D0 /* STVProject2_3_2.xcdatamodeld in Sources */,
+				45D303B41F6A21DB005C4ED3 /* CustomTableViewCell.m in Sources */,
 				459A5F841F55DEFC00C920D0 /* AppDelegate.m in Sources */,
-				459F4FE01F5728AC009F3686 /* registerViewController.m in Sources */,
+				459F4FE01F5728AC009F3686 /* RegisterViewController.m in Sources */,
 				459A5F811F55DEFC00C920D0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 // DB用プロパティ
 - (id)connectDataBase:(NSString *)dbName;
+extern NSString *const AccessDatabaseName;
 @end
 
