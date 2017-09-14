@@ -47,7 +47,7 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
     [self.collectionView registerNib:cellNibFile forCellWithReuseIdentifier:@"Cell"];
     
     UINib *headerNibFile = [UINib nibWithNibName:@"CustomCollectionReusableView" bundle:nil];
-    [self.collectionView registerNib:headerNibFile forCellWithReuseIdentifier:@"Header"];
+    [self.collectionView registerNib:headerNibFile forSupplementaryViewOfKind:UICollectionElementKindSectionHeader      withReuseIdentifier:@"Header"];
 }
 
 // 表示データの取得
