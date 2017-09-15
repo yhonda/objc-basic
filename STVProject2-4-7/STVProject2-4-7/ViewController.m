@@ -14,18 +14,17 @@
 @property SLComposeViewController *twitterViewController;
 // メソッドを定義
 - (IBAction)tapTwirtButton:(id)sender;
-- (void)setTwitterViewController;
-
 @end
+
+static NSString *const postImageName = @"twitterLogo";
+static NSString *const postPageUrl = @"https://github.com";
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // ツイッター機能を用意
     [self setTwitterViewController];
-    
 }
 
 // ツイッターの表示ダイヤログを用意
@@ -34,11 +33,11 @@
     self.twitterViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
     
     // 初期値の文字列を設定
-    [self.twitterViewController setInitialText:@"つぶやきを入力してください"];
+    [self.twitterViewController setInitialText:[NSBundle.mainBundle localizedStringForKey:@"postText" value:nil table:@"Localizable"]];
     // 一緒に投稿する画像を設定(nilの場合はURL部分の)
-    [self.twitterViewController addImage:[UIImage imageNamed:@"twitterLogo"]];
+    [self.twitterViewController addImage:[UIImage imageNamed:postImageName]];
     // 一緒に投稿するURLを設定
-    [self.twitterViewController addURL:[NSURL URLWithString:@"https://github.com"]];
+    [self.twitterViewController addURL:[NSURL URLWithString:postPageUrl]];
     
 }
 
