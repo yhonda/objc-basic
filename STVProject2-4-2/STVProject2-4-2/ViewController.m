@@ -14,7 +14,10 @@
 @property (strong, nonatomic) UIAlertController *alertController;
 // メソッドを定義
 - (void)setAlertController;
-- (IBAction)outputWeatherForecastButton:(id)sender;
+- (UIAlertAction *)createTodaySelectAction;
+- (UIAlertAction *)createtomorrowSelectAction;
+- (UIAlertAction *)createafterTomorrowSelectAction;
+- (UIAlertAction *)createCancelSelectAction;
 @end
 
 //　定数を定義
@@ -25,10 +28,8 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // アラートコントローラーとアクションを用意
     [self setAlertController];
-    
 }
 
 // アラートコントローラーとアクションシートを用意
@@ -38,6 +39,16 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
     [UIAlertController alertControllerWithTitle:@"日付選択"
                                         message:@"いつの予報を出力しますか？"
                                  preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    // コントローラにアクションを追加
+    [self.alertController addAction:[self createTodaySelectAction]];
+    [self.alertController addAction:[self createtomorrowSelectAction]];
+    [self.alertController addAction:[self createafterTomorrowSelectAction]];
+    [self.alertController addAction:[self createCancelSelectAction]];
+    
+}
+
+- (UIAlertAction *)createTodaySelectAction {
     // 当日の天気予報を出力するアクションを作成
     UIAlertAction *todayWeatherForecast =
     [UIAlertAction actionWithTitle:@"今日"
@@ -67,7 +78,9 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      }
                                 ];
                            }];
-    
+    return todayWeatherForecast;
+}
+- (UIAlertAction *)createtomorrowSelectAction {
     // 翌日の天気予報を出力するアクションを作成
     UIAlertAction *tomorrowWeatherForecast =
     [UIAlertAction actionWithTitle:@"明日"
@@ -97,7 +110,9 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      }
                                 ];
                            }];
-    
+    return tomorrowWeatherForecast;
+}
+- (UIAlertAction *)createafterTomorrowSelectAction {
     // 明後日の天気予報を出力するアクションを作成
     UIAlertAction *afterTomorrowWeatherForecast =
     [UIAlertAction actionWithTitle:@"明後日"
@@ -127,7 +142,9 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                      }
                                 ];
                            }];
-    
+    return afterTomorrowWeatherForecast;
+}
+- (UIAlertAction *)createCancelSelectAction {
     // キャンセルアクションを生成
     UIAlertAction *cancelAction =
     [UIAlertAction actionWithTitle:@"Cancel"
@@ -136,13 +153,7 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
                                // ボタンタップ時の処理
                                NSLog(@"ボタン操作をキャンセルしました。");
                            }];
-    
-    // コントローラにアクションを追加
-    [self.alertController addAction: todayWeatherForecast];
-    [self.alertController addAction: tomorrowWeatherForecast];
-    [self.alertController addAction: afterTomorrowWeatherForecast];
-    [self.alertController addAction: cancelAction];
-    
+    return cancelAction;
 }
 
 // 天気予報出力ボタン押した時のアクション
