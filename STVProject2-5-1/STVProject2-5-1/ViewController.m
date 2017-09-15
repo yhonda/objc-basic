@@ -9,8 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-// メソッドを定義
-- (IBAction)sendMailButton:(id)sender;
+
 @end
 
 @implementation ViewController
@@ -19,7 +18,6 @@
     [super viewDidLoad];
     
 }
-
 // メールを送るボタンアクション
 - (IBAction)sendMailButton:(id)sender {
     // メールを利用できるかチェック
@@ -34,18 +32,20 @@
     mailComposeViewController.mailComposeDelegate = self;
     
     // 件名をセット
-    [mailComposeViewController setSubject:@"アプリからメール送信"];
+    NSString *subject = [NSBundle.mainBundle localizedStringForKey:@"subject" value:nil table:@"Localizable"];
+    [mailComposeViewController setSubject:subject];
     
     // テストとして任意の画像を添付
     // 画像を用意
-    UIImage *boraboraImage = [UIImage imageNamed:@"ボラボラ島"];
+    UIImage *boraboraImage = [UIImage imageNamed:@"boraboraIland"];
     // NSData変数を用意し、上記画像をpngデータに変換したものをセット
     NSData* imageData = [[NSData alloc] initWithData:UIImagePNGRepresentation(boraboraImage)];
     // メールコントローラーに画像データをセット（mimeType:データ形式区分、fileName:自由）
-    [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"ボラボラ島.png"];
+    [mailComposeViewController addAttachmentData:imageData mimeType:@"image/png" fileName:@"boraboraIland.png"];
     
     // 本文に固定文を設定
-    [mailComposeViewController setMessageBody:@"ここに本文を入力してください。" isHTML:NO];
+    NSString *mainMessage = [NSBundle.mainBundle localizedStringForKey:@"mainMessage" value:nil table:@"Localizable"];
+    [mailComposeViewController setMessageBody:mainMessage isHTML:NO];
     
     // 作成したメールコントローラーを表示
     [self presentViewController: mailComposeViewController animated:YES completion:nil];

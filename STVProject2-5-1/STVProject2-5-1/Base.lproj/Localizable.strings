@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  STVProject2-5-1
+
+  Created by kawaharadai on 2017/09/16.
+  Copyright © 2017年 dai kawahara. All rights reserved.
+*/
+"subject" = "大からメール送信";
+"mainMessage" = "ここに本文を入力してください。";
