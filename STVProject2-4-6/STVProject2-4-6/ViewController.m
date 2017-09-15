@@ -13,10 +13,11 @@
 // プロパティを定義
 @property (strong, nonatomic) SLComposeViewController *facebookViewController;
 // メソッドを定義
-- (IBAction)postFacebookButton:(id)sender;
 - (void)setFacebookViewController;
-
 @end
+
+static NSString *const postImageName = @"facebookLogo";
+static NSString *const postPageUrl = @"https://www.yahoo.co.jp";
 
 @implementation ViewController
 
@@ -31,12 +32,12 @@
     // SLComposeViewControllerをfacebook属性をセットしてインスタンス化
     self.facebookViewController = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
     // デフォルトテキストの設定
-    [self.facebookViewController setInitialText:@"投稿テキスト"];
+    NSString *postText = [NSBundle.mainBundle localizedStringForKey:@"postText" value:nil table:@"Localizable"];
+    [self.facebookViewController setInitialText:postText];
     // 画像を入れる場合
-    [self.facebookViewController addImage:[UIImage imageNamed:@"facebookLogo"]];
+    [self.facebookViewController addImage:[UIImage imageNamed:postImageName]];
     // urlを入れる場合
-    [self.facebookViewController addURL:[NSURL URLWithString:@"https://www.yahoo.co.jp"]];
-    
+    [self.facebookViewController addURL:[NSURL URLWithString:postPageUrl]];
 }
 
 // 投稿ボタンアクション

@@ -17,6 +17,7 @@
 		4547E11B1F5FD9FA009DAEAA /* STVProject2_4_6Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4547E11A1F5FD9FA009DAEAA /* STVProject2_4_6Tests.m */; };
 		4547E1261F5FD9FA009DAEAA /* STVProject2_4_6UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4547E1251F5FD9FA009DAEAA /* STVProject2_4_6UITests.m */; };
 		4547E1351F5FDBA0009DAEAA /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4547E1341F5FDBA0009DAEAA /* Social.framework */; };
+		45C1162F1F6BF26D00B84108 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45C116311F6BF26D00B84108 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4547E1251F5FD9FA009DAEAA /* STVProject2_4_6UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_4_6UITests.m; sourceTree = "<group>"; };
 		4547E1271F5FD9FA009DAEAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4547E1341F5FDBA0009DAEAA /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		45C116301F6BF26D00B84108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				4547E1031F5FD9FA009DAEAA /* ViewController.h */,
 				4547E1041F5FD9FA009DAEAA /* ViewController.m */,
 				4547E1061F5FD9FA009DAEAA /* Main.storyboard */,
+				45C116311F6BF26D00B84108 /* Localizable.strings */,
 				4547E10C1F5FD9FA009DAEAA /* Assets.xcassets */,
 				4547E10E1F5FD9FA009DAEAA /* LaunchScreen.storyboard */,
 				4547E1111F5FD9FA009DAEAA /* Info.plist */,
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4547E1101F5FD9FA009DAEAA /* LaunchScreen.storyboard in Resources */,
+				45C1162F1F6BF26D00B84108 /* Localizable.strings in Resources */,
 				4547E10D1F5FD9FA009DAEAA /* Assets.xcassets in Resources */,
 				4547E1081F5FD9FA009DAEAA /* Main.storyboard in Resources */,
 			);
@@ -344,6 +348,14 @@
 				4547E10F1F5FD9FA009DAEAA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		45C116311F6BF26D00B84108 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45C116301F6BF26D00B84108 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -532,6 +544,7 @@
 				4547E12C1F5FD9FA009DAEAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4547E12D1F5FD9FA009DAEAA /* Build configuration list for PBXNativeTarget "STVProject2-4-6Tests" */ = {
 			isa = XCConfigurationList;
@@ -540,6 +553,7 @@
 				4547E12F1F5FD9FA009DAEAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4547E1301F5FD9FA009DAEAA /* Build configuration list for PBXNativeTarget "STVProject2-4-6UITests" */ = {
 			isa = XCConfigurationList;
@@ -548,6 +562,7 @@
 				4547E1321F5FD9FA009DAEAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
