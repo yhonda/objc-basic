@@ -17,6 +17,9 @@
 		457DE60D1F5E270F003067D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 457DE60B1F5E270F003067D2 /* LaunchScreen.storyboard */; };
 		457DE6181F5E270F003067D2 /* STVProject2_4_2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457DE6171F5E270F003067D2 /* STVProject2_4_2Tests.m */; };
 		457DE6231F5E270F003067D2 /* STVProject2_4_2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 457DE6221F5E270F003067D2 /* STVProject2_4_2UITests.m */; };
+		45C1163C1F6CD3DA00B84108 /* WeatherForecastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45C1163A1F6CD3DA00B84108 /* WeatherForecastCell.m */; };
+		45C1163D1F6CD3DA00B84108 /* WeatherForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45C1163B1F6CD3DA00B84108 /* WeatherForecastCell.xib */; };
+		45C116401F6E295200B84108 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45C116421F6E295200B84108 /* Localizable.strings */; };
 		4E187B96D66133BC606DC026 /* libPods-STVProject2-4-2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE77CA7195C7559C71C76D3 /* libPods-STVProject2-4-2.a */; };
 		B76212F5E4B68FA8A4ED1C5D /* libPods-STVProject2-4-2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5085A16FBBF52407ADBCD04E /* libPods-STVProject2-4-2UITests.a */; };
 /* End PBXBuildFile section */
@@ -57,6 +60,10 @@
 		457DE61E1F5E270F003067D2 /* STVProject2-4-2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "STVProject2-4-2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		457DE6221F5E270F003067D2 /* STVProject2_4_2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STVProject2_4_2UITests.m; sourceTree = "<group>"; };
 		457DE6241F5E270F003067D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45C116391F6CD3DA00B84108 /* WeatherForecastCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherForecastCell.h; sourceTree = "<group>"; };
+		45C1163A1F6CD3DA00B84108 /* WeatherForecastCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherForecastCell.m; sourceTree = "<group>"; };
+		45C1163B1F6CD3DA00B84108 /* WeatherForecastCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherForecastCell.xib; sourceTree = "<group>"; };
+		45C116411F6E295200B84108 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5085A16FBBF52407ADBCD04E /* libPods-STVProject2-4-2UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STVProject2-4-2UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CE0D77DFDBCB7C455A446D0 /* Pods-STVProject2-4-2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-4-2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-4-2UITests/Pods-STVProject2-4-2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		6A24AEB140B377E3524455FA /* Pods-STVProject2-4-2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-4-2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-4-2/Pods-STVProject2-4-2.debug.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +142,10 @@
 				457DE6001F5E270F003067D2 /* ViewController.h */,
 				457DE6011F5E270F003067D2 /* ViewController.m */,
 				457DE6031F5E270F003067D2 /* Main.storyboard */,
+				45C116391F6CD3DA00B84108 /* WeatherForecastCell.h */,
+				45C1163A1F6CD3DA00B84108 /* WeatherForecastCell.m */,
+				45C1163B1F6CD3DA00B84108 /* WeatherForecastCell.xib */,
+				45C116421F6E295200B84108 /* Localizable.strings */,
 				457DE6091F5E270F003067D2 /* Assets.xcassets */,
 				457DE60B1F5E270F003067D2 /* LaunchScreen.storyboard */,
 				457DE60E1F5E270F003067D2 /* Info.plist */,
@@ -301,9 +312,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45C116401F6E295200B84108 /* Localizable.strings in Resources */,
 				457DE60D1F5E270F003067D2 /* LaunchScreen.storyboard in Resources */,
 				457DE60A1F5E270F003067D2 /* Assets.xcassets in Resources */,
 				457DE6051F5E270F003067D2 /* Main.storyboard in Resources */,
+				45C1163D1F6CD3DA00B84108 /* WeatherForecastCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +483,7 @@
 				457DE5FF1F5E270F003067D2 /* AppDelegate.m in Sources */,
 				457DE6081F5E270F003067D2 /* STVProject2_4_2.xcdatamodeld in Sources */,
 				457DE5FC1F5E270F003067D2 /* main.m in Sources */,
+				45C1163C1F6CD3DA00B84108 /* WeatherForecastCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -519,6 +533,14 @@
 				457DE60C1F5E270F003067D2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		45C116421F6E295200B84108 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45C116411F6E295200B84108 /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -713,6 +735,7 @@
 				457DE6291F5E270F003067D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457DE62A1F5E270F003067D2 /* Build configuration list for PBXNativeTarget "STVProject2-4-2Tests" */ = {
 			isa = XCConfigurationList;
@@ -721,6 +744,7 @@
 				457DE62C1F5E270F003067D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		457DE62D1F5E270F003067D2 /* Build configuration list for PBXNativeTarget "STVProject2-4-2UITests" */ = {
 			isa = XCConfigurationList;
@@ -729,6 +753,7 @@
 				457DE62F1F5E270F003067D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
