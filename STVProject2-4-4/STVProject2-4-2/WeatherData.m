@@ -30,15 +30,11 @@
     // 追加コマンド
     [realm addObject:weatherData];
     [realm commitWriteTransaction];
-    NSLog(@"DB内データの作成完了");
 }
 
-- (void)updateWeatherData:(NSString *)Id days:(NSString *)days weatherData:(NSString *)weather iconUrl:(NSData *)iconUrl {
-    
+- (void)updateWeatherDataSubThread:(NSString *)Id iconUrl:(NSData *)iconUrl {
     WeatherData *weatherData = [[WeatherData alloc]init];
     weatherData.Id = Id;
-    weatherData.days = days;
-    weatherData.weather = weather;
     weatherData.iconUrl = iconUrl;
     
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -47,7 +43,19 @@
     // 追加コマンド
     [WeatherData createOrUpdateInRealm:realm withValue:weatherData];
     [realm commitWriteTransaction];
-    NSLog(@"DB内データの更新完了");
 }
 
+- (void)updateWeatherDataMainThread:(NSString *)Id days:(NSString *)days weatherData:(NSString *)weather {
+    WeatherData *weatherData = [[WeatherData alloc]init];
+    weatherData.Id = Id;
+    weatherData.days = days;
+    weatherData.weather = weather;
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    
+    [realm beginWriteTransaction];
+    // 追加コマンド
+    [WeatherData createOrUpdateInRealm:realm withValue:weatherData];
+    [realm commitWriteTransaction];
+}
 @end

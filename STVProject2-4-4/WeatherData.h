@@ -16,5 +16,7 @@
 @property NSData *iconUrl;
 // メソッドを定義
 - (void)saveWeatherData:(NSString *)Id days:(NSString *)days weatherData:(NSString *)weather iconUrl:(NSData *)iconUrl;
-- (void)updateWeatherData:(NSString *)Id days:(NSString *)days weatherData:(NSString *)weather iconUrl:(NSData *)iconUrl;
+- (void)updateWeatherDataSubThread:(NSString *)Id iconUrl:(NSData *)iconUrl;
+- (void)updateWeatherDataMainThread:(NSString *)Id days:(NSString *)days weatherData:(NSString *)weather;
+
 @end
