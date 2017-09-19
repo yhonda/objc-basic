@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 // プロパティ定義
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *touristSpotAsia;
@@ -60,13 +60,6 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
     //プロパティリストの中身データを取得
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.touristSpotAsia = @[];
-    self.touristSpotAmerika = @[];
-    self.touristSpotEurope = @[];
-    self.touristSpotOceania = @[];
-    self.touristSpotAfrica = @[];
-    self.sectionNameList = @[];
-    
     self.touristSpotAsia = dictionary[@"touristSpotAsia"];
     self.touristSpotAmerika = dictionary[@"touristSpotAmerika"];
     self.touristSpotEurope = dictionary[@"touristSpotEurope"];
@@ -77,7 +70,7 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
 
 // セクションの数を指定
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 5;
+    return self.sectionNameList.count;
 }
 
 // セッションの表示内容を作成
@@ -103,7 +96,7 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
 
 // セルの数を指定（必須）
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 2;
+    return self.touristSpotAsia.count;
 }
 
 // セルの表示内容を作成（必須）

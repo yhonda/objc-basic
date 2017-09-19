@@ -11,7 +11,7 @@
 #import "CustomCollectionReusableView.h"
 
 // デリゲート宣言
-@interface ViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ViewController : UIViewController
 
 @end
 
