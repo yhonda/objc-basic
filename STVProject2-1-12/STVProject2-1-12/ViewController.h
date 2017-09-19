@@ -10,7 +10,7 @@
 #import "CustomCollectionViewCell.h"
 
 // デリゲート接続
-@interface ViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ViewController : UIViewController
 
 @end
 

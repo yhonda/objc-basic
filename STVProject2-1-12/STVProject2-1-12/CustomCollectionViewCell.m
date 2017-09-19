@@ -12,8 +12,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
-    //self.cellImageView.image = [UIImage imageNamed:@"Petraruins"];
 
 }
 

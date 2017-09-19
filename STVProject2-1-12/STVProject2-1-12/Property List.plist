@@ -4,15 +4,15 @@
 <dict>
 	<key>cellImageName</key>
 	<array>
-		<string>AlcatrazIsland</string>
-		<string>AngkorWat</string>
-		<string>GrandCanyon</string>
-		<string>Colosseum</string>
-		<string>TajMahal</string>
-		<string>BuckinghamPalace</string>
-		<string>HalongBay</string>
-		<string>Petraruins</string>
-		<string>MachuPicchu</string>
+		<string>AlcatrazIsland.jpg</string>
+		<string>AngkorWat.jpg</string>
+		<string>AyersRock.jpg</string>
+		<string>Colosseum.jpg</string>
+		<string>GrandCanyon.jpg</string>
+		<string>MontSaintMichel.jpg</string>
+		<string>OperaHouse.jpg</string>
+		<string>TableMountain.jpg</string>
+		<string>TajMahal.jpg</string>
 	</array>
 </dict>
 </plist>

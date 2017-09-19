@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
 // プロパティ宣言
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSArray *cellImageList;
@@ -28,20 +29,19 @@
 // 表示データを取得
 - (void)getPlistData {
     // セル内のデータを用意
-    //プロジェクト内のファイルにアクセスできるオブジェクトを宣言
+    // プロジェクト内のファイルにアクセスできるオブジェクトを宣言
     NSBundle *bundle = NSBundle.mainBundle;
-    //読み込むプロパティリストのファイルパスを指定
+    // 読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
-    //プロパティリストの中身データを取得
+    // プロパティリストの中身データを取得
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.cellImageList = @[];
     self.cellImageList = dictionary[@"cellImageName"];
 }
 
 // セルの数を指定（必須）
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.cellImageList.count;
 }
 
 // セルの表示内容を作成（必須）
