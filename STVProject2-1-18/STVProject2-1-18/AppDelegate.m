@@ -17,6 +17,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    // 起動時にナビゲーションコントローラーを追加
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ViewController *viewController = [mainStoryboard instantiateViewControllerWithIdentifier:@"ViewController"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    self.window.rootViewController = navigationController;
+    
     return YES;
 }
 

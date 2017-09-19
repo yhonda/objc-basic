@@ -17,7 +17,6 @@
 		45B182291F54125300F92F33 /* STVProject2_1_18Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B182281F54125300F92F33 /* STVProject2_1_18Tests.m */; };
 		45B182341F54125300F92F33 /* STVProject2_1_18UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B182331F54125300F92F33 /* STVProject2_1_18UITests.m */; };
 		45B182421F54127100F92F33 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B182411F54127100F92F33 /* SecondViewController.m */; };
-		45DB5BD61F6935C600BDDA4B /* ViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BD51F6935C600BDDA4B /* ViewController.storyboard */; };
 		45DB5BD81F6935DA00BDDA4B /* SecondViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45DB5BD71F6935DA00BDDA4B /* SecondViewController.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -58,7 +57,6 @@
 		45B182351F54125300F92F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45B182411F54127100F92F33 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		45B182431F54127900F92F33 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		45DB5BD51F6935C600BDDA4B /* ViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ViewController.storyboard; sourceTree = "<group>"; };
 		45DB5BD71F6935DA00BDDA4B /* SecondViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SecondViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +115,6 @@
 				45B182411F54127100F92F33 /* SecondViewController.m */,
 				45B182431F54127900F92F33 /* SecondViewController.h */,
 				45B182141F54125200F92F33 /* Main.storyboard */,
-				45DB5BD51F6935C600BDDA4B /* ViewController.storyboard */,
 				45DB5BD71F6935DA00BDDA4B /* SecondViewController.storyboard */,
 				45B1821A1F54125200F92F33 /* Assets.xcassets */,
 				45B1821C1F54125200F92F33 /* LaunchScreen.storyboard */,
@@ -267,7 +264,6 @@
 				45B1821B1F54125200F92F33 /* Assets.xcassets in Resources */,
 				45DB5BD81F6935DA00BDDA4B /* SecondViewController.storyboard in Resources */,
 				45B182161F54125200F92F33 /* Main.storyboard in Resources */,
-				45DB5BD61F6935C600BDDA4B /* ViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
