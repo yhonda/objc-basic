@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bcz-Ev-ndE">
+                                <rect key="frame" x="0.0" y="233.5" width="375" height="133.5"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="jLm-Yy-lSu"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="jKO-t7-x6Y"/>
+                                </connections>
+                            </pickerView>
+                            <label opaque="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="年層を選択してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZ7-ma-2bI">
+                                <rect key="frame" x="50" y="123" width="275" height="21"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ApO-Pk-Koy" appends="YES" id="Pcs-St-nSP"/>
+                                </connections>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="csD-FV-zkj">
+                                <rect key="frame" x="295" y="198.5" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="XHU-CB-sgF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="closePckerAndDoneButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MEy-oP-CvZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="bcz-Ev-ndE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="239-y4-hTP"/>
+                            <constraint firstItem="NZ7-ma-2bI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.4" id="95O-cr-vmT"/>
+                            <constraint firstAttribute="trailing" secondItem="csD-FV-zkj" secondAttribute="trailing" constant="5" id="Ail-NN-nu2"/>
+                            <constraint firstItem="bcz-Ev-ndE" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.9" id="BOi-sS-Nf0"/>
+                            <constraint firstItem="bcz-Ev-ndE" firstAttribute="top" secondItem="csD-FV-zkj" secondAttribute="bottom" id="Eh1-eT-cLt"/>
+                            <constraint firstAttribute="trailing" secondItem="NZ7-ma-2bI" secondAttribute="trailing" constant="50" id="Sag-Bt-gkS"/>
+                            <constraint firstItem="NZ7-ma-2bI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YqW-X0-pAE"/>
+                            <constraint firstItem="bcz-Ev-ndE" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="ZIl-vB-pfV"/>
+                            <constraint firstItem="csD-FV-zkj" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.2" id="fE4-dp-Fek"/>
+                            <constraint firstItem="bcz-Ev-ndE" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.2" id="qvW-BE-EYd"/>
+                            <constraint firstItem="NZ7-ma-2bI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="tML-na-Wpj"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PTI-rV-fbY" appends="YES" id="iJb-Ef-JWi"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="pickerHiddenButton" destination="csD-FV-zkj" id="DV1-H5-Ry4"/>
+                        <outlet property="pickerView" destination="bcz-Ev-ndE" id="Rpg-QT-vjF"/>
+                        <outlet property="resultLabel" destination="NZ7-ma-2bI" id="ech-UJ-N3H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ApO-Pk-Koy">
+                    <connections>
+                        <action selector="labelTouch:" destination="BYZ-38-t0r" id="rkJ-iQ-kbI"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="PTI-rV-fbY">
+                    <connections>
+                        <action selector="closePckerAndDoneButton:" destination="BYZ-38-t0r" id="INn-0u-Eu9"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
+        </scene>
+    </scenes>
+</document>
