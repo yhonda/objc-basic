@@ -28,6 +28,8 @@
 NSString *const AccessDatabaseName = @"test.db";
 // 初回起動確認用のuserDefaultsのkey
 static NSString *const CheckFirstRunTimeKey = @"firstRun";
+// DBデータの場所
+static int const DatabaseDataLocationNumber = 0;
 
 @implementation ViewController
 
@@ -40,7 +42,6 @@ static NSString *const CheckFirstRunTimeKey = @"firstRun";
         NSLog(@"初回起動です。");
         [self createFirstTable];
     }
-    
     // カスタムセルの登録
     UINib *nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"Cell"];
@@ -62,7 +63,7 @@ static NSString *const CheckFirstRunTimeKey = @"firstRun";
 // DBと接続するメソッド
 - (id)connectDataBase:(NSString *)dbName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
-    NSString *dir = paths[0];
+    NSString *dir = paths[DatabaseDataLocationNumber];
     FMDatabase *database = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:dbName]];
     return database;
 }
@@ -134,7 +135,7 @@ static NSString *const CheckFirstRunTimeKey = @"firstRun";
 // 初回起動を確認するメソッド
 - (BOOL)checkRunFirstTime {
     //UserDefaultsに接続
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *userDefaults = NSUserDefaults.standardUserDefaults;
     // 起動確認用の値が設定されていれば、NOを返し、されていなければ、起動証明として値を設定
     if ([userDefaults objectForKey:CheckFirstRunTimeKey]) {
         return NO;
