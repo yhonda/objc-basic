@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 // デリゲート接続
-@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
+@interface ViewController : UIViewController
+
 @end
 

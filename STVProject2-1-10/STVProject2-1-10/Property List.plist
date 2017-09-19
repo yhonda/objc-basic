@@ -4,15 +4,15 @@
 <dict>
 	<key>travelImageName</key>
 	<array>
-		<string>AngkorWat</string>
-		<string>VictoriaFalls</string>
-		<string>AyersRock</string>
-		<string>GrandCanyon</string>
-		<string>TajMahal</string>
-		<string>HalongBay</string>
-		<string>Petraruins</string>
-		<string>MachuPicchu</string>
-		<string>MontSaintMichel</string>
+		<string>AngkorWat.jpg</string>
+		<string>VictoriaFalls.jpg</string>
+		<string>AyersRock.jpg</string>
+		<string>GrandCanyon.jpg</string>
+		<string>TajMahal.jpg</string>
+		<string>HalongBay.jpg</string>
+		<string>Petraruins.jpg</string>
+		<string>MachuPicchu.jpg</string>
+		<string>MontSaintMichel.jpg</string>
 	</array>
 	<key>travelExplainText</key>
 	<array>

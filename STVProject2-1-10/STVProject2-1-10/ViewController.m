@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *cellImageList;
@@ -42,8 +42,6 @@
     //プロパティリストの中身データを取得
     NSDictionary *dic = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得
-    self.cellImageList = @[];
-    self.cellTextList = @[];
     self.cellImageList = dic[@"travelImageName"];
     self.cellTextList = dic[@"travelExplainText"];
 }
@@ -58,8 +56,6 @@
     // インスタンス化
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     
-    cell.textLabel.numberOfLines = 0;
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
     cell.textLabel.text = self.cellTextList[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:self.cellImageList[indexPath.row]];
     
