@@ -22,7 +22,7 @@
     // 遷移先のストーリーボードをインスタンス化
     UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"SecondViewController" bundle:nil];
     // 遷移先のViewControllerをインスタンス化
-    SecondViewController *secondViewController = [secondStoryBoard instantiateViewControllerWithIdentifier:@"SecondViewController"];
+    SecondViewController *secondViewController = [secondStoryBoard instantiateInitialViewController];
     // 遷移を実行
     [self.navigationController pushViewController:secondViewController animated:YES];
 }
