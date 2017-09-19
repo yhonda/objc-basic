@@ -37,7 +37,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <state key="normal" title="B画面へ"/>
                                 <connections>
-                                    <segue destination="NNO-Tl-KPF" kind="presentation" id="q6u-de-Vt3"/>
+                                    <action selector="presentSecondViewController:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nEX-SP-P8g"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -54,14 +54,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="593" y="126"/>
-        </scene>
-        <!--SecondViewController-->
-        <scene sceneID="kcE-WR-PFk">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Second" referencedIdentifier="SecondViewController" id="NNO-Tl-KPF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xgJ-4r-zeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1213" y="112"/>
         </scene>
     </scenes>
 </document>

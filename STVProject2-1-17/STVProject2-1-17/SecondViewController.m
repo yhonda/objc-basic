@@ -10,7 +10,6 @@
 
 @interface SecondViewController ()
 // メソッドを定義
-- (IBAction)backButton:(id)sender;
 @end
 
 @implementation SecondViewController
