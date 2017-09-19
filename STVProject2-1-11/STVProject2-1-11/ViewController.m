@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *sectionNameList;
@@ -55,12 +55,8 @@ static int const CellHeight = 30;
     //読み込むプロパティリストのファイルパスを指定
     NSString *path = [bundle pathForResource:@"Property List" ofType:@"plist"];
     //プロパティリストの中身データを取得
-    self.plistDictionary =  @{};
     self.plistDictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     // キー値を元に各自データリストを取得（セクションタイトル、セル内画像、セル内テキスト）
-    self.sectionNameList = @[];
-    self.cellImageList = @[];
-    self.cellTextList = @[];
     self.sectionNameList = self.plistDictionary[@"destinationName"];
     self.cellImageList = self.plistDictionary[@"traveAsialImageName"];
     self.cellTextList = self.plistDictionary[@"travelAsiaExplainText"];
@@ -90,9 +86,6 @@ static int const CellHeight = 30;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     // インスタンス化
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    
-    // ラベルの行数設定を無制限にする
-    cell.textLabel.numberOfLines = 0;
     
     // セクションのインデックスによって別々のテキストと画像の配列を用意する
     switch (indexPath.section) {

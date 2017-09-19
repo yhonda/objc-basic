@@ -114,8 +114,8 @@
 				4509C5411F502D2400DA3DBC /* LaunchScreen.storyboard */,
 				4509C5441F502D2400DA3DBC /* Info.plist */,
 				4509C53C1F502D2400DA3DBC /* STVProject2_1_11.xcdatamodeld */,
-				4509C5301F502D2400DA3DBC /* Supporting Files */,
 				45A4965D1F517E0000AB56CF /* Property List.plist */,
+				4509C5301F502D2400DA3DBC /* Supporting Files */,
 			);
 			path = "STVProject2-1-11";
 			sourceTree = "<group>";
