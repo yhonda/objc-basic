@@ -18,6 +18,8 @@
 - (void)getPlistData;
 @end
 
+static CGFloat const cellRowEstimateHeigt = 100;
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -30,7 +32,7 @@
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの最低限の高さを設定
-    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.estimatedRowHeight = cellRowEstimateHeigt;
 }
 
 - (void)getPlistData {
