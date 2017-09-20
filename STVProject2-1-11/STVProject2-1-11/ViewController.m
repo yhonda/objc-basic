@@ -22,14 +22,17 @@
 
 // 旅行地方面をenumu定数で用意
 typedef NS_ENUM(NSUInteger, travelPotion) {
-    AsiaPotion = 0,
+    AsiaPotion,
     AmerikaPotion,
     EuropePotion,
     OceaniaPotion,
     AfurikaPotion
 };
 // セクションの高さを用意
-static int const CellHeight = 30;
+static CGFloat const CellHeight = 30;
+// セルの基本値の高さ
+static CGFloat const cellRowEstimateHeigt = 100;
+
 
 @implementation ViewController
 
@@ -44,7 +47,7 @@ static int const CellHeight = 30;
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの基本値の高さを確保
-    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.estimatedRowHeight = cellRowEstimateHeigt;
 }
 
 // 表示データの取得
