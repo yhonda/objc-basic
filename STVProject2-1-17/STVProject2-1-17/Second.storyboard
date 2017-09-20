@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Second View Controller-->
+        <scene sceneID="LY6-gU-kcM">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="QVy-Ce-9Ua" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5nf-FR-W98"/>
+                        <viewControllerLayoutGuide type="bottom" id="jeg-aD-FcE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d5z-kD-zp1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2MJ-S0-ZAZ">
+                                <rect key="frame" x="0.0" y="149" width="375" height="36"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0w-yP-f4a">
+                                <rect key="frame" x="112.5" y="460.5" width="150" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="5xC-o2-2IV"/>
+                                    <constraint firstAttribute="height" constant="80" id="8ub-fP-kHG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="backButton:" destination="QVy-Ce-9Ua" eventType="touchUpInside" id="pF2-Jw-FzH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.80805411000000005" green="0.99356226339999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="B0w-yP-f4a" firstAttribute="centerY" secondItem="d5z-kD-zp1" secondAttribute="centerY" multiplier="1.5" id="5ha-XZ-SKe"/>
+                            <constraint firstItem="B0w-yP-f4a" firstAttribute="centerX" secondItem="d5z-kD-zp1" secondAttribute="centerX" id="K4Y-Xh-eOz"/>
+                            <constraint firstItem="2MJ-S0-ZAZ" firstAttribute="width" secondItem="d5z-kD-zp1" secondAttribute="width" id="P5X-7E-WoG"/>
+                            <constraint firstItem="2MJ-S0-ZAZ" firstAttribute="centerX" secondItem="d5z-kD-zp1" secondAttribute="centerX" id="jXB-ww-Qs0"/>
+                            <constraint firstItem="2MJ-S0-ZAZ" firstAttribute="centerY" secondItem="d5z-kD-zp1" secondAttribute="centerY" multiplier="0.5" id="pWi-33-Wjy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="voD-Bu-MPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="786" y="-433"/>
+        </scene>
+    </scenes>
+</document>
