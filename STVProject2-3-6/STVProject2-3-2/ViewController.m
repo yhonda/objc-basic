@@ -11,7 +11,7 @@
 #import "RegisterViewController.h"
 #import "CustomTableViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 // プロパティ定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) int cellCount;
@@ -31,19 +31,19 @@ NSString *const AccessDatabaseName = @"test.db";
 static NSString *const CheckFirstRunTimeKey = @"firstRun";
 // 表示するセルの判定ステータス
 static NSString *const IndicateJudgeStatus = @"OFF";
+// セルの高さ
+static CGFloat const CellHeightValue = 80;
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     // 初回起動かを確認
     if ([self checkRunFirstTime]) {
         // 初回起動の場合、DBにテーブルを作成
         NSLog(@"初回起動です。");
         [self createFirstTable];
     }
-    
     // カスタムセルの登録
     UINib *nib = [UINib nibWithNibName:@"CustomTableViewCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"Cell"];
@@ -51,8 +51,7 @@ static NSString *const IndicateJudgeStatus = @"OFF";
 
 // ロード後に毎回、セルの数を決定、リロードをかける
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    
+    [super viewWillAppear:animated];
     // セルの数を決定する(初期化をしてから)
     self.cellCount = 0;
     self.cellCount = [self countId];
@@ -74,7 +73,6 @@ static NSString *const IndicateJudgeStatus = @"OFF";
 - (void)createDataSource {
     // DBの呼び出し
     FMDatabase *db = [self connectDataBase:AccessDatabaseName];
-    
     //select文の作成（DB内のデータをlimitDateカラムに準ずる形で並べ替えて取り出す）
     // どのDBからデータを取得するかを指定
     NSString *select = [[NSString alloc] initWithFormat:@"SELECT * from tr_todo order by limit_date asc"];
@@ -106,14 +104,11 @@ static NSString *const IndicateJudgeStatus = @"OFF";
 
 // セルの数を決定（deleteフラグがOFFの要素のみ）
 - (int)countId {
-    
     // DB接続
     RegisterViewController *registerViewController = [[RegisterViewController alloc]init];
     FMDatabase *db = [self connectDataBase:AccessDatabaseName];
-    
     //count文の作成
     NSString *countId = [[NSString alloc]initWithFormat:@"select count(*) as count from tr_todo where delete_flg='OFF'"];
-    
     // DBをオープン
     [db open];
     // セットしたcount文を回して、todo_idの数を数える
@@ -123,7 +118,6 @@ static NSString *const IndicateJudgeStatus = @"OFF";
     }
     // DBを閉じる
     [db close];
-    
     // 数えた値を返す
     return registerViewController.todoId;
 }
@@ -198,15 +192,14 @@ static NSString *const IndicateJudgeStatus = @"OFF";
         self.cellCount = [self countId];
         // 最新のデータソースを作成
         [self createDataSource];
-        // テーブルビューを更新
-        [self.tableView reloadData];
-        
+        // テーブルビューを更新（非表示更新の際にアニメーションをつける(いらない場合はreloadDataでも可)）
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
 
 // セルの幅を調節（今回はラベルが複数行にならないため、可変ではない）
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return CellHeightValue;
 }
 
 @end
