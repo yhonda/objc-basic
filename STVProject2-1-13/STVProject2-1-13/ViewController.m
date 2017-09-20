@@ -24,9 +24,11 @@
 
 // セルの大きさの割合を決める定数を用意
 static double const CellSizeDivisionNumber  = 2.3;
+// セクションの高さ
+static CGFloat const SectionHeight = 40;
 //　セル画像判別用の変数を定義
 typedef NS_ENUM(NSUInteger, touristSpots) {
-    AsiaSpot = 0,
+    AsiaSpot,
     AmerikaSpot,
     EuropeSpot,
     OceaniaSpot,
@@ -86,11 +88,10 @@ typedef NS_ENUM(NSUInteger, touristSpots) {
     return header;
 }
 
-// セクションの高さを設定
+// セクションのサイズを設定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     CGFloat sectionWidth = self.collectionView.bounds.size.width;
-    CGFloat sectionHeight = 40;
-    CGSize sectionSize = CGSizeMake(sectionWidth, sectionHeight);
+    CGSize sectionSize = CGSizeMake(sectionWidth, SectionHeight);
     return sectionSize;
 }
 
