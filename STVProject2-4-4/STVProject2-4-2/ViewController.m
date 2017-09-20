@@ -20,17 +20,6 @@
 @property (nonatomic, strong) NSMutableArray *threeDaysTextList;
 @property (nonatomic, strong) NSMutableArray *threeDaysIconImageUrlList;
 
-// メソッドを定義
-- (void)setTableView;
-- (void)setAlertController;
-- (UIAlertAction *)createTodayButton;
-- (UIAlertAction *)createTomorrowButton;
-- (UIAlertAction *)createAfterTomorrowButton;
-- (UIAlertAction *)createCancelButton;
-- (UIAlertAction *)createAllSelectButton;
-- (void)createDataSoruceSubThread:(NSDictionary *)forecastsDictionary index:(int)index;
-- (void)createDataSoruceMainThread:(NSDictionary *)forecastsDictionary descriptionDictionary:(NSDictionary *)descriptionDictionary index:(int)index;
-- (NSData *)createImageData:(NSString *)imageDataText;
 @end
 
 // APIのURL用の定数を用意
@@ -39,12 +28,13 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
 static int const TodayForecastApiNumber = 0;
 static int const TomorrowForecastApiNumber = 1;
 static int const AfterTomorrowForecastApiNumber = 2;
-// ３日間全ての情報を取得する場合に使用する定数
-static int const ThreeDaysForecastRequestNumber = 3;
+static int const AllDaysDataCountReturnApi = 3;
 // 画像読み込み中に表示する画像名
 static NSString *const notFoundImageName = @"noImageIcon";
 // userDefaultsで初回起動を確認する際のキー値
 static NSString *const CheckFirstTimeRunKey = @"firstRun";
+// セルの基準値の高さ
+static CGFloat CellEstimatedRowHeight = 100.0;
 
 @implementation ViewController
 
@@ -77,7 +67,7 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
     UINib *nib = [UINib nibWithNibName:@"WeatherForecastCell" bundle:nil];
     [self.tableView registerNib:nib forCellReuseIdentifier:@"Cell"];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
-    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.estimatedRowHeight = CellEstimatedRowHeight;
 }
 
 // アラートコントローラーとアクションシートを用意
@@ -121,10 +111,11 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
                                          // サブスレッド処理
                                          dispatch_async(subQueue, ^{
                                              // バックグラウンドで行う処理を記述
-                                             for(int i=0; i<ThreeDaysForecastRequestNumber; i++) {
+                                             int countIndexSub = 0;
+                                             for (NSDictionary *forecasts in responseObject[@"forecasts"]) {
                                                  // 処理
-                                                 NSDictionary *forecasts = responseObject[@"forecasts"][i];
-                                                 [self createDataSoruceSubThread:forecasts index:i];
+                                                 [self createDataSoruceSubThread:forecasts index:countIndexSub];
+                                                 countIndexSub ++;
                                                  // テーブルを更新
                                                  dispatch_async(mainQueue, ^{
                                                      // 終わった後の処理
@@ -134,11 +125,11 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
                                          });
                                          // メインスレッド処理
                                          dispatch_async(mainQueue, ^{
-                                             for(int i=0; i<ThreeDaysForecastRequestNumber; i++) {
-                                                 
-                                                 NSDictionary *forecasts = responseObject[@"forecasts"][i];
+                                             int countIndexMain = 0;
+                                             for (NSDictionary *forecasts in responseObject[@"forecasts"]) {
                                                  NSDictionary *description = responseObject[@"description"];
-                                                 [self createDataSoruceMainThread:forecasts descriptionDictionary:description index:i];
+                                                 [self createDataSoruceMainThread:forecasts descriptionDictionary:description index:countIndexMain];
+                                                 countIndexMain ++;
                                              }
                                          });
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
@@ -146,7 +137,6 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
                                          NSLog(@"予報データの取得に失敗しました。");
                                      }
                                 ];
-                               
                            }];
     return threeDaysWeatherForecast;
 }
@@ -230,7 +220,6 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
                                                  // 終わった後の処理
                                                  [self.tableView reloadData];
                                              });
-                                             
                                          });
                                          // メインスレッド処理
                                          dispatch_async(mainQueue, ^{
@@ -270,22 +259,27 @@ static NSString *const CheckFirstTimeRunKey = @"firstRun";
                                [manager.requestSerializer setCachePolicy:NSURLRequestReturnCacheDataElseLoad];
                                [manager GET : url parameters : nil progress:nil
                                      success:^(NSURLSessionTask *task, id responseObject) {
-                                         // サブスレッド処理（バックグラウンド処理）
-                                         dispatch_async(subQueue, ^{
-                                             NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
-                                             [self createDataSoruceSubThread:forecasts index:AfterTomorrowForecastApiNumber];
-                                             // テーブルを更新
-                                             dispatch_async(mainQueue, ^{
-                                                 // 終わった後の処理
-                                                 [self.tableView reloadData];
+                                         NSArray *checkInfomationList = responseObject[@"forecasts"];
+                                         if (checkInfomationList.count == AllDaysDataCountReturnApi) {
+                                             // サブスレッド処理（バックグラウンド処理）
+                                             dispatch_async(subQueue, ^{
+                                                 NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
+                                                 [self createDataSoruceSubThread:forecasts index:AfterTomorrowForecastApiNumber];
+                                                 // テーブルを更新
+                                                 dispatch_async(mainQueue, ^{
+                                                     // 終わった後の処理
+                                                     [self.tableView reloadData];
+                                                 });
                                              });
-                                         });
-                                         // メインスレッド処理
-                                         dispatch_async(mainQueue, ^{
-                                             NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
-                                             NSDictionary *description = responseObject[@"description"];
-                                             [self createDataSoruceMainThread:forecasts descriptionDictionary:description index:AfterTomorrowForecastApiNumber];
-                                         });
+                                             // メインスレッド処理
+                                             dispatch_async(mainQueue, ^{
+                                                 NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
+                                                 NSDictionary *description = responseObject[@"description"];
+                                                 [self createDataSoruceMainThread:forecasts descriptionDictionary:description index:AfterTomorrowForecastApiNumber];
+                                             });
+                                         } else {
+                                             NSLog(@"明後日の予報データはまだ存在していません。");
+                                         }
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
                                          // エラーの場合の処理
                                          NSLog(@"予報データの取得に失敗しました。");
