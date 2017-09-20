@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "AFNetworking.h"
+#import "AFAutoPurgingImageCache.h"
+#import "AFURLRequestSerialization.h"
 #import "WeatherForecastCell.h"
 
 @interface ViewController ()
@@ -18,20 +20,6 @@
 @property (nonatomic, strong) NSMutableArray *threeDaysTelopList;
 @property (nonatomic, strong) NSMutableArray *threeDaysTextList;
 @property (nonatomic, strong) NSMutableArray *threeDaysIconImageUrlList;
-
-// メソッドを定義
-- (void)setTableView;
-- (void)setAlertController;
-- (UIAlertAction *)createTodayButton;
-- (UIAlertAction *)createTomorrowButton;
-- (UIAlertAction *)createAfterTomorrowButton;
-- (UIAlertAction *)createCancelButton;
-- (UIAlertAction *)createAllSelectButton;
-- (void)createDataSoruceSubThread:(NSDictionary *)forecastsDictionary;
-- (void)createDataSoruceMainThread:(NSDictionary *)forecastsDictionary descriptionDictionary:(NSDictionary *)descriptionDictionary;
-
-- (NSData *)createImageData:(NSString *)imageDataText;
-
 @end
 
 // APIのURL用の定数を用意
@@ -40,10 +28,11 @@ static NSString *const apiUrl = @"http://weather.livedoor.com/forecast/webservic
 static int const TodayForecastApiNumber = 0;
 static int const TomorrowForecastApiNumber = 1;
 static int const AfterTomorrowForecastApiNumber = 2;
-// ３日間全ての情報を取得する場合に使用する定数
-static int const ThreeDaysForecastRequestNumber = 3;
+static int const AllDaysDataCountReturnApi = 3;
 // 画像読み込み中に表示する画像名
 static NSString *const notFoundImageName = @"noImageIcon";
+// セルの基準値の高さ
+static CGFloat CellEstimatedRowHeight = 100.0;
 
 @implementation ViewController
 
@@ -63,7 +52,7 @@ static NSString *const notFoundImageName = @"noImageIcon";
     // セルの高さをセル内のレイアウトに準拠するように設定
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     // セルの最低限の高さを設定
-    self.tableView.estimatedRowHeight = 100.0;
+    self.tableView.estimatedRowHeight = CellEstimatedRowHeight;
 }
 
 // アラートコントローラーとアクションシートを用意
@@ -101,14 +90,14 @@ static NSString *const notFoundImageName = @"noImageIcon";
                                // URLからJSONデータを取得
                                NSString *url = apiUrl;
                                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+                               
                                [manager GET : url parameters : nil progress:nil
                                      success:^(NSURLSessionTask *task, id responseObject) {
                                          // サブスレッド処理
                                          dispatch_async(subQueue, ^{
                                              // バックグラウンドで行う処理を記述
-                                             for(int i=0; i<ThreeDaysForecastRequestNumber; i++) {
+                                             for (NSDictionary *forecasts in responseObject[@"forecasts"]) {
                                                  // 処理
-                                                 NSDictionary *forecasts = responseObject[@"forecasts"][i];
                                                  [self createDataSoruceSubThread:forecasts];
                                                  // テーブルを更新
                                                  dispatch_async(mainQueue, ^{
@@ -119,8 +108,7 @@ static NSString *const notFoundImageName = @"noImageIcon";
                                          });
                                          // メインスレッド処理
                                          dispatch_async(mainQueue, ^{
-                                             for(int i=0; i<ThreeDaysForecastRequestNumber; i++) {
-                                                 NSDictionary *forecasts = responseObject[@"forecasts"][i];
+                                             for (NSDictionary *forecasts in responseObject[@"forecasts"]) {
                                                  NSDictionary *description = responseObject[@"description"];
                                                  [self createDataSoruceMainThread:forecasts descriptionDictionary:description];
                                              }
@@ -244,20 +232,25 @@ static NSString *const notFoundImageName = @"noImageIcon";
                                AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
                                [manager GET : url parameters : nil progress:nil
                                      success:^(NSURLSessionTask *task, id responseObject) {
-                                         // サブスレッド処理
-                                         dispatch_async(subQueue, ^{
-                                             NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
-                                             [self createDataSoruceSubThread:forecasts];
-                                             dispatch_async(mainQueue, ^{
-                                                 [self.tableView reloadData];
+                                         NSArray *checkInfomationList = responseObject[@"forecasts"];
+                                         if (checkInfomationList.count == AllDaysDataCountReturnApi) {
+                                             // サブスレッド処理
+                                             dispatch_async(subQueue, ^{
+                                                 NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
+                                                 [self createDataSoruceSubThread:forecasts];
+                                                 dispatch_async(mainQueue, ^{
+                                                     [self.tableView reloadData];
+                                                 });
                                              });
-                                         });
-                                         // メインスレッド処理
-                                         dispatch_async(mainQueue, ^{
-                                             NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
-                                             NSDictionary *description = responseObject[@"description"];
-                                             [self createDataSoruceMainThread:forecasts descriptionDictionary:description];
-                                         });
+                                             // メインスレッド処理
+                                             dispatch_async(mainQueue, ^{
+                                                 NSDictionary *forecasts = responseObject[@"forecasts"][AfterTomorrowForecastApiNumber];
+                                                 NSDictionary *description = responseObject[@"description"];
+                                                 [self createDataSoruceMainThread:forecasts descriptionDictionary:description];
+                                             });
+                                         } else {
+                                             NSLog(@"明後日の予報データはまだ存在していません。");
+                                         }
                                      } failure:^(NSURLSessionTask *operation, NSError *error) {
                                          // エラーの場合の処理
                                          NSLog(@"予報データの取得に失敗しました。");
