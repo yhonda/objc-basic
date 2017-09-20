@@ -11,7 +11,7 @@
 #import "ViewController.h"
 #import "FMDatabase.h"
 
-@interface RegisterViewController ()
+@interface RegisterViewController () <UITextFieldDelegate,UITextViewDelegate>
 
 @end
 
@@ -19,6 +19,8 @@
 static int const TodoLimitAfterDays = 7;
 // DB内で値に振るIDの増数値
 static int const AddCountTodoId = 1;
+// 日付表示のフォーマット
+static NSString *const DateFormat = @"yyyy/MM/dd";
 
 @implementation RegisterViewController
 
@@ -32,10 +34,8 @@ static int const AddCountTodoId = 1;
     // DB接続
     ViewController *viewController = [[ViewController alloc]init];
     FMDatabase *db = [viewController connectDataBase:AccessDatabaseName];
-    
     //count文の作成
     NSString *countTodoId = [[NSString alloc] initWithFormat:@"select count(*) as count from tr_todo where todo_id"];
-    
     // DBをオープン
     [db open];
     // セットしたcount文を回して、todo_idの数を数える
@@ -45,10 +45,8 @@ static int const AddCountTodoId = 1;
     }
     // DBを閉じる
     [db close];
-
     // 数えた値に+1をして返す
     int latestTodoId = self.todoId + AddCountTodoId;
-    
     return latestTodoId;
 }
 
@@ -56,60 +54,56 @@ static int const AddCountTodoId = 1;
     // 当日の日付を取得
     //NSDateFormatterクラスを出力する。
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    
     //出力形式を文字列で指定する。
-    [format setDateFormat:@"yyyy/MM/dd"];
-    
+    [format setDateFormat:DateFormat];
     // 現在時刻を取得しつつ、NSDateFormatterクラスをかませて、文字列を出力する。
     NSString *todayDate = [format stringFromDate:[NSDate date]];
-    
     return todayDate;
 }
 
 // 〜日後の期日を設定
 - (NSString *)getLimitDate {
-    
     //NSDateFormatterクラスを出力する。
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
-    
     //出力形式を文字列で指定する。
-    [format setDateFormat:@"yyyy/MM/dd"];
-    
+    [format setDateFormat:DateFormat];
     // 日付のオフセットを生成
     NSDateComponents *dateComp = [[NSDateComponents alloc] init];
-    
     // 〜日後を指定
     [dateComp setDay:TodoLimitAfterDays];
-    
     // 〜日後のNSDateインスタンスを取得する
     NSDate *futureDate = [NSCalendar.currentCalendar dateByAddingComponents:dateComp toDate:[NSDate date] options:0];
-    
     // 〜日後のインスタンスをフォーマットにはめて返す
     NSString *limitLineDate = [format stringFromDate:futureDate];
-    
     return limitLineDate;
 }
 
 // タイトル空欄時に表示するアラートを作成
 - (void)createAleart {
+    NSString *registerAlertControllerTitle = [NSBundle.mainBundle localizedStringForKey:@"registerAlertControllerTitle" value:nil table:@"Localizable"];
+    NSString *registerAlertControllerMessage = [NSBundle.mainBundle localizedStringForKey:@"registerAlertControllerMessage" value:nil table:@"Localizable"];
+    NSString *doneAlertControllerTitle = [NSBundle.mainBundle localizedStringForKey:@"doneAlertControllerTitle" value:nil table:@"Localizable"];
+    NSString *okButtonAleartActionTitle = [NSBundle.mainBundle localizedStringForKey:@"okButtonAleartActionTitle" value:nil table:@"Localizable"];
+    NSString *backTopButtonAleartActionTitle = [NSBundle.mainBundle localizedStringForKey:@"backTopButtonAleartActionTitle" value:nil table:@"Localizable"];
+    NSString *continueRegistButtonAleartActionTitle = [NSBundle.mainBundle localizedStringForKey:@"continueRegistButtonAleartActionTitle" value:nil table:@"Localizable"];
     //アラートコントローラーの生成
     self.registerAlertController = [UIAlertController
-                                    alertControllerWithTitle:@"未入力"
-                                    message:@"タイトルの入力は必須です。"
+                                    alertControllerWithTitle:registerAlertControllerTitle
+                                    message:registerAlertControllerMessage
                                     preferredStyle:UIAlertControllerStyleAlert];
     
-    self.doneAlertController = [UIAlertController alertControllerWithTitle:@"登録完了" message:nil preferredStyle:UIAlertControllerStyleAlert];
+    self.doneAlertController = [UIAlertController alertControllerWithTitle:doneAlertControllerTitle message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     // OKボタンと処理内容を用意
     UIAlertAction *okButton = [UIAlertAction
-                               actionWithTitle:@"OK"
+                               actionWithTitle:okButtonAleartActionTitle
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction * action) {
                                }];
     
     // 閉じるボタン（処理：一覧画面に戻る）を用意
     UIAlertAction *backTopButton = [UIAlertAction
-                                    actionWithTitle:@"閉じる"
+                                    actionWithTitle:backTopButtonAleartActionTitle
                                     style:UIAlertActionStyleDefault
                                     handler:^(UIAlertAction * action) {
                                         [self dismissViewControllerAnimated:YES completion:nil];
@@ -117,7 +111,7 @@ static int const AddCountTodoId = 1;
     
     // 連続登録ボタン（処理：その画面のまま、テキストをリセット）を用意
     UIAlertAction *continueRegistButton = [UIAlertAction
-                                           actionWithTitle:@"連続登録"
+                                           actionWithTitle:continueRegistButtonAleartActionTitle
                                            style:UIAlertActionStyleDefault
                                            handler:^(UIAlertAction * action) {
                                                self.registerTextField.text = @"";

@@ -21,6 +21,7 @@
 		45B535851F6A5109003665EB /* RegisterViewStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45B535841F6A5109003665EB /* RegisterViewStoryboard.storyboard */; };
 		45D303B41F6A21DB005C4ED3 /* CustomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */; };
 		45D303B51F6A21DB005C4ED3 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */; };
+		45DCADAC1F71F9460072089F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 45DCADAE1F71F9460072089F /* Localizable.strings */; };
 		8154B713CAE4A88E3230531C /* libPods-STVProject2-3-2Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 758231F12E38D0EC2F2DE193 /* libPods-STVProject2-3-2Tests.a */; };
 		B1F723BE66D484641D77AE98 /* libPods-STVProject2-3-2UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 37420AEDCC0EE28674BB0154 /* libPods-STVProject2-3-2UITests.a */; };
 /* End PBXBuildFile section */
@@ -69,6 +70,7 @@
 		45D303B11F6A21DB005C4ED3 /* CustomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTableViewCell.h; sourceTree = "<group>"; };
 		45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTableViewCell.m; sourceTree = "<group>"; };
 		45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		45DCADAD1F71F9460072089F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4B53354DCE0CE276A5AAD456 /* Pods-STVProject2-3-2UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-3-2UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-3-2UITests/Pods-STVProject2-3-2UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		758231F12E38D0EC2F2DE193 /* libPods-STVProject2-3-2Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-STVProject2-3-2Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76BDAF5AA1CD70B08888EE54 /* Pods-STVProject2-3-2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-STVProject2-3-2UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-STVProject2-3-2UITests/Pods-STVProject2-3-2UITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				45D303B11F6A21DB005C4ED3 /* CustomTableViewCell.h */,
 				45D303B21F6A21DB005C4ED3 /* CustomTableViewCell.m */,
 				45D303B31F6A21DB005C4ED3 /* CustomTableViewCell.xib */,
+				45DCADAE1F71F9460072089F /* Localizable.strings */,
 				459A5F881F55DEFC00C920D0 /* Main.storyboard */,
 				45B535841F6A5109003665EB /* RegisterViewStoryboard.storyboard */,
 				459A5F8E1F55DEFC00C920D0 /* Assets.xcassets */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				459A5F921F55DEFC00C920D0 /* LaunchScreen.storyboard in Resources */,
+				45DCADAC1F71F9460072089F /* Localizable.strings in Resources */,
 				459A5F8F1F55DEFC00C920D0 /* Assets.xcassets in Resources */,
 				45B535851F6A5109003665EB /* RegisterViewStoryboard.storyboard in Resources */,
 				45D303B51F6A21DB005C4ED3 /* CustomTableViewCell.xib in Resources */,
@@ -539,6 +543,14 @@
 				459A5F911F55DEFC00C920D0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		45DCADAE1F71F9460072089F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				45DCADAD1F71F9460072089F /* Base */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

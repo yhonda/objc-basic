@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FMDatabase.h"
 
-@interface RegisterViewController : UIViewController <UITextFieldDelegate,UITextViewDelegate>
+@interface RegisterViewController : UIViewController
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UITextField *registerTextField;
 @property (weak, nonatomic) IBOutlet UITextView *registerTextView;

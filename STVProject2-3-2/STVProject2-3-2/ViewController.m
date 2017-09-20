@@ -11,7 +11,7 @@
 #import "RegisterViewController.h"
 #import "CustomTableViewCell.h"
 
-@interface ViewController ()
+@interface ViewController () <UITableViewDelegate,UITableViewDataSource>
 // プロパティ定義
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) int cellCount;
@@ -28,8 +28,8 @@
 NSString *const AccessDatabaseName = @"test.db";
 // 初回起動確認用のuserDefaultsのkey
 static NSString *const CheckFirstRunTimeKey = @"firstRun";
-// DBデータの場所
-static int const DatabaseDataLocationNumber = 0;
+// セルの高さ
+static CGFloat const CellHeightValue = 80;
 
 @implementation ViewController
 
@@ -49,8 +49,7 @@ static int const DatabaseDataLocationNumber = 0;
 
 // ロード後に毎回、セルの数を決定、リロードをかける
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    
+    [super viewWillAppear:animated];
     // セルの数を決定する(初期化をしてから)
     self.cellCount = 0;
     self.cellCount = [self countId];
@@ -63,7 +62,7 @@ static int const DatabaseDataLocationNumber = 0;
 // DBと接続するメソッド
 - (id)connectDataBase:(NSString *)dbName {
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES );
-    NSString *dir = paths[DatabaseDataLocationNumber];
+    NSString *dir = paths[0];
     FMDatabase *database = [FMDatabase databaseWithPath:[dir stringByAppendingPathComponent:dbName]];
     return database;
 }
@@ -72,7 +71,6 @@ static int const DatabaseDataLocationNumber = 0;
 - (void)createDataSource {
     // DBの呼び出し
     FMDatabase *db = [self connectDataBase:AccessDatabaseName];
-    
     //select文の作成（DB内のデータをlimitDateカラムに準ずる形で並べ替えて取り出す）
     // どのDBからデータを取得するかを指定
     NSString *select = [[NSString alloc] initWithFormat:@"SELECT * from tr_todo order by limit_date asc"];
@@ -96,14 +94,11 @@ static int const DatabaseDataLocationNumber = 0;
 }
 
 - (int)countId {
-    
     // DB接続
     RegisterViewController *registerViewController = [[RegisterViewController alloc]init];
     FMDatabase *db = [self connectDataBase:AccessDatabaseName];
-    
     //count文の作成
     NSString *countId = [[NSString alloc]initWithFormat:@"select count(*) as count from tr_todo where todo_id"];
-    
     // DBをオープン
     [db open];
     // セットしたcount文を回して、todo_idの数を数える
@@ -113,7 +108,6 @@ static int const DatabaseDataLocationNumber = 0;
     }
     // DBを閉じる
     [db close];
-    
     // 数えた値を返す
     return registerViewController.todoId;
 }
@@ -167,7 +161,7 @@ static int const DatabaseDataLocationNumber = 0;
 
 // セルの幅を調節（今回はラベルが複数行にならないため、可変ではない）
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 80;
+    return CellHeightValue;
 }
 
 @end

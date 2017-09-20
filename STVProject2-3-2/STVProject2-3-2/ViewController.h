@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
+@interface ViewController : UIViewController
 // DB用プロパティ
 - (id)connectDataBase:(NSString *)dbName;
 extern NSString *const AccessDatabaseName;
