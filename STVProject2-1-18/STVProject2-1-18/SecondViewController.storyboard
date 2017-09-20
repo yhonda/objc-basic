@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AZy-es-ylU">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--B画面-->
+        <scene sceneID="3ne-TN-F2D">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewController" id="AZy-es-ylU" customClass="SecondViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rZs-xS-b8C"/>
+                        <viewControllerLayoutGuide type="bottom" id="Uyg-6Q-aTU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bTy-NW-reA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B画面" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3vM-ml-Zxc">
+                                <rect key="frame" x="0.0" y="152" width="375" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.74842470169999997" green="0.97736594229999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3vM-ml-Zxc" firstAttribute="centerY" secondItem="bTy-NW-reA" secondAttribute="centerY" multiplier="0.5" id="cnG-Ra-I0H"/>
+                            <constraint firstItem="3vM-ml-Zxc" firstAttribute="centerX" secondItem="bTy-NW-reA" secondAttribute="centerX" id="uOV-iy-szf"/>
+                            <constraint firstItem="3vM-ml-Zxc" firstAttribute="width" secondItem="bTy-NW-reA" secondAttribute="width" id="zwp-L4-guH"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="B画面" id="Roc-5b-ful"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ql-JM-zMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1852" y="137"/>
+        </scene>
+    </scenes>
+</document>
