@@ -17,6 +17,9 @@
 - (void)getPlistData;
 @end
 
+// セルの大きさ比率調整用の定数
+static int const divisionNumber = 4;
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -55,8 +58,6 @@
 // セルの大きさを指定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    // 大きさ比率調整用の定数を定義
-    static int const divisionNumber = 4;
     // 幅と高さに使用する変数を用意
     CGFloat CellSize = 0;
     CellSize = collectionView.bounds.size.width/divisionNumber;
