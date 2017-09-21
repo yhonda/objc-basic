@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>CFBundleURLName</key>
-			<string></string>
+			<string>com.kawaharadai.STVProject2-6-1</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>stv</string>

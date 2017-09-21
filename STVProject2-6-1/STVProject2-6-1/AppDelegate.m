@@ -52,8 +52,8 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     NSString *scheme = [NSString stringWithFormat:@"%@",url.scheme];
-    static NSString *const appSchmeName = @"stv";
-    if ([scheme isEqualToString: appSchmeName]) {
+    static NSString *const AppSchmeName = @"stv";
+    if ([scheme isEqualToString: AppSchmeName]) {
         UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
         SecondViewController *secondViewController = [secondStoryBoard instantiateInitialViewController];
         // 初回起動画面をセット
