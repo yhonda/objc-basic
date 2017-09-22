@@ -11,10 +11,9 @@
 
 @interface ViewController ()
 // メソッドを定義
-- (IBAction)postInstagramButton:(id)sender;
-
 @end
 
+static NSString *const PostImageName = @"AngkorWat";
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -30,11 +29,10 @@
      [[UIApplication sharedApplication] openURL:instagramURL];
      }
      */
-    
     // instagramにスキームをリクエストして開いてみる
     if ([InstagramController canInstagramOpen]) {
         // 任意の画像を用意
-        UIImage *image = [UIImage imageNamed:@"ボラボラ島"];
+        UIImage *image = [UIImage imageNamed:PostImageName];
         // instagram連携用のクラスをインスタンス化
         InstagramController *instagramController = [[InstagramController alloc]init];
         // 画像形式をinstagram用に変更するメソッドに用意した画像を渡す

@@ -17,7 +17,6 @@
 
 // インスタのスキーマーを使えるかどうかを実際にリクエストしてチェック
 + (BOOL)canInstagramOpen {
-    NSLog(@"canInstagramOpen");
     NSURL *instagramURL = [NSURL URLWithString:@"instagram://app"];
     if ([[UIApplication sharedApplication] canOpenURL:instagramURL]) {
         return YES;
@@ -27,19 +26,16 @@
 
 // instaramに投稿できる型に画像を変換（圧縮は0.8）
 - (void)setImage:(UIImage *)image {
-    NSLog(@"setImage");
     // 送られてきた画像データをjpeg形式に変換
     NSData *imageData = UIImageJPEGRepresentation(image, 0.8f);
     // ファイルパスを付与
     NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/image.igo"];
     // 容量などの設定を付与？
     [imageData writeToFile:filePath atomically:YES];
-    
 }
 
 // instagramに画像を送るメソッド
 - (void)openInstagram {
-    NSLog(@"openInstagram");
     NSString *filePath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/image.igo"];
     NSURL *fileURL = [NSURL fileURLWithPath:filePath];
     
@@ -59,7 +55,6 @@
 
 // instaramに画像を送信後、コントローラーごと削除する（都度作る必要がある）
 - (void)deleteView {
-    NSLog(@"closeView");
     [self.view removeFromSuperview];
     [self removeFromParentViewController];
     self.documentInteractionController.delegate = nil;
