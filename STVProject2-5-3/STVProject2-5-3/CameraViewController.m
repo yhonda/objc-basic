@@ -8,101 +8,83 @@
 
 #import "CameraViewController.h"
 
-@interface CameraViewController ()
+@interface CameraViewController () <AVCapturePhotoCaptureDelegate>
 // プロパティを定義
 @property (weak, nonatomic) IBOutlet UIView *previewView;
-@property (strong, nonatomic) AVCaptureDeviceInput *videoInput;
-@property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
+@property AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (strong, nonatomic) AVCaptureSession *session;
-@property (weak, nonatomic) IBOutlet UIButton *retakeButton;
-@property (weak, nonatomic) IBOutlet UIButton *setPictureButton;
-
-// メソッドを定義
-
+@property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @end
 
 @implementation CameraViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    
     // 撮影開始
     [self setupAVCapture];
-    
-    
 }
 
-- (void)setupAVCapture
-{
+- (void)setupAVCapture {
     // セッション作成
     self.session = [[AVCaptureSession alloc] init];
-    self.session.sessionPreset = AVCaptureSessionPresetHigh;  // セッション画質設定
-    
+    self.session.sessionPreset = AVCaptureSessionPreset1920x1080;
+    //　AVCapturePhotoOutputを用意
+    self.stillImageOutput = [[AVCapturePhotoOutput alloc] init];
     // デバイス取得
     AVCaptureDevice* device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
+    // エラー判定を用意
+    NSError *error = [[NSError alloc] init];
+    
     // 入力作成
-    AVCaptureDeviceInput* deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];
-    [self.session addInput:deviceInput];  // セッションに追加
+    AVCaptureDeviceInput* deviceInput = [[AVCaptureDeviceInput alloc]initWithDevice:device error:&error];
+    [self.session addInput:deviceInput];
     
-    // 出力作成
-    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-    [self.session addOutput:self.stillImageOutput]; // セッションに追加
+    // 設定を反映
+    [self.session addOutput:self.stillImageOutput];
     
-    // プレビュー作成
-    AVCaptureVideoPreviewLayer *captureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
-    captureVideoPreviewLayer.frame = self.view.bounds;
-    captureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+     // 撮影用カメラビューの画質設定
+    AVCaptureVideoPreviewLayer* captureVideoLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.session];
+    captureVideoLayer.frame = self.previewView.bounds;
+    captureVideoLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
+    [self.previewView.layer addSublayer:captureVideoLayer];
     
-    // プレビューを表示
-    [self.view addSubview:self.previewView]; // ビューを画面に貼り付け
-    [self.view sendSubviewToBack:self.previewView]; // ビューを最背面に移動
-    
-    // プレビューに画像表示
-    CALayer *previewLayer = self.previewView.layer;
-    previewLayer.masksToBounds = YES;
-    // マスク設定(Viewからはみ出た部分を削除)
-    [previewLayer addSublayer:captureVideoPreviewLayer];
-    
-    // セッション開始
+    // カメラ撮影スタート
     [self.session startRunning];
 }
 
 - (IBAction)takePhoto:(id)sender {
-    
     // ビデオ入力のAVCaptureConnectionを取得
     [self takePhoto];
-    [self.session stopRunning];
-    //（ここをONにすると落ちる、しなければ、撮影後プレビューを作成できない）
 }
 
 // 撮影メソッド
-- (void)takePhoto
-{
+- (void)takePhoto {
     // ビデオコネクションを取得
-    AVCaptureConnection * connection = [self.stillImageOutput connectionWithMediaType:AVMediaTypeVideo];
-    
-    // 画像撮影
-    [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:connection completionHandler:^(CMSampleBufferRef imageDataSampleBuffer, NSError *error)
-     {
-         NSData *data = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-         [defaults setObject:data forKey:@"imageData"];
-         
-         if([defaults synchronize]) {
-             
-             NSLog(@"保存完了");
-         }
-     }];
-    
-}
-- (IBAction)backButton:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-- (IBAction)retakeButtonAction:(id)sender {
-    [self.session startRunning];
+    AVCapturePhotoSettings* settings = [[AVCapturePhotoSettings alloc] init];
+    settings.flashMode = AVCaptureFlashModeAuto;
+    [self.stillImageOutput capturePhotoWithSettings:settings delegate:self];
 }
 
+- (void)savePhotoData:(NSData *)photoData {
+    // 画像を保存する
+    NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
+    [defaults setObject:photoData forKey:@"imageData"];
+    [defaults synchronize];
+    // メイン画面に戻る
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)captureOutput:(AVCapturePhotoOutput *)captureOutput
+didFinishProcessingPhotoSampleBuffer:(nullable CMSampleBufferRef)photoSampleBuffer
+previewPhotoSampleBuffer:(nullable CMSampleBufferRef)previewPhotoSampleBuffer
+    resolvedSettings:(nonnull AVCaptureResolvedPhotoSettings *)resolvedSettings
+     bracketSettings:(nullable AVCaptureBracketedStillImageSettings *)bracketSettings
+               error:(nullable NSError *)error {
+    // jpeg形式で撮影画像をデータ化
+    NSData* photoData = [AVCapturePhotoOutput JPEGPhotoDataRepresentationForJPEGSampleBuffer:photoSampleBuffer previewPhotoSampleBuffer:previewPhotoSampleBuffer];
+    // 画像の保存、画面遷移
+    [self savePhotoData:photoData];
+}
 @end
 

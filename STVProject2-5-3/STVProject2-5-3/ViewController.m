@@ -10,30 +10,34 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (strong, nonatomic) NSData *getImageData;
-@property (strong, nonatomic) UIImage *getImage;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    // 保存状態を初期化しておく
+    NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
+    [defaults setObject:nil forKey:@"imageData"];
+    [defaults synchronize];
 }
 
+// 保存した画像があればメイン画像に設定する
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:YES];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [super viewWillAppear:animated];
+    NSUserDefaults *defaults = NSUserDefaults.standardUserDefaults;
     if ([defaults objectForKey:@"imageData"] != nil) {
-        NSLog(@"画像ロード完了");
-        self.getImageData = [defaults objectForKey:@"imageData"];
-        self.getImage = [[UIImage alloc] initWithData:self.getImageData];
-        self.imageView.image = self.getImage;
+        NSData *getImageData = [defaults objectForKey:@"imageData"];
+        UIImage *getImage = [[UIImage alloc] initWithData:getImageData];
+        self.imageView.image = getImage;
     }
 }
--(void)getPictureImage:(UIImage *)image {
-    
+
+- (IBAction)presentCameraViewController:(id)sender {
+    UIStoryboard *secondStoryBoard = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
+    // 遷移先のViewControllerをインスタンス化
+    CameraViewController *cameraViewController = [secondStoryBoard instantiateInitialViewController];
+    // 遷移実行
+    [self presentViewController: cameraViewController animated:YES completion: nil];
 }
-
-
 @end
