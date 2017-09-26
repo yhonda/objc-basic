@@ -14,7 +14,6 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // デバイスのOSを判定（iOS10を基準に判定（切り捨てて判定））
     if ( floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_9_x_Max )
@@ -42,19 +41,19 @@
 -(void)application:(UIApplication *)application
 didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
     // 登録トークンを確認
-    NSString *token = [NSString stringWithFormat:@"%@", deviceToken];
-    NSLog(@"%@", token);
-    
-    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"<>"];
-    token = [token stringByTrimmingCharactersInSet:characterSet];
-    token = [token stringByReplacingOccurrencesOfString:@" " "" withString:@" """];
+    NSMutableString *token = [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%@", deviceToken]];
+    [token setString:[token stringByReplacingOccurrencesOfString:@" " withString:@""]];
+    [token setString:[token stringByReplacingOccurrencesOfString:@"<" withString:@""]];
+    [token setString:[token stringByReplacingOccurrencesOfString:@">" withString:@""]];
     
     [self sendToken:token];
     NSLog(@"deviceToken = %@", token);
 }
 
 -(void)sendToken:(NSString *)token {
-    NSString *serverPHP = @"http://172.20.10.2/training/training/push/get_device_token.php";
+    // ここの送信先アドレスをディレクトリの構造通りに@"http://192.168.11.58/training/training/push/get_device_token.php"とすると、サーバーが見つからないとのエラーを吐いてしまう。
+    // localhostの直下を指定するとなぜかデバイストークンの受け渡しが完了する
+    NSString *serverPHP = @"http://192.168.11.58/get_device_token.php";
     NSString *postString = [NSString stringWithFormat:@"DeviceToken=%@", token];
     NSMutableURLRequest *reqest = [[NSMutableURLRequest alloc]init];
     [reqest setURL:[NSURL URLWithString:serverPHP]];
@@ -75,7 +74,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
         else {
             NSLog(@"失敗: %@", error);
         }
-        
     }] resume];
 }
 // errarを受け取る
