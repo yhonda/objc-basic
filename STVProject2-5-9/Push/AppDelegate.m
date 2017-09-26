@@ -54,7 +54,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
 }
 
 -(void)sendToken:(NSString *)token {
-    NSString *serverPHP = @"http://192.168.2.102/training/training/push/get_device_token.php";
+    NSString *serverPHP = @"http://172.20.10.2/training/training/push/get_device_token.php";
     NSString *postString = [NSString stringWithFormat:@"DeviceToken=%@", token];
     NSMutableURLRequest *reqest = [[NSMutableURLRequest alloc]init];
     [reqest setURL:[NSURL URLWithString:serverPHP]];
