@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--登録画面-->
+        <scene sceneID="tYu-lF-aNd">
+            <objects>
+                <viewController storyboardIdentifier="RegisterViewController" id="Rjs-GD-KA8" customClass="RegisterViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jGs-dc-tWd"/>
+                        <viewControllerLayoutGuide type="bottom" id="TYX-xC-iZ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8Y9-N6-nOx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="タイトル" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="ahv-JB-AWg">
+                                <rect key="frame" x="50" y="96.5" width="275" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="WKZ-Ui-bv4"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Wf4-Eu-KlH">
+                                <rect key="frame" x="50" y="156.5" width="275" height="260.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CX-1n-rnV">
+                                <rect key="frame" x="112.5" y="467" width="150" height="80"/>
+                                <color key="backgroundColor" red="0.050980392159999999" green="0.50196078430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="huk-av-6NX"/>
+                                    <constraint firstAttribute="height" constant="80" id="m8B-eN-LKZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="登録">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resisterButton:" destination="Rjs-GD-KA8" eventType="touchUpInside" id="zxs-sC-2dR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.93862533250000002" blue="0.84747157470000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="ahv-JB-AWg" firstAttribute="centerY" secondItem="8Y9-N6-nOx" secondAttribute="centerY" multiplier="0.35" id="3ou-Na-DOR"/>
+                            <constraint firstAttribute="trailing" secondItem="Wf4-Eu-KlH" secondAttribute="trailing" constant="50" id="4Ye-GZ-9RS"/>
+                            <constraint firstItem="ahv-JB-AWg" firstAttribute="centerX" secondItem="8Y9-N6-nOx" secondAttribute="centerX" id="6wm-4T-NyT"/>
+                            <constraint firstItem="Wf4-Eu-KlH" firstAttribute="leading" secondItem="8Y9-N6-nOx" secondAttribute="leading" constant="50" id="9Qn-ev-erT"/>
+                            <constraint firstItem="0CX-1n-rnV" firstAttribute="top" secondItem="Wf4-Eu-KlH" secondAttribute="bottom" constant="50" id="EQh-Lp-did"/>
+                            <constraint firstItem="TYX-xC-iZ5" firstAttribute="top" secondItem="Wf4-Eu-KlH" secondAttribute="bottom" constant="250" id="JLz-08-8tm"/>
+                            <constraint firstItem="Wf4-Eu-KlH" firstAttribute="top" secondItem="ahv-JB-AWg" secondAttribute="bottom" constant="20" id="Ut3-tg-Xh5"/>
+                            <constraint firstItem="0CX-1n-rnV" firstAttribute="centerX" secondItem="8Y9-N6-nOx" secondAttribute="centerX" id="bMr-er-oxd"/>
+                            <constraint firstAttribute="trailing" secondItem="ahv-JB-AWg" secondAttribute="trailing" constant="50" id="utR-SH-5fG"/>
+                            <constraint firstItem="ahv-JB-AWg" firstAttribute="leading" secondItem="8Y9-N6-nOx" secondAttribute="leading" constant="50" id="zy6-K4-KhU"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Qal-XL-0RG" appends="YES" id="Mka-Eb-TbQ"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" title="登録画面" id="jXO-93-DV9">
+                        <barButtonItem key="rightBarButtonItem" image="closeButton" id="Nx4-1h-OF5">
+                            <connections>
+                                <action selector="backButton:" destination="Rjs-GD-KA8" id="OOI-Bf-Bfy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="registerTextField" destination="ahv-JB-AWg" id="ceA-dB-9bU"/>
+                        <outlet property="registerTextView" destination="Wf4-Eu-KlH" id="5Bs-Mg-g6w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R4q-4q-HVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Qal-XL-0RG">
+                    <connections>
+                        <action selector="backgroundKeyboard:" destination="Rjs-GD-KA8" id="R45-pg-bP8"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="3255.1999999999998" y="-545.57721139430294"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Kw-Ym-ItH">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationRegisterViewController" automaticallyAdjustsScrollViewInsets="NO" id="AU2-uL-g2T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="zMT-29-fZF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rjs-GD-KA8" kind="relationship" relationship="rootViewController" id="uN6-fX-kjH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uGU-ay-P2R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="-546"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="closeButton" width="35" height="35"/>
+    </resources>
+</document>
