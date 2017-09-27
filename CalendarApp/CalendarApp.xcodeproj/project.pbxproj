@@ -16,6 +16,8 @@
 		45BABB9B1F7B590E00430BF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BABB9A1F7B590E00430BF2 /* main.m */; };
 		45BABBA51F7B590E00430BF2 /* CalendarAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BABBA41F7B590E00430BF2 /* CalendarAppTests.m */; };
 		45BABBB01F7B590E00430BF2 /* CalendarAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BABBAF1F7B590E00430BF2 /* CalendarAppUITests.m */; };
+		45BABBC31F7B5C4400430BF2 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BABBC11F7B5C4400430BF2 /* CustomCollectionViewCell.m */; };
+		45BABBC41F7B5C4400430BF2 /* CustomCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BABBC21F7B5C4400430BF2 /* CustomCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		45BABBAB1F7B590E00430BF2 /* CalendarAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalendarAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BABBAF1F7B590E00430BF2 /* CalendarAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarAppUITests.m; sourceTree = "<group>"; };
 		45BABBB11F7B590E00430BF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45BABBC01F7B5C4400430BF2 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		45BABBC11F7B5C4400430BF2 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		45BABBC21F7B5C4400430BF2 /* CustomCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,13 +108,9 @@
 		45BABB871F7B590E00430BF2 /* CalendarApp */ = {
 			isa = PBXGroup;
 			children = (
-				45BABB881F7B590E00430BF2 /* AppDelegate.h */,
-				45BABB891F7B590E00430BF2 /* AppDelegate.m */,
-				45BABB8B1F7B590E00430BF2 /* ViewController.h */,
-				45BABB8C1F7B590E00430BF2 /* ViewController.m */,
-				45BABB8E1F7B590E00430BF2 /* Main.storyboard */,
-				45BABB941F7B590E00430BF2 /* Assets.xcassets */,
-				45BABB961F7B590E00430BF2 /* LaunchScreen.storyboard */,
+				45BABBBF1F7B5AA700430BF2 /* Others */,
+				45BABBBE1F7B5A9F00430BF2 /* Controllers */,
+				45BABBBD1F7B5A9100430BF2 /* Views */,
 				45BABB991F7B590E00430BF2 /* Info.plist */,
 				45BABB9A1F7B590E00430BF2 /* main.m */,
 				45BABB911F7B590E00430BF2 /* CalendarApp.xcdatamodeld */,
@@ -133,6 +134,37 @@
 				45BABBB11F7B590E00430BF2 /* Info.plist */,
 			);
 			path = CalendarAppUITests;
+			sourceTree = "<group>";
+		};
+		45BABBBD1F7B5A9100430BF2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				45BABBC01F7B5C4400430BF2 /* CustomCollectionViewCell.h */,
+				45BABBC11F7B5C4400430BF2 /* CustomCollectionViewCell.m */,
+				45BABBC21F7B5C4400430BF2 /* CustomCollectionViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		45BABBBE1F7B5A9F00430BF2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45BABB8E1F7B590E00430BF2 /* Main.storyboard */,
+				45BABB8B1F7B590E00430BF2 /* ViewController.h */,
+				45BABB8C1F7B590E00430BF2 /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		45BABBBF1F7B5AA700430BF2 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				45BABB941F7B590E00430BF2 /* Assets.xcassets */,
+				45BABB961F7B590E00430BF2 /* LaunchScreen.storyboard */,
+				45BABB881F7B590E00430BF2 /* AppDelegate.h */,
+				45BABB891F7B590E00430BF2 /* AppDelegate.m */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +276,7 @@
 				45BABB981F7B590E00430BF2 /* LaunchScreen.storyboard in Resources */,
 				45BABB951F7B590E00430BF2 /* Assets.xcassets in Resources */,
 				45BABB901F7B590E00430BF2 /* Main.storyboard in Resources */,
+				45BABBC41F7B5C4400430BF2 /* CustomCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +305,7 @@
 				45BABB8D1F7B590E00430BF2 /* ViewController.m in Sources */,
 				45BABB9B1F7B590E00430BF2 /* main.m in Sources */,
 				45BABB8A1F7B590E00430BF2 /* AppDelegate.m in Sources */,
+				45BABBC31F7B5C4400430BF2 /* CustomCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
 				INFOPLIST_FILE = CalendarApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kawaharadai.CalendarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -451,6 +486,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
 				INFOPLIST_FILE = CalendarApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kawaharadai.CalendarApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
