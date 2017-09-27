@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>touristSpotEurope</key>
+	<array>
+		<string>MontSaintMichel</string>
+		<string>Colosseum</string>
+	</array>
+	<key>touristSpotOceania</key>
+	<array>
+		<string>OperaHouse</string>
+		<string>AyersRock</string>
+	</array>
+	<key>touristSpotAfrica</key>
+	<array>
+		<string>ThreeLargePyramids</string>
+		<string>TableMountain</string>
+	</array>
+	<key>sectionName</key>
+	<array>
+		<string>アジアの観光地</string>
+		<string>アメリカの観光地</string>
+		<string>ヨーロッパの観光地</string>
+		<string>オセアニアの観光地</string>
+		<string>アフリカの観光地</string>
+	</array>
+	<key>touristSpotAsia</key>
+	<array>
+		<string>AngkorWat</string>
+		<string>TajMahal</string>
+	</array>
+	<key>touristSpotAmerika</key>
+	<array>
+		<string>AlcatrazIsland</string>
+		<string>GrandCanyon</string>
+	</array>
+</dict>
+</plist>
