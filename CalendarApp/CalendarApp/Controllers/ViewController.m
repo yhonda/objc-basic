@@ -12,6 +12,7 @@
 @interface ViewController () <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSDate *daysData;
+@property (strong, nonatomic) NSArray *dayOfTheWeek;
 @end
 
 // 週間の日数
@@ -29,6 +30,10 @@ static CGFloat const CellMargin = 2.0f;
     // カスタムセルnibの登録
     UINib *nib = [UINib nibWithNibName:@"CustomCollectionViewCell" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
+    // 曜日用の配列を用意
+    self.dayOfTheWeek = @[@"日", @"月", @"火", @"水", @"木", @"金", @"土"];
+    // タイトルバーに日付を設定
+    [self setbarTitle:self.daysData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,6 +71,14 @@ static CGFloat const CellMargin = 2.0f;
     
     return firstDateMonth;
 }
+// 投げられた日付によってナビゲーションバーのタイトルを変更
+- (void)setbarTitle:(NSDate *)selectedDate {
+    self.daysData = selectedDate;
+    // フォーマットを作って、受け取った値に合わせてタイトルを変更
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    formatter.dateFormat = @"yyyy年M月";
+    self.title = [formatter stringFromDate:selectedDate];
+}
 
 #pragma mark - UICollectionViewDataSource methods
 // セクションの数
@@ -98,8 +111,6 @@ static CGFloat const CellMargin = 2.0f;
         return numberOfItems;
     }
 }
-
-
 
 // セルの内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
