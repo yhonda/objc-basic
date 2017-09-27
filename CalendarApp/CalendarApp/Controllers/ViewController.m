@@ -15,9 +15,15 @@
 @property (strong, nonatomic) NSArray *dayOfTheWeek;
 @end
 
-// 週間の日数
 static int const DaysWeek = 7;
-// セル間のマージン
+static int const DaysWeekIndex = 6;
+static int const LastWeekStartIndex = 28;
+static int const FirstDayCount = 1;
+static int const OverFirstWeekCount = 8;
+static int const UnderLastWeekCount = 22;
+static double const DayCellSizeMagnification = 0.8;
+static double const DateCellSizeMagnification = 1.5;
+static NSInteger SectionCount = 2;
 static CGFloat const CellMargin = 2.0f;
 
 @implementation ViewController
@@ -35,7 +41,6 @@ static CGFloat const CellMargin = 2.0f;
     // タイトルバーに日付を設定
     [self setbarTitle:self.daysData];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -61,7 +66,7 @@ static CGFloat const CellMargin = 2.0f;
 }
 
 #pragma mark - private methods
-// 本日の日付を出すアクセスするごとにindePathによって、初日から絡んだーを進めていく
+// 本日の日付を出すアクセスするごとにindePathによって、初日から日付データを取得していく
 - (NSDate *)getTargetDate:(NSIndexPath *)indexPath {
     // その月の初めの日を返す
     NSInteger ordinalityOfFirstDay = [NSCalendar.currentCalendar ordinalityOfUnit:NSCalendarUnitDay
@@ -71,8 +76,6 @@ static CGFloat const CellMargin = 2.0f;
     NSDateComponents *dateComponents = [[NSDateComponents alloc]init] ;
     // 先月の月末の日数を出している
     dateComponents.day = indexPath.item - (ordinalityOfFirstDay - 1);
-    //    NSLog(@"もしかすると先月の日付数%ld", (long)dateComponents.day);
-    
     // 本日の日付を出す
     NSDate *date = [NSCalendar.currentCalendar dateByAddingComponents:dateComponents
                                                                toDate:[self firstDayofMonth]
@@ -84,10 +87,9 @@ static CGFloat const CellMargin = 2.0f;
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
                                                                    fromDate:self.daysData];
     // 当月の日を1日に戻す
-    components.day = 1;
+    components.day = FirstDayCount;
     // 当日の日付を返す
     NSDate *firstDateMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
-    
     return firstDateMonth;
 }
 // 投げられた日付によってナビゲーションバーのタイトルを変更
@@ -100,26 +102,25 @@ static CGFloat const CellMargin = 2.0f;
 }
 // 来月の予定を表示
 - (NSDate *)getNextMonthDate {
-    NSInteger addValue = 1;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComponents = [NSDateComponents new];
-    dateComponents.month = addValue;
+    NSInteger nextMonthCount = 1;
+    NSCalendar *calendar = NSCalendar.currentCalendar;
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    dateComponents.month = nextMonthCount;
     return [calendar dateByAddingComponents:dateComponents toDate:self.daysData options:0];
 }
 // 先月の予定を表示
 - (NSDate *)getBeforeMonthDate {
-    NSInteger addValue = -1;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComponents = [NSDateComponents new];
-    dateComponents.month = addValue;
+    NSInteger beforeMonthCount = -1;
+    NSCalendar *calendar = NSCalendar.currentCalendar;
+    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
+    dateComponents.month = beforeMonthCount;
     return [calendar dateByAddingComponents:dateComponents toDate:self.daysData options:0];
 }
-
 
 #pragma mark - UICollectionViewDataSource methods
 // セクションの数
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return SectionCount;
 }
 // セッションの内容
 - (UICollectionReusableView*)collectionView:(UICollectionView *)collectionView
@@ -133,7 +134,7 @@ static CGFloat const CellMargin = 2.0f;
      numberOfItemsInSection:(NSInteger)section {
     
     if (section == 0) {
-        return 7;
+        return DaysWeek;
     } else {
         // 当日が含まれている月の週の数を数える
         NSRange rangeOfWeeks = [NSCalendar.currentCalendar rangeOfUnit:NSCalendarUnitWeekOfMonth
@@ -142,12 +143,11 @@ static CGFloat const CellMargin = 2.0f;
         // その月が何週間あるかを数える
         NSUInteger numberOfWeeks = rangeOfWeeks.length;
         // 週間＊7日で月の全日数を計算
-        NSInteger numberOfItems = numberOfWeeks * DaysWeek;
+        NSInteger numberOfItems = numberOfWeeks *DaysWeek;
         // 日数を返す
         return numberOfItems;
     }
 }
-
 // セルの内容
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell"
@@ -167,26 +167,25 @@ static CGFloat const CellMargin = 2.0f;
     }
     
     // 日曜と土曜の場合の色を変えている
-    if (indexPath.row % 7 == 0) {
+    if (indexPath.row % DaysWeek == 0) {
         cell.cellLabel.textColor = [UIColor redColor];
-    } else if (indexPath.row % 7 == 6) {
+    } else if (indexPath.row % DaysWeek == DaysWeekIndex) {
         cell.cellLabel.textColor = [UIColor blueColor];
     }
     
     // 先月、翌月の日にちは非活性（テキストカラーをグレーに変更）
-    if (indexPath.row <= 6) {
+    if (indexPath.row <= DaysWeekIndex) {
         NSString *indexText = cell.cellLabel.text;
         int indexTextValue = [indexText intValue];
-        if (indexTextValue >= 8) {
+        if (indexTextValue >= OverFirstWeekCount) {
             cell.cellLabel.textColor = [UIColor lightGrayColor];
         }
-    } else if (indexPath.row >= 28) {
+    } else if (indexPath.row >= LastWeekStartIndex) {
         NSString *indexText = cell.cellLabel.text;
         int indexTextValue = [indexText intValue];
-        if (indexTextValue <= 22) {
+        if (indexTextValue <= UnderLastWeekCount) {
             cell.cellLabel.textColor = [UIColor lightGrayColor];
         }
-        
     }
     return cell;
 }
@@ -195,15 +194,15 @@ static CGFloat const CellMargin = 2.0f;
 // セルのサイズレイアウトを決定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     // 隙間の数（7日で１列の場合、隙間は8）
-    NSInteger numberOfMargin = 8;
+    NSInteger numberOfMargin = OverFirstWeekCount;
     // セルの横幅
     CGFloat width = floorf((collectionView.frame.size.width - CellMargin * numberOfMargin) / DaysWeek);
     // セルの高さ(曜日と日にちエリアでサイズを差別化)
     CGFloat height = 0;
     if (indexPath.section == 0) {
-        height = width * 0.8;
+        height = width * DayCellSizeMagnification;
     } else {
-        height = width * 1.5;
+        height = width * DateCellSizeMagnification;
     }
     return CGSizeMake(width, height);
 }
@@ -211,20 +210,16 @@ static CGFloat const CellMargin = 2.0f;
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(CellMargin, CellMargin, CellMargin, CellMargin);
 }
-
 // セルの隙間を埋める
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     return CellMargin;
 }
-
 // セルの隙間を調整
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
-{
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return CellMargin;
 }
 
-// セクションのサイズを設定
+// セクションのサイズを設定（高さを０にする）
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     CGFloat cellHeight = 0;
     CGFloat sectionWidth = self.collectionView.bounds.size.width;

@@ -111,9 +111,6 @@
 				45BABBBF1F7B5AA700430BF2 /* Others */,
 				45BABBBE1F7B5A9F00430BF2 /* Controllers */,
 				45BABBBD1F7B5A9100430BF2 /* Views */,
-				45BABB991F7B590E00430BF2 /* Info.plist */,
-				45BABB9A1F7B590E00430BF2 /* main.m */,
-				45BABB911F7B590E00430BF2 /* CalendarApp.xcdatamodeld */,
 			);
 			path = CalendarApp;
 			sourceTree = "<group>";
@@ -159,6 +156,9 @@
 		45BABBBF1F7B5AA700430BF2 /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				45BABB991F7B590E00430BF2 /* Info.plist */,
+				45BABB9A1F7B590E00430BF2 /* main.m */,
+				45BABB911F7B590E00430BF2 /* CalendarApp.xcdatamodeld */,
 				45BABB941F7B590E00430BF2 /* Assets.xcassets */,
 				45BABB961F7B590E00430BF2 /* LaunchScreen.storyboard */,
 				45BABB881F7B590E00430BF2 /* AppDelegate.h */,
@@ -470,7 +470,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = CalendarApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalendarApp/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kawaharadai.CalendarApp;
@@ -485,7 +485,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVR5UQEHBD;
-				INFOPLIST_FILE = CalendarApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/CalendarApp/Others/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.kawaharadai.CalendarApp;
