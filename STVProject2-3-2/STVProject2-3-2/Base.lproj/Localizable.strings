@@ -1,0 +1,13 @@
+/*
+  Localizable.strings
+  STVProject2-3-2
+
+  Created by kawaharadai on 2017/09/20.
+  Copyright © 2017年 dai kawahara. All rights reserved.
+*/
+"registerAlertControllerTitle" = "未入力";
+"registerAlertControllerMessage" = "タイトルの入力は必須です。";
+"doneAlertControllerTitle" = "登録完了";
+"okButtonAleartActionTitle" = "OK";
+"backTopButtonAleartActionTitle" = "閉じる";
+"continueRegistButtonAleartActionTitle" = "連続登録";
