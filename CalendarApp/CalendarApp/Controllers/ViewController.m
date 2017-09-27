@@ -137,6 +137,21 @@ static CGFloat const CellMargin = 2.0f;
         cell.cellLabel.textColor = [UIColor blueColor];
     }
     
+    // 先月、翌月の日にちは非活性（テキストカラーをグレーに変更）
+    if (indexPath.row <= 6) {
+        NSString *indexText = cell.cellLabel.text;
+        int indexTextValue = [indexText intValue];
+        if (indexTextValue >= 8) {
+            cell.cellLabel.textColor = [UIColor lightGrayColor];
+        }
+    } else if (indexPath.row >= 28) {
+        NSString *indexText = cell.cellLabel.text;
+        int indexTextValue = [indexText intValue];
+        if (indexTextValue <= 22) {
+            cell.cellLabel.textColor = [UIColor lightGrayColor];
+        }
+        
+    }
     return cell;
 }
 
