@@ -221,7 +221,6 @@ static CGFloat const CellMargin = 2.0f;
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
     return CellMargin;
 }
-
 // セクションのサイズを設定（高さを０にする）
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     CGFloat cellHeight = 0;
