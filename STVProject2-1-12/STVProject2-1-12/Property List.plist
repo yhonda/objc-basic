@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cellImageName</key>
+	<array>
+		<string>AlcatrazIsland.jpg</string>
+		<string>AngkorWat.jpg</string>
+		<string>AyersRock.jpg</string>
+		<string>Colosseum.jpg</string>
+		<string>GrandCanyon.jpg</string>
+		<string>MontSaintMichel.jpg</string>
+		<string>OperaHouse.jpg</string>
+		<string>TableMountain.jpg</string>
+		<string>TajMahal.jpg</string>
+	</array>
+</dict>
+</plist>
