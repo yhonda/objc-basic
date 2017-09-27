@@ -42,6 +42,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="GNG-gk-xD8"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="1g6-Gw-rFr"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aS-In-4wb">
                                 <rect key="frame" x="0.0" y="597.5" width="375" height="69.5"/>
