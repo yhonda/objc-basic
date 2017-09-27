@@ -66,7 +66,7 @@ static CGFloat const CellMargin = 2.0f;
 }
 
 #pragma mark - private methods
-// 本日の日付を出すアクセスするごとにindePathによって、初日から日付データを取得していく
+// 初日から日付データを取得していく
 - (NSDate *)getTargetDate:(NSIndexPath *)indexPath {
     // その月の初めの日を返す
     NSInteger ordinalityOfFirstDay = [NSCalendar.currentCalendar ordinalityOfUnit:NSCalendarUnitDay
