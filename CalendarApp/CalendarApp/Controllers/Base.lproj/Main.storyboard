@@ -54,11 +54,17 @@
                                         <rect key="frame" x="281.5" y="7.5" width="75" height="55.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="次へ"/>
+                                        <connections>
+                                            <action selector="moveNextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QdC-qo-D0H"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7Y-FL-HOx">
                                         <rect key="frame" x="19" y="7" width="75" height="55.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="前へ"/>
+                                        <connections>
+                                            <action selector="moveBeforeMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P2U-ll-L8a"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

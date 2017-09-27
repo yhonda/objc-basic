@@ -41,6 +41,25 @@ static CGFloat const CellMargin = 2.0f;
 }
 
 #pragma mark - Action methods
+// 「次へ」ボタン
+- (IBAction)moveNextMonth:(id)sender {
+    // 来月の日数情報を取得
+    self.daysData = [self getNextMonthDate];
+    // タイトルバーを当日の日付に合わせて変更
+    [self setbarTitle:self.daysData];
+    // リロード処理
+    [self.collectionView reloadData];
+}
+// 「前へ」ボタン
+- (IBAction)moveBeforeMonth:(id)sender {
+    // 来月の日数情報を取得
+    self.daysData = [self getBeforeMonthDate];
+    // タイトルバーを当日の日付に合わせて変更
+    [self setbarTitle:self.daysData];
+    // リロード処理
+    [self.collectionView reloadData];
+}
+
 #pragma mark - private methods
 // 本日の日付を出すアクセスするごとにindePathによって、初日から絡んだーを進めていく
 - (NSDate *)getTargetDate:(NSIndexPath *)indexPath {
@@ -79,6 +98,23 @@ static CGFloat const CellMargin = 2.0f;
     formatter.dateFormat = @"yyyy年M月";
     self.title = [formatter stringFromDate:selectedDate];
 }
+// 来月の予定を表示
+- (NSDate *)getNextMonthDate {
+    NSInteger addValue = 1;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.month = addValue;
+    return [calendar dateByAddingComponents:dateComponents toDate:self.daysData options:0];
+}
+// 先月の予定を表示
+- (NSDate *)getBeforeMonthDate {
+    NSInteger addValue = -1;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.month = addValue;
+    return [calendar dateByAddingComponents:dateComponents toDate:self.daysData options:0];
+}
+
 
 #pragma mark - UICollectionViewDataSource methods
 // セクションの数
