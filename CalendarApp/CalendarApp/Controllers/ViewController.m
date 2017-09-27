@@ -191,10 +191,22 @@ static CGFloat const CellMargin = 2.0f;
     return cell;
 }
 
-
-
-
 #pragma mark - UICollectionViewDelegate methods
+// セルのサイズレイアウトを決定
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    // 隙間の数（7日で１列の場合、隙間は8）
+    NSInteger numberOfMargin = 8;
+    // セルの横幅
+    CGFloat width = floorf((collectionView.frame.size.width - CellMargin * numberOfMargin) / DaysWeek);
+    // セルの高さ(曜日と日にちエリアでサイズを差別化)
+    CGFloat height = 0;
+    if (indexPath.section == 0) {
+        height = width * 0.8;
+    } else {
+        height = width * 1.5;
+    }
+    return CGSizeMake(width, height);
+}
 // セル間4方向のマージンを決定するメソッド
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(CellMargin, CellMargin, CellMargin, CellMargin);
@@ -206,13 +218,11 @@ static CGFloat const CellMargin = 2.0f;
     return CellMargin;
 }
 
-//
+// セルの隙間を調整
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
     return CellMargin;
 }
-
-
 
 // セクションのサイズを設定
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
