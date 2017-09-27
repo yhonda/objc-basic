@@ -96,7 +96,7 @@ static CGFloat const CellMargin = 2.0f;
 - (void)setbarTitle:(NSDate *)selectedDate {
     self.daysData = selectedDate;
     // フォーマットを作って、受け取った値に合わせてタイトルを変更
-    NSDateFormatter *formatter = [NSDateFormatter new];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy年M月";
     self.title = [formatter stringFromDate:selectedDate];
 }
@@ -136,10 +136,10 @@ static CGFloat const CellMargin = 2.0f;
     if (section == 0) {
         return DaysWeek;
     } else {
-        // 当日が含まれている月の週の数を数える
+        // seが含まれている月の週の数を数える
         NSRange rangeOfWeeks = [NSCalendar.currentCalendar rangeOfUnit:NSCalendarUnitWeekOfMonth
                                                                 inUnit:NSCalendarUnitMonth
-                                                               forDate:[self daysData]];
+                                                               forDate:self.daysData];
         // その月が何週間あるかを数える
         NSUInteger numberOfWeeks = rangeOfWeeks.length;
         // 週間＊7日で月の全日数を計算
@@ -152,14 +152,14 @@ static CGFloat const CellMargin = 2.0f;
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CustomCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell"
                                                                                forIndexPath:indexPath];
-    
+    // セルのテキストカラーを初期化
     cell.cellLabel.textColor = [UIColor blackColor];
     
     if (indexPath.section == 0) {
         cell.cellLabel.text = self.dayOfTheWeek[indexPath.row];
     } else {
         // 日付のフォーマットを作成
-        NSDateFormatter *formatter = [NSDateFormatter new];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         // daysのみを指定
         formatter.dateFormat = @"d";
         // セットした日付からindex順に取り出す
@@ -206,7 +206,7 @@ static CGFloat const CellMargin = 2.0f;
     }
     return CGSizeMake(width, height);
 }
-// セル間4方向のマージンを決定するメソッド
+// セル間のマージンを決定する
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(CellMargin, CellMargin, CellMargin, CellMargin);
 }

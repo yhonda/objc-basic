@@ -78,6 +78,11 @@
                                     <constraint firstItem="Z7Y-FL-HOx" firstAttribute="height" secondItem="DqY-J4-rIq" secondAttribute="height" id="n5y-4y-ch9"/>
                                     <constraint firstItem="DqY-J4-rIq" firstAttribute="centerX" secondItem="9aS-In-4wb" secondAttribute="centerX" multiplier="1.7" id="nsw-pd-2Fr"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
