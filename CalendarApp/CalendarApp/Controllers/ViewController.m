@@ -130,6 +130,13 @@ static CGFloat const CellMargin = 2.0f;
         cell.cellLabel.text = [formatter stringFromDate:[self getTargetDate:indexPath]];
     }
     
+    // 日曜と土曜の場合の色を変えている
+    if (indexPath.row % 7 == 0) {
+        cell.cellLabel.textColor = [UIColor redColor];
+    } else if (indexPath.row % 7 == 6) {
+        cell.cellLabel.textColor = [UIColor blueColor];
+    }
+    
     return cell;
 }
 
