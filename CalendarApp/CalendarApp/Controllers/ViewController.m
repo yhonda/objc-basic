@@ -116,6 +116,16 @@ static CGFloat const CellMargin = 2.0f;
     dateComponents.month = beforeMonthCount;
     return [calendar dateByAddingComponents:dateComponents toDate:self.daysData options:0];
 }
+// 日曜と土曜の場合の色を変える
+- (UIColor *)holidayColorChenge:(NSIndexPath *)cellIndexPath {
+    if (cellIndexPath.row % DaysWeek == 0) {
+        return UIColor.redColor;
+    } else if (cellIndexPath.row % DaysWeek == DaysWeekIndex) {
+        return UIColor.blueColor;
+    } else {
+        return UIColor.blackColor;
+    }
+}
 
 #pragma mark - UICollectionViewDataSource methods
 // セクションの数
@@ -154,7 +164,6 @@ static CGFloat const CellMargin = 2.0f;
                                                                                forIndexPath:indexPath];
     // セルのテキストカラーを初期化
     cell.cellLabel.textColor = [UIColor blackColor];
-    
     if (indexPath.section == 0) {
         cell.cellLabel.text = self.dayOfTheWeek[indexPath.row];
     } else {
@@ -165,14 +174,8 @@ static CGFloat const CellMargin = 2.0f;
         // セットした日付からindex順に取り出す
         cell.cellLabel.text = [formatter stringFromDate:[self getTargetDate:indexPath]];
     }
-    
-    // 日曜と土曜の場合の色を変えている
-    if (indexPath.row % DaysWeek == 0) {
-        cell.cellLabel.textColor = [UIColor redColor];
-    } else if (indexPath.row % DaysWeek == DaysWeekIndex) {
-        cell.cellLabel.textColor = [UIColor blueColor];
-    }
-    
+    // 日曜と土曜の場合の色を変える判定
+    cell.cellLabel.textColor = [self holidayColorChenge:indexPath];
     // 先月、翌月の日にちは非活性（テキストカラーをグレーに変更）
     if (indexPath.row <= DaysWeekIndex) {
         NSString *indexText = cell.cellLabel.text;
