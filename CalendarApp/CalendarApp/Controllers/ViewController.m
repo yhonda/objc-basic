@@ -119,12 +119,16 @@ static CGFloat const CellMargin = 2.0f;
     
     cell.cellLabel.textColor = [UIColor blackColor];
     
+    if (indexPath.section == 0) {
+        cell.cellLabel.text = self.dayOfTheWeek[indexPath.row];
+    } else {
         // 日付のフォーマットを作成
         NSDateFormatter *formatter = [NSDateFormatter new];
         // daysのみを指定
         formatter.dateFormat = @"d";
         // セットした日付からindex順に取り出す
         cell.cellLabel.text = [formatter stringFromDate:[self getTargetDate:indexPath]];
+    }
     
     return cell;
 }
